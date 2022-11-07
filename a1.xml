@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zahtev_za_unosenje_u_evidenciju_i_deponovanje_autorskih_dela naziv_obrasca="Obrazac A-1">
+    
+    <podaci_o_ustanovi>
+        <naziv_ustanove>Zavod za intelektualnu svojinu</naziv_ustanove>
+        <adresa>
+            <ulica>Kneginje Ljubice</ulica>
+            <broj>5</broj>
+            <mesto>Beograd</mesto>
+        </adresa>
+    </podaci_o_ustanovi>
+    
+    <naslov>Zahtev za unosenje u evidenciju i deponovanje autorskih dela</naslov>
+    
+    <podaci_o_podnosiocu> <!-- obavezno -->
+        <ime></ime>
+        <prezime></prezime>
+        <adresa>
+            <ulica></ulica>
+            <broj></broj>
+            <mesto></mesto>
+        </adresa>
+        <drzavljanstvo></drzavljanstvo> <!-- ako je fizicko lice -->
+        <poslovno_ime_podnosioca></poslovno_ime_podnosioca> <!-- ako je podnosilac pravno lice -->
+        <sediste_nosioca></sediste_nosioca> <!-- ako je podnosilac pravno lice -->
+        
+        <telefon_podnosioca></telefon_podnosioca>
+        <email_podnosioca></email_podnosioca>
+        <potpis_podnosioca_prijave></potpis_podnosioca_prijave> <!-- obavezno -->
+    </podaci_o_podnosiocu>
+    
+    <podaci_o_autoru>
+        <pseudonim_autora></pseudonim_autora> <!-- ako ga ima -->
+        
+        <!-- ako autor nije podnosilac od ranije -->
+        <ime></ime>
+        <prezime></prezime>
+        <adresa>
+            <ulica></ulica>
+            <broj></broj>
+            <mesto></mesto>
+        </adresa>
+        <drzavljanstvo></drzavljanstvo>
+        <godina_smrti></godina_smrti>
+        <autor_anoniman></autor_anoniman>
+    </podaci_o_autoru>
+    
+    <podaci_o_punomocniku> <!-- ako se prijava podnosi preko punomocnika -->
+        <ime></ime>
+        <prezime></prezime>
+        <adresa>
+            <ulica></ulica>
+            <broj></broj>
+            <mesto></mesto>
+        </adresa>
+    </podaci_o_punomocniku>
+    
+    <podaci_o_delu>
+        <naslov_dela></naslov_dela> <!-- obavezno -->
+        <alternativni_naslov_dela></alternativni_naslov_dela> <!-- alternativni naslov ako ga ima? -->
+        <podaci_o_delu_prerade> <!-- ako je u pitanu autorsko delo prerade -->
+            <naslov_izvornog_dela></naslov_izvornog_dela>
+            <autor_izvornog_dela>
+                <ime></ime>
+                <prezime></prezime>
+            </autor_izvornog_dela>
+        </podaci_o_delu_prerade>
+        
+        <vrsta_autorskog_dela></vrsta_autorskog_dela> <!-- obavezno -->
+        <forma_zapisa_autorskog_dela></forma_zapisa_autorskog_dela> <!-- obavezno -->
+        
+        <delo_stvoreno_u_radnom_odnosu></delo_stvoreno_u_radnom_odnosu>
+        <nameravani_nacin_koriscenja_dela></nameravani_nacin_koriscenja_dela>
+    </podaci_o_delu>
+    
+    <prilozi_uz_zahtev></prilozi_uz_zahtev>
+    
+    <popunjava_zavod>
+        <opis_autorskog_dela></opis_autorskog_dela> <!-- ako je delo podneto na optickom disku -->
+        <primer_autorskog_dela></primer_autorskog_dela> <!-- slika, video zapis, audio zapis -->
+        
+        <broj_prijave>A-</broj_prijave>
+        <datum_podnosenja></datum_podnosenja>
+    </popunjava_zavod>
+    
+</zahtev_za_unosenje_u_evidenciju_i_deponovanje_autorskih_dela>
