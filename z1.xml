@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zahtev_za_priznanje_ziga>
+
+    <podaci_o_ustanovi>
+        <ustanova>Завод за интелектуалну својину</ustanova>
+        <adresa_ustanove>
+            <ulica_ustanove>Књегине Љубице</ulica_ustanove>
+            <broj_ulice>5</broj_ulice>
+            <postanski_broj_ustanove>11000</postanski_broj_ustanove>
+            <mesto_ustanove>Београд</mesto_ustanove>
+        </adresa_ustanove>
+    </podaci_o_ustanovi>
+
+
+    <popunjava_podnosioc>
+        <podaci_o_podnosiocu_prijave>
+            <ime_podnosioca></ime_podnosioca>
+            <prezime_podnosioca></prezime_podnosioca>
+
+            <adresa_podnosioca>
+                <ulica_podnosioca></ulica_podnosioca>
+                <ulicni_broj_podnosioca></ulicni_broj_podnosioca>
+                <postanski_broj_podnosioca></postanski_broj_podnosioca>
+                <mesto_podnosioca></mesto_podnosioca>
+                <drzava_podnosioca></drzava_podnosioca>
+            </adresa_podnosioca>
+
+            <telefon_podnosioca></telefon_podnosioca>
+            <email_podnosioca></email_podnosioca>
+            <faks_podnosioca></faks_podnosioca>
+        </podaci_o_podnosiocu_prijave>
+
+        <podaci_o_punomocniku>
+            <ime_punomocnika></ime_punomocnika>
+            <prezime_punomocnika></prezime_punomocnika>
+
+            <adresa_punomocnika>
+                <ulica_punomocnika></ulica_punomocnika>
+                <ulicni_broj_punomocnika></ulicni_broj_punomocnika>
+                <postanski_broj_punomocnika></postanski_broj_punomocnika>
+                <mesto_punomocnika></mesto_punomocnika>
+                <drzava_punomocnika></drzava_punomocnika>
+            </adresa_punomocnika>
+
+            <telefon_punomocnika></telefon_punomocnika>
+            <email_punomocnika></email_punomocnika>
+            <faks_punomocnika></faks_punomocnika>
+        </podaci_o_punomocniku>
+
+        <podaci_o_zajednickom_predstavniku>  <!--Ako postoji vise njih-->
+            <telefon_zajednickog_predstavnika></telefon_zajednickog_predstavnika>
+            <email_zajednickog_predstavnika></email_zajednickog_predstavnika>
+            <faks_zajednickog_predstavnika></faks_zajednickog_predstavnika>
+        </podaci_o_zajednickom_predstavniku>
+
+        <prijava_se_podnosi_za>  <!--staviti X u prazno polje na sta se odnosi-->
+            <a>
+                <individualni_zig></individualni_zig>
+                <kolektivni_zig></kolektivni_zig>
+                <zig_garancije></zig_garancije>
+            </a>
+            <b>
+                <verbalni_znak></verbalni_znak>
+                <graficki_znak_boja_kombinacija_boja></graficki_znak_boja_kombinacija_boja>
+                <kombinovani_znak></kombinovani_znak>
+                <trodimenzionalni_znak></trodimenzionalni_znak>
+                <druga_vrsta_znaka></druga_vrsta_znaka>
+            </b>
+            <v>
+                <izgled_znaka></izgled_znaka>
+            </v>
+        </prijava_se_podnosi_za>
+
+        <naznacenje_boje> <!--Odnosno boja iz kojih se znak sastoji-->
+
+        </naznacenje_boje>
+
+        <transliteracija_znaka></transliteracija_znaka>  <!--Popuniti samo ako je znak ili element znaka ispisan slovima koja nisu cirilicna ili latinicna-->
+
+        <prevod_znaka></prevod_znaka>                    <!--Popuniti samo ako je znak ili element znaka ispisan slovima koja nisu cirilicna ili latinicna-->
+
+        <opis_znaka></opis_znaka>
+
+        <Nicanska_klasifikacija>
+            <vrednost></vrednost>
+            <!--Da li ovde ispisati svih 45 brojeva kao posebne xml elemente?-->
+        </Nicanska_klasifikacija>
+
+        <zatrazeno_pravo_prvenstva_i_osnov></zatrazeno_pravo_prvenstva_i_osnov>
+
+        <takse_placene_u_dinarima>
+            <osnovna_taksa></osnovna_taksa>
+            <za_odredjenu_klasu></za_odredjenu_klasu>
+            <za_graficko_resenje></za_graficko_resenje>
+            <ukupno></ukupno>
+        </takse_placene_u_dinarima>
+
+        <potpis></potpis>
+        <pecat></pecat>   <!--Ukoliko je potreban u skladu sa zakonom-->
+    </popunjava_podnosioc>
+
+
+    <popunjava_zavod>
+        <prilozi_uz_zahtev>
+            <primerak_znaka></primerak_znaka>
+            <spisak_robe_i_usluga></spisak_robe_i_usluga>
+            <punomocje></punomocje>
+            <generalno_punomocje_ranije_prilozeno></generalno_punomocje_ranije_prilozeno>
+            <punomocje_ce_biti_naknadno_dostavljeno></punomocje_ce_biti_naknadno_dostavljeno>
+            <opsti_akt_o_kolektivnom_zigu_garancije></opsti_akt_o_kolektivnom_zigu_garancije>
+            <dokaz_o_pravu_prvenstva></dokaz_o_pravu_prvenstva>
+            <dokaz_o_uplati_takse></dokaz_o_uplati_takse>
+        </prilozi_uz_zahtev>
+
+        <broj_prijave_ziga></broj_prijave_ziga>
+        <datum_podnosenja></datum_podnosenja>
+    </popunjava_zavod>
+
+</zahtev_za_priznanje_ziga>
