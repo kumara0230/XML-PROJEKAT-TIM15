@@ -17,7 +17,7 @@
             </xs:sequence>
         </xs:complexType>
     </xs:element>
-    <xs:element name="podaci_o_podnosiocu" type="op:TLice"/>
+    <xs:element name="podaci_o_licu" type="op:TLice"/>
     <xs:element name="adresa">
         <xs:complexType>
             <xs:sequence>
@@ -38,8 +38,7 @@
     <xs:complexType abstract="true" name="TLice">
         <xs:sequence>
             <xs:element ref="op:adresa"/>
-            <xs:element name="broj_telefona"/>
-            <xs:element name="email" type="xs:string"/>
+            <xs:element ref="op:kontakt"/>
         </xs:sequence>
     </xs:complexType>
     <xs:complexType name="TPravno_lice">
@@ -62,4 +61,13 @@
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
+    <xs:element name="kontakt">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="telefon" type="xs:string" minOccurs="0"/>
+                <xs:element name="faks" type="xs:string" minOccurs="0"/>
+                <xs:element name="email" type="xs:string" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
 </xs:schema>
