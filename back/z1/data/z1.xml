@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Zahtev_za_priznanje_ziga xmlns="http://www.ftn.uns.ac.rs/z1"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.ftn.uns.ac.rs/z1 file:/D:/Desktop/7_semestar/XWS/Projekat/XML-PROJEKAT-TIM15/Z1_Schema1.xsd">
+                          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                          xsi:schemaLocation="http://www.ftn.uns.ac.rs/z1 file:/D:/Desktop/7_semestar/XWS/Projekat/XML-PROJEKAT-TIM15/Z1_Schema1.xsd">
     <Podaci_o_podnosiocu_prijave xsi:type="TFizicko_lice">
         <Adresa>
             <Ulica>Dr. Sime Milosevica</Ulica>

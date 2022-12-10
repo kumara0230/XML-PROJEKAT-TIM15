@@ -1,8 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Zahtev_za_priznanje_ziga xmlns="http://www.ftn.uns.ac.rs/z1"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.ftn.uns.ac.rs/z1 file:/D:/Desktop/7_semestar/XWS/Projekat/XML-PROJEKAT-TIM15/Z1_Schema1.xsd">
-    <Podaci_o_podnosiocu_prijave xsi:type="TFizicko_lice">
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Zahtev_za_priznanje_ziga xmlns="http://www.ftn.uns.ac.rs/z1">
+    <Podaci_o_podnosiocu_prijave xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="TFizicko_lice">
         <Adresa>
             <Ulica>Dr. Sime Milosevica</Ulica>
             <Ulicni_broj>10</Ulicni_broj>
@@ -18,7 +16,7 @@
         <prezime>Rakovic</prezime>
         <drzavljanstvo>Srpsko</drzavljanstvo>
     </Podaci_o_podnosiocu_prijave>
-    <Podaci_o_punomocniku xsi:type="TFizicko_lice">
+    <Podaci_o_punomocniku xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="TFizicko_lice">
         <Adresa>
             <Ulica>Dr. Sime Milosevica</Ulica>
             <Ulicni_broj>11</Ulicni_broj>
@@ -34,7 +32,7 @@
         <prezime>Petrovic</prezime>
         <drzavljanstvo>Srpsko</drzavljanstvo>
     </Podaci_o_punomocniku>
-    <Podaci_o_zajednickom_predstavniku xsi:type="TFizicko_lice">
+    <Podaci_o_zajednickom_predstavniku xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="TFizicko_lice">
         <Adresa>
             <Ulica>Dr. Sime Milosevica</Ulica>
             <Ulicni_broj>12</Ulicni_broj>
@@ -53,12 +51,12 @@
     <Prijava_se_podnosi_za>
         <Vrsta_ziga>Individualni zig</Vrsta_ziga>
         <Vrsta_znaka>Graficki znak</Vrsta_znaka>
-        <Izgled_znaka></Izgled_znaka>
+        <Izgled_znaka xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
     </Prijava_se_podnosi_za>
     <Naznacenje_boje>Tamno plava</Naznacenje_boje>
     <Transliteracija_znaka></Transliteracija_znaka>
     <Prevod_znaka></Prevod_znaka>
-    <Opis_znaka>Opis znaka</Opis_znaka>
+    <Opis_znaka>--------------- NOVI OPIS ZNAKA -----------</Opis_znaka>
     <Nicanska_klasifikacija>10</Nicanska_klasifikacija>
     <Zatrazeno_pravo_prvenstva_i_osnov>Nema pravo prvenstva</Zatrazeno_pravo_prvenstva_i_osnov>
     <Takse_placene_u_dinarima>
