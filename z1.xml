@@ -23,11 +23,13 @@
                 <mesto_podnosioca></mesto_podnosioca>
                 <drzava_podnosioca></drzava_podnosioca>
             </adresa_podnosioca>
-
-            <telefon_podnosioca></telefon_podnosioca>
-            <email_podnosioca></email_podnosioca>
-            <faks_podnosioca></faks_podnosioca>
-        </podaci_o_podnosiocu_prijave>
+            
+            <kontakt_podnosioca>
+                <telefon_podnosioca></telefon_podnosioca>
+                <email_podnosioca></email_podnosioca>
+                <faks_podnosioca></faks_podnosioca>
+            </kontakt_podnosioca>
+            </podaci_o_podnosiocu_prijave>
 
         <podaci_o_punomocniku>
             <ime_punomocnika></ime_punomocnika>
@@ -40,16 +42,21 @@
                 <mesto_punomocnika></mesto_punomocnika>
                 <drzava_punomocnika></drzava_punomocnika>
             </adresa_punomocnika>
-
-            <telefon_punomocnika></telefon_punomocnika>
-            <email_punomocnika></email_punomocnika>
-            <faks_punomocnika></faks_punomocnika>
+            
+            <kontakt_punomocnika>
+                <telefon_punomocnika></telefon_punomocnika>
+                <email_punomocnika></email_punomocnika>
+                <faks_punomocnika></faks_punomocnika>
+            </kontakt_punomocnika>
         </podaci_o_punomocniku>
 
         <podaci_o_zajednickom_predstavniku>  <!--Ako postoji vise njih-->
-            <telefon_zajednickog_predstavnika></telefon_zajednickog_predstavnika>
-            <email_zajednickog_predstavnika></email_zajednickog_predstavnika>
-            <faks_zajednickog_predstavnika></faks_zajednickog_predstavnika>
+            <podaci_zajednickog_predstavnika></podaci_zajednickog_predstavnika>
+            <kontakt_zajednickog_predstavnika>
+                <telefon_zajednickog_predstavnika></telefon_zajednickog_predstavnika>
+                <email_zajednickog_predstavnika></email_zajednickog_predstavnika>
+                <faks_zajednickog_predstavnika></faks_zajednickog_predstavnika>
+            </kontakt_zajednickog_predstavnika>
         </podaci_o_zajednickom_predstavniku>
 
         <prijava_se_podnosi_za>  <!--staviti X u prazno polje na sta se odnosi-->
