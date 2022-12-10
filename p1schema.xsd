@@ -1,35 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
-    targetNamespace="p1ns" xmlns:p1="p1ns" xmlns:ns1="opste"
-    xmlns:op="opste">
+    targetNamespace="p1ns" xmlns:p1="p1ns" xmlns:ns1="opste" xmlns:op="opste">
     <xs:import namespace="opste" schemaLocation="mutual_schema.xsd"/>
     <xs:element name="zahtev_za_priznanje_patenta">
         <xs:complexType>
             <xs:sequence>
-                <xs:element ref="p1:zaglavlje"/>
-                <xs:element ref="p1:telo_zahteva"/>
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
-    <xs:element name="zaglavlje">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element ref="p1:popunjava_zavod"/>
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
-    <xs:element name="popunjava_zavod">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element name="broj_prijave" type="xs:string"/>
-                <xs:element name="datum_prijema" type="xs:date"/>
-                <xs:element name="priznati_datum_podnosenja" type="xs:date"/>
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
-    <xs:element name="telo_zahteva">
-        <xs:complexType>
-            <xs:sequence>
+                <xs:element name="popunjava_zavod">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="broj_prijave" type="xs:string"/>
+                            <xs:element name="datum_prijema" type="xs:date"/>
+                            <xs:element name="priznati_datum_podnosenja" type="xs:date"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
                 <xs:element name="naziv_pronalaska">
                     <xs:complexType>
                         <xs:sequence>
@@ -56,6 +40,15 @@
                     <xs:complexType>
                         <xs:sequence>
                             <xs:element ref="ns1:podaci_o_licu"/>
+                            <xs:element name="punomocnik" nillable="true">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:enumeration value="zastupanje"/>
+                                        <xs:enumeration value="prijem_pismena"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="zajednicki_predstavnik" type="xs:boolean"/>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
@@ -83,13 +76,6 @@
                                     </xs:sequence>
                                 </xs:complexType>
                             </xs:element>
-                        </xs:sequence>
-                    </xs:complexType>
-                </xs:element>
-                <xs:element name="primer">
-                    <xs:complexType>
-                        <xs:sequence>
-                            <xs:element ref="ns1:podaci_o_licu"/>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
