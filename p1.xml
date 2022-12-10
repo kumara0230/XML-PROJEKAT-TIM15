@@ -1,136 +1,126 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zahtev_za_priznanje_patenta naziv_obrasca="Obrazac P-1" naziv_dokumenta="ZAHTEV ZA PRIZNANJE PATENTA">
 
-    <zaglavlje>
-        <podaci_o_ustanovi>
-            <naziv_ustanove>Zavod za intelektualnu svojinu</naziv_ustanove>
+    
+	<popunjava_zavod>
+		<broj_prijave>P</broj_prijave>
+		<datum_prijema></datum_prijema>
+		<priznati_datum_podnosenja></priznati_datum_podnosenja>
+	</popunjava_zavod>
 
-            <adresa>
-                <ulica>Kneginje Ljubice</ulica>
-                <broj>5</broj>
-                <mesto>Beograd</mesto>
-                <postanski_broj>11000</postanski_broj>
-                <drzava>Republika Srbija</drzava>
-            </adresa>
-        </podaci_o_ustanovi>
+    
+	<naziv_pronalaska>
+		<naziv_pronalaska_na_srpskom></naziv_pronalaska_na_srpskom>
+		<naziv_pronalaska_na_engleskom></naziv_pronalaska_na_engleskom>
+	</naziv_pronalaska>
 
-        <popunjava_zavod>
-            <broj_prijave>P</broj_prijave>
-            <datum_prijema></datum_prijema>
-            <priznati_datum_podnosenja></priznati_datum_podnosenja>
-            <pecat></pecat>
-            <potpis></potpis>
-        </popunjava_zavod>
+	<podnosilac_prijave ime_polja="Polje broj 2" sadrzaj_polja="Podnosilac prijave">
+		<!-- podnosilac prijave je i pronalazac -->
 
-    </zaglavlje>
+		<ime></ime>
+		<prezime></prezime>
 
-    <telo_zahteva>
-        <naziv_pronalaska ime_polja="Polje broj 1" sadrzaj_polja="Naziv pronalaska">
-            <naziv_pronalaska_na_srpskom></naziv_pronalaska_na_srpskom>
-            <naziv_pronalaska_na_engleskom></naziv_pronalaska_na_engleskom>
-        </naziv_pronalaska>
+		<poslovno_ime></poslovno_ime> <!-- ako je podnosilac pravno lice -->
 
-        <podnosilac_prijave ime_polja="Polje broj 2" sadrzaj_polja="Podnosilac prijave">
-            <!-- podnosilac prijave je i pronalazac -->
+		<adresa>
+			<ulica></ulica>
+			<broj></broj>
+			<mesto></mesto>
+			<postanski_broj></postanski_broj>
+			<drzava></drzava>
+		</adresa>
 
-            <ime></ime>
-            <prezime></prezime>
+		<kontakt>
+			<telefon></telefon>
+			<faks></faks>
+			<email></email>
+		</kontakt>
 
-            <poslovno_ime></poslovno_ime> <!-- ako je podnosilac pravno lice -->
+		<drzavljanstvo></drzavljanstvo> <!-- popuniti samo za fizicka lica -->
 
-            <adresa>
-                <ulica></ulica>
-                <broj></broj>
-                <mesto></mesto>
-                <postanski_broj></postanski_broj>
-                <drzava></drzava>
-            </adresa>
+		<!-- ostali podnosioci prijave su navedeni u dodatnom listu 1 u nastavku ovog zahteva -->
 
-            <broj_telefona></broj_telefona>
-            <broj_faksa></broj_faksa>
-            <e_posta></e_posta>
+	</podnosilac_prijave>
 
-            <drzavljanstvo></drzavljanstvo> <!-- popuniti samo za fizicka lica -->
+	<pronalazac>
+		<!-- ovo polje se ne popunjava ako su svi pronalazaci ujedno i podnosioci prijave -->
+		<!-- pronalazac ne zeli da bude naveden u prijavi -->
 
-            <!-- ostali podnosioci prijave su navedeni u dodatnom listu 1 u nastavku ovog zahteva -->
+		<ime></ime>
+		<prezime></prezime>
+		<drzavljanstvo></drzavljanstvo> <!-- popuniti samo za fizicka lica -->
 
-        </podnosilac_prijave>
+		<adresa>
+			<ulica></ulica>
+			<broj></broj>
+			<mesto></mesto>
+			<postanski_broj></postanski_broj>
+			<drzava></drzava>
+		</adresa>
 
-        <pronalazac ime_polja="Polje broj 3" sadrzaj_polja="Pronalazač">
-            <!-- ovo polje se ne popunjava ako su svi pronalazaci ujedno i podnosioci prijave -->
-            <!-- pronalazac ne zeli da bude naveden u prijavi -->
+		<kontakt>
+			<telefon></telefon>
+			<faks></faks>
+			<email></email>
+		</kontakt>
 
-            <ime></ime>
-            <prezime></prezime>
+		<!-- иѕоставити ostali pronalazaci su navedeni u dodatnom listu 1 u nastavku ovog zahteva -->
 
-            <adresa>
-                <ulica></ulica>
-                <broj></broj>
-                <mesto></mesto>
-                <postanski_broj></postanski_broj>
-                <drzava></drzava>
-            </adresa>
+	</pronalazac>
 
-            <broj_telefona></broj_telefona>
-            <broj_faksa></broj_faksa>
-            <e_posta></e_posta>
+	<predstavnik ime_polja="Polje broj 4" sadrzaj_polja="Predstavnik">
+		<!-- punomocnik za zastupanje -->
+		<!-- punomocnik za prijem pismena -->
+		<!-- zajednicki predstavnik -->
 
-            <!-- иѕоставити ostali pronalazaci su navedeni u dodatnom listu 1 u nastavku ovog zahteva -->
+		<ime></ime>
+		<prezime></prezime>
+		<drzavljanstvo></drzavljanstvo> <!-- popuniti samo za fizicka lica -->
 
-        </pronalazac>
+		<poslovno_ime></poslovno_ime> <!-- ako je podnosilac pravno lice -->
 
-        <predstavnik ime_polja="Polje broj 4" sadrzaj_polja="DODATI">
-            <!-- punomocnik za zastupanje -->
-            <!-- punomocnik za prijem pismena -->
-            <!-- zajednicki predstavnik -->
+		<adresa>
+			<ulica></ulica>
+			<broj></broj>
+			<mesto></mesto>
+			<postanski_broj></postanski_broj>
+		</adresa>
 
-            <ime></ime>
-            <prezime></prezime>
+		<kontakt>
+			<telefon></telefon>
+			<faks></faks>
+			<email></email>
+		</kontakt>
 
-            <poslovno_ime></poslovno_ime> <!-- ako je podnosilac pravno lice -->
+	</predstavnik>
 
-            <adresa>
-                <ulica></ulica>
-                <broj></broj>
-                <mesto></mesto>
-                <postanski_broj></postanski_broj>
-            </adresa>
+	<dostavljanje>
+		<!-- ovo polje se popunjava ako podnosilac prijave, 
+			zajednicki predstavnik ili punomocnik zeli da se dostavljanje 
+			podnesaka vrsi na drugoj adresi od njegove navedene adrese-->
 
-            <broj_telefona></broj_telefona>
-            <e_posta></e_posta>
+		<adresa>
+			<ulica></ulica>
+			<broj></broj>
+			<mesto></mesto>
+			<postanski_broj></postanski_broj>
+		</adresa>
 
-        </predstavnik>
+		<nacin></nacin>
+	</dostavljanje>
 
-        <dostavljanje ime_polja="Polje broj 5" sadrzaj_polja="Adresa za dostavljanje">
-            <!-- ovo polje se popunjava ako podnosilac prijave, 
-                zajednicki predstavnik ili punomocnik zeli da se dostavljanje 
-                podnesaka vrsi na drugoj adresi od njegove navedene adrese-->
+	<nacin_dostavljanja>
+		<!-- zavod vrsi dostavljanje iskljucivo elektronskim putem -->
+		<!-- zavod vrsi dostavljanje u papirnoj formi -->
+	</nacin_dostavljanja>
 
-            <adresa>
-                <ulica></ulica>
-                <broj></broj>
-                <mesto></mesto>
-                <postanski_broj></postanski_broj>
-            </adresa>
+	<lista_zahteva_za_priznanje_prava_prvenstva_iz_ranijih_prijava ime_polja="Polje broj 8" sadrzaj_polja="Zahtev za priznanje prava prvenstva iz ranijih prijava" ostala_prava_prvenstva="false">
+		<zahtev_za_priznanje_prava_prvenstva_iz_ranijih_prijava>
+			<datum_podnosenja_ranije_prijave></datum_podnosenja_ranije_prijave>
+			<broj_ranije_prijave></broj_ranije_prijave>
+			<dvoslovna_oznaka_drzave_regionalne_ili_medjunarodne_organizacije>RS</dvoslovna_oznaka_drzave_regionalne_ili_medjunarodne_organizacije>
+		</zahtev_za_priznanje_prava_prvenstva_iz_ranijih_prijava>
+	</lista_zahteva_za_priznanje_prava_prvenstva_iz_ranijih_prijava>
 
-            <nacin></nacin>
-        </dostavljanje>
-
-        <nacin_dostavljanja ime_polja="Polje broj 6" sadrzaj_polja="Način dostavljanja" elektronski="true" pismeno="false">
-            <!-- zavod vrsi dostavljanje iskljucivo elektronskim putem -->
-            <!-- zavod vrsi dostavljanje u papirnoj formi -->
-        </nacin_dostavljanja>
-
-        <lista_zahteva_za_priznanje_prava_prvenstva_iz_ranijih_prijava ime_polja="Polje broj 8" sadrzaj_polja="Zahtev za priznanje prava prvenstva iz ranijih prijava" ostala_prava_prvenstva="false">
-            <zahtev_za_priznanje_prava_prvenstva_iz_ranijih_prijava>
-                <datum_podnosenja_ranije_prijave></datum_podnosenja_ranije_prijave>
-                <broj_ranije_prijave></broj_ranije_prijave>
-                <dvoslovna_oznaka_drzave_regionalne_ili_medjunarodne_organizacije>
-                    RS
-                </dvoslovna_oznaka_drzave_regionalne_ili_medjunarodne_organizacije>
-            </zahtev_za_priznanje_prava_prvenstva_iz_ranijih_prijava>
-        </lista_zahteva_za_priznanje_prava_prvenstva_iz_ranijih_prijava>
-
-    </telo_zahteva>
-
+    
 </zahtev_za_priznanje_patenta>
