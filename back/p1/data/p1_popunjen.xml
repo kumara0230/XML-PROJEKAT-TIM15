@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Zahtev_za_priznanje_patenta xmlns="p1ns"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="p1ns p1schema.xsd">
+    <Popunjava_zavod>
+        <Broj_prijave>P-1</Broj_prijave>
+        <Datum_prijema>2023-09-13</Datum_prijema>
+        <Priznati_datum_podnosenja>2023-09-13</Priznati_datum_podnosenja>
+    </Popunjava_zavod>
+    <Naziv_pronalaska>
+        <Naziv_pronalaska_na_srpskom>Patent o patentu</Naziv_pronalaska_na_srpskom>
+        <Naziv_pronalaska_na_engleskom>Pattent of pattent</Naziv_pronalaska_na_engleskom>
+    </Naziv_pronalaska>
+    <Podnosilac_prijave>
+        <Podaci_o_licu xmlns:p1="p1ns" xsi:type="p1:TFizicko_lice">
+            <Adresa>
+                <Ulica>Jevrejska</Ulica>
+                <Broj>23</Broj>
+                <Mesto>Novi Sad</Mesto>
+                <Postanski_broj>21000</Postanski_broj>
+            </Adresa>
+            <Kontakt>
+                <Telefon>021450810</Telefon>
+                <Faks>021458133</Faks>
+                <Email>emailneki1@gmail.com</Email>
+            </Kontakt>
+            <Ime>Pera</Ime>
+            <Prezime>Peric</Prezime>
+            <Drzavljanstvo>Srpsko</Drzavljanstvo>
+        </Podaci_o_licu>
+    </Podnosilac_prijave>
+    <Pronalazac_patenta>
+        <Podaci_o_licu xmlns:p1="p1ns" xsi:type="p1:TFizicko_lice">
+            <Adresa>
+                <Ulica>Bulevar Mihajla Pupina</Ulica>
+                <Broj>23</Broj>
+                <Mesto>Novi Sad</Mesto>
+                <Postanski_broj>21000</Postanski_broj>
+            </Adresa>
+            <Kontakt>
+                <Telefon>021450810</Telefon>
+                <Faks>021458133</Faks>
+                <Email>emailneki2@gmail.com</Email>
+            </Kontakt>
+            <Ime>Mika</Ime>
+            <Prezime>Mikic</Prezime>
+            <Drzavljanstvo>Srpsko</Drzavljanstvo>
+        </Podaci_o_licu>
+    </Pronalazac_patenta>
+    <Predstavnik_patenta>
+        <Podaci_o_licu xmlns:p1="p1ns" xsi:type="p1:TFizicko_lice">
+            <Adresa>
+                <Ulica>Trg Dositeja Obradovica</Ulica>
+                <Broj>3</Broj>
+                <Mesto></Mesto>
+                <Postanski_broj>21000</Postanski_broj>
+            </Adresa>
+            <Kontakt>
+                <Telefon>021450810</Telefon>
+                <Faks>021458133</Faks>
+                <Email>emailneki3@gmail.com</Email>
+            </Kontakt>
+            <Ime>Zika</Ime>
+            <Prezime>Pavlovic</Prezime>
+            <Drzavljanstvo>Srpsko</Drzavljanstvo>
+        </Podaci_o_licu>
+        <Punomocnik>zastupanje</Punomocnik>
+        <Zajednicki_predstavnik>true</Zajednicki_predstavnik>
+    </Predstavnik_patenta>
+    <Dostavljanje>
+        <Adresa>
+            <Ulica>Bulevar Oslobodjenja</Ulica>
+            <Broj>23</Broj>
+            <Mesto>Novi Sad</Mesto>
+            <Postanski_broj>21000</Postanski_broj>
+        </Adresa>
+        <Dostavljanje_elektronskim_putem>true</Dostavljanje_elektronskim_putem>
+    </Dostavljanje>
+    <Zahtevi_za_priznanje_prava_prvenstva_iz_ranijih_prijava>
+        <Zahtev_za_priznanje_prava_prvenstva_iz_ranijih_prijava>
+            <Datum_podnosenja_ranije_prijave>2023-09-13</Datum_podnosenja_ranije_prijave>
+            <Broj_ranije_prijave>I-1</Broj_ranije_prijave>
+            <Dvoslovna_oznaka_drzave_regionalne_ili_medjunarodne_organizacije>RS</Dvoslovna_oznaka_drzave_regionalne_ili_medjunarodne_organizacije>
+        </Zahtev_za_priznanje_prava_prvenstva_iz_ranijih_prijava>
+    </Zahtevi_za_priznanje_prava_prvenstva_iz_ranijih_prijava>
+</Zahtev_za_priznanje_patenta>
