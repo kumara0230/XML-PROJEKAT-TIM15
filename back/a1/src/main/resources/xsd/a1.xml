@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Zahtev xmlns="a1ns"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="a1ns a1schema.xsd">
+    <Podnosilac xsi:type="TPravno_lice">
+        <Adresa>
+            <ulica>Jevrejska</ulica>
+            <broj>24</broj>
+            <mesto>Novi Sad</mesto>
+            <postanski_broj>21000</postanski_broj>
+        </Adresa>
+        <Broj_telefona>0605011426</Broj_telefona>
+        <Email>mail@gmail.com</Email>
+        <poslovno_ime>PoslovnoImePodnosioca</poslovno_ime>
+    </Podnosilac>
+    <Autor>
+        <Lice>
+            <Adresa>
+                <ulica>Jevrejska</ulica>
+                <broj>32</broj>
+                <mesto>Novi Sad</mesto>
+                <postanski_broj>21000</postanski_broj>
+            </Adresa>
+            <Broj_telefona>0665011426</Broj_telefona>
+            <Email>autor@gmail.com</Email>
+            <Ime>Autor </Ime>
+            <Prezime>Autorovic</Prezime>
+            <Drzavljanstvo>srpsko</Drzavljanstvo>
+        </Lice>
+        <Pseudonim_autora>autr</Pseudonim_autora>
+        <Godina_smrti>2021</Godina_smrti>
+        <Autor_anoniman>true</Autor_anoniman>
+    </Autor>
+    <Punomocnik>
+        <Ime>Punomocnik</Ime>
+        <Prezime>Punomocnikovic</Prezime>
+        <Adresa>
+            <ulica>Jevrejska</ulica>
+            <broj>1</broj>
+            <mesto>Novi Sad</mesto>
+            <postanski_broj>21000</postanski_broj>
+        </Adresa>
+    </Punomocnik>
+    <Delo>
+        <Naslov_dela>NaslovDela</Naslov_dela>
+        <Alternativni_naslov>AltNaslovDela</Alternativni_naslov>
+        <DeloPrerade>
+            <Naslov_izvornog_dela>NaslovIzvnornogDela</Naslov_izvornog_dela>
+            <Autor>
+                <Lice>
+                    <Adresa>
+                        <ulica>Jevrejska</ulica>
+                        <broj>11</broj>
+                        <mesto>Novi Sad</mesto>
+                        <postanski_broj>21000</postanski_broj>
+                    </Adresa>
+                    <Broj_telefona>06612512312</Broj_telefona>
+                    <Email>izvnorniautor@gmail.com</Email>
+                    <Ime>Izvorni</Ime>
+                    <Prezime>Autorovic</Prezime>
+                    <Drzavljanstvo>srpsko</Drzavljanstvo>
+                </Lice>
+                <Pseudonim_autora>izvnorAutr</Pseudonim_autora>
+            </Autor>
+        </DeloPrerade>
+        <Vrsta_autorskog_dela>film</Vrsta_autorskog_dela>
+        <Forma_zapisa>video</Forma_zapisa>
+        <Delo_stvoreno_u_radnom_odnosu>true</Delo_stvoreno_u_radnom_odnosu>
+        <Nacin_koriscenja_dela>nacinKoriscenja</Nacin_koriscenja_dela>
+    </Delo>
+    <Popunjava_zavod>
+        <Opis_dela>opisDelazavod</Opis_dela>
+        <Broj_prijave>A-12312</Broj_prijave>
+        <Datum_podnosenja>2022-12-09</Datum_podnosenja>
+    </Popunjava_zavod>
+</Zahtev>

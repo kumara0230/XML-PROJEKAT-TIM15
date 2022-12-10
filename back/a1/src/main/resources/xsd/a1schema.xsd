@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="a1ns" xmlns:a1="a1ns">
+    <xs:element name="Zahtev">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="a1:Podnosilac"/>
+                <xs:element minOccurs="0" ref="a1:Autor"/>
+                <xs:element minOccurs="0" ref="a1:Punomocnik"/>
+                <xs:element ref="a1:Delo"/>
+                <xs:element ref="a1:Popunjava_zavod"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Autor">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="Lice" type="a1:TFizicko_lice"/>
+                <xs:element minOccurs="0" name="Pseudonim_autora" nillable="false" type="xs:string"/>
+                <xs:element minOccurs="0" name="Godina_smrti" nillable="false" type="xs:gYear"/>
+                <xs:element minOccurs="0" name="Autor_anoniman" type="xs:boolean"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Punomocnik">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Ime" type="xs:string"/>
+                <xs:element name="Prezime" type="xs:string"/>
+                <xs:element ref="a1:Adresa"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Delo">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Naslov_dela" type="xs:string"/>
+                <xs:element minOccurs="0" name="Alternativni_naslov" type="xs:string"/>
+                <xs:element minOccurs="0" ref="a1:DeloPrerade"/>
+                <xs:element name="Vrsta_autorskog_dela" type="xs:string"> </xs:element>
+                <xs:element name="Forma_zapisa" type="xs:string"> </xs:element>
+                <xs:element minOccurs="0" name="Delo_stvoreno_u_radnom_odnosu" type="xs:boolean"/>
+                <xs:element minOccurs="0" name="Nacin_koriscenja_dela" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="DeloPrerade">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Naslov_izvornog_dela" type="xs:string"/>
+                <xs:element ref="a1:Autor"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Popunjava_zavod">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="Opis_dela" type="xs:string"/>
+                <xs:element name="Broj_prijave" type="xs:string"/>
+                <xs:element name="Datum_podnosenja" type="xs:date"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Ustanova">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="naziv_ustanove">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:minLength value="1"/>
+                            <xs:maxLength value="100"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element ref="a1:Adresa"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Podnosilac" type="a1:TLice"/>
+    <xs:element name="Adresa">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="ulica" type="xs:string"/>
+                <xs:element name="broj" type="xs:positiveInteger"/>
+                <xs:element name="mesto" type="xs:string"/>
+                <xs:element name="postanski_broj">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:int">
+                            <xs:minInclusive value="11000"/>
+                            <xs:maxInclusive value="40000"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType abstract="true" name="TLice">
+        <xs:sequence>
+            <xs:element ref="a1:Adresa"/>
+            <xs:element minOccurs="0" name="Broj_telefona"/>
+            <xs:element minOccurs="0" name="Email" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="TPravno_lice">
+        <xs:complexContent>
+            <xs:extension base="a1:TLice">
+                <xs:sequence>
+                    <xs:element name="poslovno_ime" type="xs:string"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="TFizicko_lice">
+        <xs:complexContent>
+            <xs:extension base="a1:TLice">
+                <xs:sequence>
+                    <xs:element name="Ime" type="xs:string"/>
+                    <xs:element name="Prezime" type="xs:string"/>
+                    <xs:element name="Drzavljanstvo" type="xs:string"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>
