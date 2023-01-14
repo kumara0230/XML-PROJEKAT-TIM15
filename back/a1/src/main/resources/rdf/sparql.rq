@@ -1,0 +1,5 @@
+SELECT * FROM <http://localhost:3030/AutorskaDataset/data/metadata>
+WHERE (
+  ?fakultet <http://nekilink.com/predicate/naziv> ?naziv .
+  ?fakultet ...
+)
