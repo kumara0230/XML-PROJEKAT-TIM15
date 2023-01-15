@@ -33,7 +33,7 @@ public class FusekiReader {
         String varName;
         RDFNode varValue;
 
-        ArrayList<String> foundFakultete = new ArrayList<>();   // test
+        ArrayList<String> found = new ArrayList<>();   // test
 
         while (results.hasNext()) {
             // A single answer from a SELECT query
@@ -45,15 +45,15 @@ public class FusekiReader {
                 varName = variableBindings.next();
                 varValue = querySolution.get(varName);
                 System.out.println(varName + ": " + varValue);
-                if (varName.contains("naziv")) {    // test
+                if (varName.contains("Broj_prijave")) {    // test
                     String value = varValue.toString();
-                    foundFakultete.add(value);
+                    found.add(value);
                 }
             }
         }
         ResultSetFormatter.outputAsXML(System.out, results);
         query.close();
-        return foundFakultete;
+        return found;
     }
 
     public static String readFile(String path, Charset encoding) throws IOException {
