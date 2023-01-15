@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Zahtev_za_priznanje_ziga xmlns="http://www.ftn.uns.ac.rs/z1"
+                          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                          xsi:schemaLocation="http://www.ftn.uns.ac.rs/z1 file:/D:/Desktop/7_semestar/XWS/Projekat/XML-PROJEKAT-TIM15/Z1_Schema1.xsd">
+    <Podaci_o_podnosiocu_prijave xsi:type="TFizicko_lice">
+        <Adresa>
+            <Ulica>Dr. Sime Milosevica</Ulica>
+            <Ulicni_broj>10</Ulicni_broj>
+            <Postanski_broj>11000</Postanski_broj>
+            <Mesto>Novi Sad</Mesto>
+        </Adresa>
+        <Kontakt>
+            <Email>rakovic.sw45.2019@uns.ac.rs</Email>
+            <Telefon>0651231231</Telefon>
+            <Faks>021-021-021</Faks>
+        </Kontakt>
+        <ime>Nenad</ime>
+        <prezime>Rakovic</prezime>
+        <drzavljanstvo>Srpsko</drzavljanstvo>
+    </Podaci_o_podnosiocu_prijave>
+    <Podaci_o_punomocniku xsi:type="TFizicko_lice">
+        <Adresa>
+            <Ulica>Dr. Sime Milosevica</Ulica>
+            <Ulicni_broj>11</Ulicni_broj>
+            <Postanski_broj>11000</Postanski_broj>
+            <Mesto>Novi Sad</Mesto>
+        </Adresa>
+        <Kontakt>
+            <Email>petar.petrovic@gmail.com</Email>
+            <Telefon>0651231232</Telefon>
+            <Faks>022-022-022</Faks>
+        </Kontakt>
+        <ime>Petar</ime>
+        <prezime>Petrovic</prezime>
+        <drzavljanstvo>Srpsko</drzavljanstvo>
+    </Podaci_o_punomocniku>
+    <Podaci_o_zajednickom_predstavniku xsi:type="TFizicko_lice">
+        <Adresa>
+            <Ulica>Dr. Sime Milosevica</Ulica>
+            <Ulicni_broj>12</Ulicni_broj>
+            <Postanski_broj>11000</Postanski_broj>
+            <Mesto>Novi Sad</Mesto>
+        </Adresa>
+        <Kontakt>
+            <Email>mika.mikic@gmail.com</Email>
+            <Telefon>0651231233</Telefon>
+            <Faks>023-023-023</Faks>
+        </Kontakt>
+        <ime>Mika</ime>
+        <prezime>Mikic</prezime>
+        <drzavljanstvo>Srpsko</drzavljanstvo>
+    </Podaci_o_zajednickom_predstavniku>
+    <Prijava_se_podnosi_za>
+        <Vrsta_ziga>Individualni zig</Vrsta_ziga>
+        <Vrsta_znaka>Graficki znak</Vrsta_znaka>
+        <Izgled_znaka></Izgled_znaka>
+    </Prijava_se_podnosi_za>
+    <Naznacenje_boje>Tamno plava</Naznacenje_boje>
+    <Transliteracija_znaka></Transliteracija_znaka>
+    <Prevod_znaka></Prevod_znaka>
+    <Opis_znaka>Opis znaka</Opis_znaka>
+    <Nicanska_klasifikacija>10</Nicanska_klasifikacija>
+    <Zatrazeno_pravo_prvenstva_i_osnov>Nema pravo prvenstva</Zatrazeno_pravo_prvenstva_i_osnov>
+    <Takse_placene_u_dinarima>
+        <Osnovna_taksa>1000</Osnovna_taksa>
+        <Za_odredjenu_klasu>1000</Za_odredjenu_klasu>
+        <Za_graficko_resenje>1000</Za_graficko_resenje>
+        <Ukupno>3000</Ukupno>
+    </Takse_placene_u_dinarima>
+    <Popunjava_zavod>
+        <Priklozi_uz_zahtev>
+            <Primerak_znaka>true</Primerak_znaka>
+            <Spisak_robe_i_usluga>true</Spisak_robe_i_usluga>
+            <Punomocje>true</Punomocje>
+            <Generalno_punomocje_ranije_prilozeno>false</Generalno_punomocje_ranije_prilozeno>
+            <Punomocje_ce_biti_naknadno_dostavljeno>false</Punomocje_ce_biti_naknadno_dostavljeno>
+            <Opsti_akt_o_kolektivnom_zigu_garancije>true</Opsti_akt_o_kolektivnom_zigu_garancije>
+            <Dokaz_o_pravu_prvenstva>false</Dokaz_o_pravu_prvenstva>
+            <Dokaz_o_uplati_takse>true</Dokaz_o_uplati_takse>
+        </Priklozi_uz_zahtev>
+        <Broj_prijave_ziga>Z-1234/22</Broj_prijave_ziga>
+        <Datum_podnosenja>2022-10-12</Datum_podnosenja>
+    </Popunjava_zavod>
+</Zahtev_za_priznanje_ziga>

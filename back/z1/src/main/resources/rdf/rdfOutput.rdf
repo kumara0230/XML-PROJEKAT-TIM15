@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:pred="http://www.ftn.uns.ac.rs/z1/pred/" xmlns:z1="http://www.ftn.uns.ac.rs/z1">
+<rdf:Description rdf:about="http://www.ftn.uns.ac.rs/a1/Z-1234/22">
+<pred:Broj_prijave>Z-1234/22</pred:Broj_prijave>
+<pred:Datum_podnosenja>2022-10-12</pred:Datum_podnosenja>
+<pred:EmailPodnosioca>rakovic.sw45.2019@uns.ac.rs</pred:EmailPodnosioca>
+<pred:Vrsta_ziga>Individualni zig</pred:Vrsta_ziga>
+<pred:Vrsta_znaka>Graficki znak</pred:Vrsta_znaka>
+<pred:Nicanska_klasifikacija>10</pred:Nicanska_klasifikacija>
+</rdf:Description>
+</rdf:RDF>
