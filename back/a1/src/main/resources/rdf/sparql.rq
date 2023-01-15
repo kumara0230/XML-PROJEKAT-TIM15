@@ -1,0 +1,4 @@
+SELECT * FROM <http://localhost:8080/fuseki/AutorskaDataset/data/metadata>
+WHERE (
+  ?zahtev <http://ftn.uns.ac.rs/a1/pred/Broj_prijave> ?Broj_prijave .
+)

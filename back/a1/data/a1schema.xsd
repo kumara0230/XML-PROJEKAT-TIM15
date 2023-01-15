@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
-    targetNamespace="a1ns" xmlns:a1="a1ns">
+    targetNamespace="http://www.ftn.uns.ac.rs/a1" xmlns:a1="http://www.ftn.uns.ac.rs/a1">
     <xs:element name="Zahtev">
         <xs:complexType>
             <xs:sequence>

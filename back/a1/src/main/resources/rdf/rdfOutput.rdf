@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:a1="http://www.ftn.uns.ac.rs/a1" xmlns:pred="http://www.ftn.uns.ac.rs/a1/pred/">
+<rdf:Description rdf:about="http://www.ftn.uns.ac.rs/a1/A-4124124">
+<pred:Broj_prijave>A-4124124</pred:Broj_prijave>
+<pred:Datum_podnosenja>2006-05-04</pred:Datum_podnosenja>
+<pred:EmailPodnosioca>mail@gmail.com</pred:EmailPodnosioca>
+<pred:Naslov_dela>Naslov_dela0</pred:Naslov_dela>
+<pred:Vrsta_dela>Vrsta_autorskog_dela0</pred:Vrsta_dela>
+</rdf:Description>
+</rdf:RDF>
