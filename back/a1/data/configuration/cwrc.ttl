@@ -1,0 +1,106 @@
+## Default dataset assembler file.
+
+@prefix :        <#> .
+@prefix fuseki:  <http://jena.apache.org/fuseki#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ja:      <http://jena.hpl.hp.com/2005/11/Assembler#> .
+
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix dbp:     <http://dbpedia.org/ontology/> .
+
+@prefix tdb:     <http://jena.hpl.hp.com/2008/tdb#> .
+@prefix tdb2:    <http://jena.apache.org/2016/tdb#> .
+@prefix text:    <http://jena.apache.org/text#> .
+
+# not sure if these rdfs:subClassOf triples are required
+text:TextDataset      rdfs:subClassOf   ja:RDFDataset .
+text:TextIndexLucene  rdfs:subClassOf   text:TextIndex .
+
+tdb:DatasetTDB  rdfs:subClassOf  ja:RDFDataset .
+tdb:GraphTDB  rdfs:subClassOf  ja:Model .
+
+tdb2:DatasetTDB2  rdfs:subClassOf  ja:RDFDataset .
+tdb2:GraphTDB2  rdfs:subClassOf  ja:Model .
+tdb2:DatasetTDB  rdfs:subClassOf  ja:RDFDataset .
+tdb2:GraphTDB  rdfs:subClassOf  ja:Model .
+
+ja:DatasetTxnMem  rdfs:subClassOf  ja:RDFDataset .
+ja:ViewGraph  rdfs:subClassOf  ja:Model .
+ja:MemoryDataset  rdfs:subClassOf  ja:RDFDataset .
+ja:RDFDatasetZero  rdfs:subClassOf  ja:RDFDataset .
+ja:RDFDatasetOne  rdfs:subClassOf  ja:RDFDataset .
+ja:RDFDatasetSink  rdfs:subClassOf  ja:RDFDataset .
+
+# declare the Fuseki service
+:service_tdb_all rdf:type fuseki:Service ;
+   fuseki:name "cwrc" ;
+   rdfs:label "CWRC dataset" ;
+   fuseki:dataset :text_dataset ;
+   fuseki:endpoint [ 
+      fuseki:operation fuseki:query ;
+      fuseki:name "sparql" 
+   ];
+   fuseki:endpoint [
+      fuseki:operation fuseki:query ;
+      fuseki:name "query" 
+   ] ;
+   fuseki:endpoint [
+      fuseki:operation fuseki:update ;
+      fuseki:name "update"
+   ] ;
+   fuseki:endpoint [
+      fuseki:operation fuseki:gsp-r ;
+      fuseki:name "get"
+   ] ;
+   fuseki:endpoint [ 
+      fuseki:operation fuseki:gsp-rw ; 
+      fuseki:name "data"
+   ] ; 
+   fuseki:endpoint [ 
+      fuseki:operation fuseki:upload ;
+      fuseki:name "upload"
+   ] ; 
+   .
+
+## ---------------------------------------------------------------
+## Configure a dataset with a text index.
+## See
+##   https://jena.apache.org/documentation/query/text-query.html
+## for details
+
+:text_dataset rdf:type text:TextDataset ;
+   text:dataset   :base_dataset ;
+   text:index     :indexLucene ;
+   .
+
+:base_dataset rdf:type tdb2:DatasetTDB2 ;
+   tdb2:location "/data/fuseki/databases/cwrc" ; # File storage; use absolute path
+   tdb2:unionDefaultGraph false ;
+   .
+
+:indexLucene a text:TextIndexLucene ;
+   text:directory <file:/data/fuseki/databases/cwrc-lucene> ; # File location of index
+   text:storeValues true ;
+   text:entityMap :entMap ;
+   text:analyzer [ a text:StandardAnalyzer ] ;
+   text:queryAnalyzer [ a text:KeywordAnalyzer ] ;
+   text:queryParser text:AnalyzingQueryParser ;   
+   .
+
+:entMap a text:EntityMap ;
+   text:defaultField "label" ; ## Must be defined in the text:map
+   text:uidField "uid" ; ## Enable deleting of text index entries
+   text:langField "lang" ;
+   text:entityField "uri" ;
+   text:graphField "graph" ; ## enable graph-specific indexing
+   text:map (
+      [ text:field "label" ; text:predicate skos:prefLabel ]
+      [ text:field "label" ; text:predicate skos:altLabel ]
+      [ text:field "label" ; text:predicate skos:hiddenLabel ]
+      [ text:field "label" ; text:predicate rdfs:label ]
+      [ text:field "label" ; text:predicate foaf:name]
+      [ text:field "label" ; text:predicate dbp:name ]
+   )
+   .

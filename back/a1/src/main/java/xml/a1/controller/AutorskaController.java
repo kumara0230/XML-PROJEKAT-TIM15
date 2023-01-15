@@ -6,6 +6,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import xml.a1.dto.XMLDto;
+import xml.a1.model.Zahtev;
 import xml.a1.service.AutorskaService;
 
 import java.io.IOException;
@@ -22,16 +23,10 @@ public class AutorskaController {
         this.service = service;
     }
 
-//    @PostMapping()
-//    public ResponseEntity<XMLDto> getChangedXML(@RequestBody XMLDto dto) throws Exception {
-//        String response = service.playWithXML(dto);
-//        return new ResponseEntity<XMLDto>(new XMLDto(response), HttpStatus.OK);
-//    }
-
-    @GetMapping(value = "/existSaveFromFile")
-    public ResponseEntity<?> saveFromFileToExist() {
+    @GetMapping(value = "/existFusekiSave")
+    public ResponseEntity<?> existFusekiSave() {
         try {
-            this.service.saveFromFileToExist();
+            this.service.existFusekiSave();
             return new ResponseEntity<>(HttpStatus.OK);
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -49,19 +44,18 @@ public class AutorskaController {
         }
     }
 
+
     @PostMapping(value = "/jaxB", consumes = MediaType.APPLICATION_XML_VALUE, produces = "application/xml")
-    public ResponseEntity<XMLDto> getChangedXMLJaxB(@RequestBody XMLDto dto) throws Exception {
+    public ResponseEntity<String> getChangedXMLJaxB(@RequestBody XMLDto dto) throws Exception {
         String response = service.jaxBTest(dto);
-        return new ResponseEntity<XMLDto>(new XMLDto(response), HttpStatus.OK);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-//    @PostMapping(value = "/xonomy")
-//    public ResponseEntity<String> addFakultet(@RequestBody Entitet entitet) throws Exception {
-//
-//        service.saveFileFromString(entitet.getText());
-//        return new ResponseEntity<String>("Works", HttpStatus.OK);
-//
-//    }
+    @PostMapping(value = "/saveToExistAndRdf", consumes = "application/json")
+    public ResponseEntity<String> addFakultet(@RequestBody XMLDto zahtev) throws Exception {
+        service.saveZahtevToDatabases(zahtev);
+        return new ResponseEntity<String>("Works", HttpStatus.OK);
+    }
 
     @GetMapping("fusekiSearch/{naziv}/{godina}")
     public ResponseEntity<String> searchFromRDF(@PathVariable("naziv") String naziv, @PathVariable("godina") String godina) throws IOException {

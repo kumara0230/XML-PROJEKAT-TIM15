@@ -50,9 +50,9 @@
 <template match="*[attribute::property or attribute::rel or attribute::rev]">
 
    <!-- identify suject -->
-   <variable name="subject"> 
+   <variable name="subject">
     <choose>
-    	
+
      <!-- an attribute about was specified on the node -->
      <when test="self::*/attribute::about">
        <call-template name="expand-curie-or-uri"><with-param name="curie_or_uri" select="@about"/></call-template>
@@ -72,15 +72,15 @@
      <when test="(self::h:link or self::h:meta) and ( ancestor::h:head ) and not(attribute::about)">
      	<value-of select="$this"/>
      </when>
-     
-     <!-- current has a parent with an id 
-     <when test="parent::*/attribute::id"> 
+
+     <!-- current has a parent with an id
+     <when test="parent::*/attribute::id">
       <value-of select="concat($this,'#',parent::*/attribute::id)"/>
      </when> -->
-     
+
      <!-- an about was specified on its ancestors or the ancestor had a rel or a rev attribute but no href. -->
-     <when test="ancestor::*[attribute::about or ( not(attribute::href) and ( attribute::rel or attribute::rev) )][position()=1]"> 
-     	<variable name="selected_ancestor" select="ancestor::*[attribute::about or ( not(attribute::href) and (attribute::rel or attribute::rev) )][position()=1]"/> 
+     <when test="ancestor::*[attribute::about or ( not(attribute::href) and ( attribute::rel or attribute::rev) )][position()=1]">
+     	<variable name="selected_ancestor" select="ancestor::*[attribute::about or ( not(attribute::href) and (attribute::rel or attribute::rev) )][position()=1]"/>
      	<choose>
      		<when test="$selected_ancestor//*[position()=1]/attribute::about">
      			<call-template name="expand-curie-or-uri"><with-param name="curie_or_uri" select="$selected_ancestor/attribute::about"/></call-template>
@@ -88,22 +88,22 @@
      		<otherwise>
      			<call-template name="self-curie-or-uri"><with-param name="node" select="$selected_ancestor"/></call-template>
      		</otherwise>
-     	</choose>	
+     	</choose>
      </when>
-     
+
      <otherwise> <!-- it must be about the current document -->
      	<value-of select="$this"/>
      </otherwise>
 
     </choose>
    </variable>
-   
-   
+
+
    <!-- identify object -->
    <if test="@rel or @rev">
      <variable name="object">
        <choose>
-	     <when test="@href"> 
+	     <when test="@href">
 		   <call-template name="expand-curie-or-uri"><with-param name="curie_or_uri" select="@href"/></call-template>
 	     </when>
 	     <otherwise>
@@ -111,13 +111,13 @@
 	     </otherwise>
        </choose>
      </variable>
-   
+
      <if test="@rel">
        <call-template name="relation">
         <with-param name="subject" select ="$subject" />
         <with-param name="object" select ="$object" />
         <with-param name="predicate" select ="@rel"/>
-       </call-template>       
+       </call-template>
      </if>
 
      <if test="@rev">
@@ -125,17 +125,17 @@
         <with-param name="subject" select ="$object" />
         <with-param name="object" select ="$subject" />
         <with-param name="predicate" select ="@rev"/>
-       </call-template>      
+       </call-template>
      </if>
    </if>
 
-   
+
    <!-- we have a property -->
    <if test="@property">
-   	
+
    	 <!-- identify language -->
    	 <variable name="language" select="string(ancestor-or-self::*/attribute::xml:lang[position()=1])" />
-   	 
+
      <variable name="expended-pro"><call-template name="expand-ns"><with-param name="qname" select="@property"/></call-template></variable>
 
       <choose>
@@ -147,7 +147,7 @@
           <with-param name="predicate" select ="@property"/>
           <with-param name="attrib" select ="'true'"/>
           <with-param name="language" select ="$language"/>
-         </call-template>   
+         </call-template>
        </when>
        <otherwise> <!-- there is no specific content; we use the value of element -->
          <call-template name="property">
@@ -157,24 +157,24 @@
           <with-param name="predicate" select ="@property"/>
           <with-param name="attrib" select ="'false'"/>
           <with-param name="language" select ="$language"/>
-         </call-template> 
+         </call-template>
        </otherwise>
       </choose>
    </if>
 
-   <!-- we have a class 
-   <if test="@class"> 
-     <variable name="expended-class"><call-template name="expand-ns"><with-param name="qname" select="@class"/></call-template></variable>        
+   <!-- we have a class
+   <if test="@class">
+     <variable name="expended-class"><call-template name="expand-ns"><with-param name="qname" select="@class"/></call-template></variable>
 		 <element name = "rdf:Description">
 		   <attribute name="rdf:about"><value-of select="$expanded-about" /></attribute>
 		   <element name = "rdf:type">
 		     <attribute name="rdf:resource"><value-of select="$expended-class" /></attribute>
-		   </element>     
+		   </element>
 		 </element>
 	 </if> -->
 
-   <apply-templates /> 
-   
+   <apply-templates />
+
 </template>
 
 
@@ -188,7 +188,7 @@
   		<choose>
   			<when test="contains($string,' ')">
 				<value-of select="normalize-space(substring-before($string,' '))"/>
-				<call-template name="tokenize"><with-param name="string" select="normalize-space(substring-after($string,' '))"/></call-template>  	  				
+				<call-template name="tokenize"><with-param name="string" select="normalize-space(substring-after($string,' '))"/></call-template>
   			</when>
   			<otherwise><value-of select="$string"/></otherwise>
   		</choose>
@@ -212,7 +212,7 @@
 			<value-of select="concat(substring-before($url,'//'),'//',substring-before(substring-after($url,'//'),'/'),'/')"/>
 		</when>
 		<otherwise>UNKOWN ROOT</otherwise>
-	</choose>    
+	</choose>
   </template>
 
   <!-- return namespace of a qname -->
@@ -245,7 +245,7 @@
      </when>
      <otherwise>blank node <value-of select="concat('#',generate-id($node))" /></otherwise>
     </choose>
-  </template>  
+  </template>
 
 
 
@@ -267,7 +267,7 @@
      </when>
      <when test="not(starts-with($curie_or_uri,'[')) and contains($curie_or_uri,':')"> <!-- it is a URI -->
       <value-of select="$curie_or_uri" />
-     </when>     
+     </when>
      <when test="not(contains($curie_or_uri,'://')) and not(starts-with($curie_or_uri,'/'))"> <!-- relative URL -->
       <value-of select="concat($this_location,$curie_or_uri)" />
      </when>
@@ -276,15 +276,15 @@
      </when>
      <otherwise>UNKNOWN CURIE URI</otherwise>
     </choose>
-  </template>  
-  
+  </template>
+
   <!-- returns the first predicate in a list separated by spaces -->
   <template name="get-first-predicate">
   	<param name="predicate" />
 	<if test="string-length($predicate)>0">
 		<choose>
 			<when test="contains($predicate,' ')">
-				<value-of select="normalize-space(substring-before($predicate,' '))"/>			
+				<value-of select="normalize-space(substring-before($predicate,' '))"/>
 			</when>
 			<otherwise><value-of select="$predicate" /></otherwise>
 		</choose>
@@ -300,19 +300,19 @@
 	 </for-each>
     </copy>
   </template>
-  
+
   <!-- generate an RDF statement for a relation -->
   <template name="relation" >
     <param name="subject" />
     <param name="predicate" />
     <param name="object" />
-  
+
     <!-- test for multiple predicates -->
     <variable name="single-predicate"><call-template name="get-first-predicate"><with-param name="predicate" select="$predicate"/></call-template></variable>
-    
+
     <!-- get namespace of the predicate -->
     <variable name="predicate-ns"><call-template name="return-ns"><with-param name="qname" select="$single-predicate"/></call-template></variable>
-    
+
     <choose>
      <when test="string-length($predicate-ns)>0"> <!-- there is a known namespace for the predicate -->
 	    <element name = "rdf:Description">
@@ -325,7 +325,7 @@
 	      	  <when test="starts-with($object,'blank node ')"><attribute name="rdf:nodeID"><value-of select="substring-after($object,'blank node ')" /></attribute></when>
 	      	  <otherwise><attribute name="rdf:resource"><value-of select="$object" /></attribute></otherwise>
 	        </choose>
-	      </element>     
+	      </element>
 	    </element>
      </when>
      <otherwise> <!-- generate a comment for debug -->
@@ -340,7 +340,7 @@
 			<with-param name="subject" select="$subject"/>
 			<with-param name="predicate" select="$other-predicates"/>
 			<with-param name="object" select="$object"/>
-		</call-template>    	
+		</call-template>
     </if>
 
   </template>
@@ -357,8 +357,8 @@
 
     <!-- test for multiple predicates -->
     <variable name="single-predicate"><call-template name="get-first-predicate"><with-param name="predicate" select="$predicate"/></call-template></variable>
-     
-    <!-- get namespace of the predicate -->    
+
+    <!-- get namespace of the predicate -->
     <variable name="predicate-ns"><call-template name="return-ns"><with-param name="qname" select="$single-predicate"/></call-template></variable>
 
     <choose>
@@ -402,14 +402,14 @@
 	            </when>
 	         	<otherwise> <!-- content is in the element -->
 	         	 <attribute name="rdf:datatype"><value-of select="'http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral'" /></attribute>
-				 <for-each select="$object/node()"> 
+				 <for-each select="$object/node()">
 					<call-template name="recursive-copy" />
 				 </for-each>
 				</otherwise>
-			 </choose>	 
+			 </choose>
 	        </otherwise>
 	      </choose>
-	      </element>        
+	      </element>
 	    </element>
      </when>
      <otherwise> <!-- generate a comment for debug -->
@@ -427,9 +427,9 @@
 			<with-param name="datatype" select="$datatype"/>
 			<with-param name="attrib" select="$attrib"/>
 			<with-param name="language" select="$language"/>
-		</call-template>    	
+		</call-template>
     </if>
-     
+
   </template>
 
 

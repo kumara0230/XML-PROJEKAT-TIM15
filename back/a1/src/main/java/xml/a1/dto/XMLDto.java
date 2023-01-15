@@ -6,7 +6,6 @@ import xml.a1.model.Zahtev;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement
 public class XMLDto {
 
     private String text;

@@ -25,12 +25,12 @@ public class MetadataExtractor {
 	
 	private TransformerFactory transformerFactory;
 
-	private static final String XSLT_FILE = "src/main/resources/xsl/grddl.xsl";
-	private static final String RDF_FILE = "src/main/resources/rdf/metadata.rdf";
+	private static final String XSLT_FILE = "src/main/resources/xsl/zahtev_metadata.xsl";
+	private static final String RDF_FILE = "src/main/resources/rdf/rdfOutput.rdf";
 
 	public MetadataExtractor() throws SAXException, IOException {
 		
-		// Setup the XSLT transformer factory
+		// Set up the XSLT transformer factory
 		transformerFactory = new TransformerFactoryImpl();
 	}
 
@@ -40,7 +40,7 @@ public class MetadataExtractor {
 	 *  
 	 * @param in XML containing input stream
 	 */
-	public void extractMetadata(String in) throws FileNotFoundException, TransformerException {
+	public void extractMetadata(InputStream in) throws FileNotFoundException, TransformerException {
 
 		OutputStream out = new FileOutputStream(new File(RDF_FILE));
 
@@ -55,7 +55,7 @@ public class MetadataExtractor {
 		grddlTransformer.setOutputProperty(OutputKeys.INDENT, "yes");
 
 		// Initialize transformation subject
-		StreamSource source = new StreamSource(new StringReader(in));
+		StreamSource source = new StreamSource(in);
 
 		// Initialize result stream
 		StreamResult result = new StreamResult(out);
@@ -64,7 +64,13 @@ public class MetadataExtractor {
 		grddlTransformer.transform(source, result);
 		
 	}
-	
+
+    public void extractMetadataFromFile() throws FileNotFoundException, TransformerException {
+		String filePath = "src/main/resources/xsd/instance1.xml";
+		InputStream in = new FileInputStream(new File(filePath));
+		extractMetadata(in);
+    }
+
 //
 //	public void test() throws Exception {
 //

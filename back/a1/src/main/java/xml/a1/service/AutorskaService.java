@@ -10,6 +10,7 @@ import xml.a1.jaxb.JaxB;
 import xml.a1.model.Zahtev;
 import xml.a1.repository.AutorskaRepository;
 
+import javax.xml.bind.JAXBException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -56,7 +57,7 @@ public class AutorskaService {
     public String jaxBTest(XMLDto dto) throws Exception {
 //        JAXBContext context = JAXBContext.newInstance(User.class);
 
-        Zahtev zahtev = (Zahtev) jaxB.unmarshall(Zahtev.class, dto.getText());
+        Zahtev zahtev = jaxB.unmarshall(Zahtev.class, dto.getText());
         zahtev.getDelo().setNaslovDela("NOVI NASLOV DELA");
         System.out.println(zahtev.getDelo().getNaslovDela());
 
@@ -66,8 +67,8 @@ public class AutorskaService {
 
     public void saveFileFromString(String text) throws Exception {
         autorskaRepository.saveAutorska(text);
-        metadataExtractor.extractMetadata(text);
-        FusekiWriter.saveRDF();
+//        metadataExtractor.extractMetadata(text);
+//        FusekiWriter.saveRDF();
     }
 
     public ArrayList<String> searchByMetadata(String naziv, String godina) throws IOException {
@@ -79,11 +80,22 @@ public class AutorskaService {
         return result;
     }
 
-    public void saveFromFileToExist() throws Exception {
+    public void existFusekiSave() throws Exception {
         this.autorskaRepository.saveAutorskaFromFile();
+        metadataExtractor.extractMetadataFromFile();
+        FusekiWriter.saveRDF();
     }
 
     public String getFileFromExistTest() throws Exception {
         return this.autorskaRepository.getFileFromExistTest();
+    }
+
+    public void saveZahtevToDatabases(XMLDto zahtev) throws Exception {
+
+        String xmlTxt = this.jaxB.marshall(Zahtev.class, zahtev.getText());
+
+        autorskaRepository.saveAutorska(xmlTxt);
+//        metadataExtractor.extractMetadata(xmlTxt);
+//        FusekiWriter.saveRDF();
     }
 }

@@ -13,13 +13,12 @@ public class AutorskaRepository {
         this.existManager = existManager;
     }
 
-
     public void saveAutorska(String text) throws Exception {
         existManager.storeFromText(collectionId, "saveFromText", text);
     }
 
     public void saveAutorskaFromFile() throws Exception {
-        String filePath = "./data/a1.xml";
+        String filePath = "src/main/resources/xsd/instance1.xml";
         existManager.store(collectionId, "saveFromFileTest.xml", filePath);
     }
 

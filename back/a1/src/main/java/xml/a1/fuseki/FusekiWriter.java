@@ -13,7 +13,7 @@ import java.io.IOException;
 public class FusekiWriter {
 
     private static final String RDF_FILEPATH = "src/main/resources/rdf/rdfOutput.rdf";
-    private static final String GRAPH_URI = "metadata";
+    private static final String GRAPH_URI = "/metadata";
 
     public static void saveRDF() throws IOException {
         System.out.println("[INFO] Loading triples from an RDF/XML to a model...");
@@ -28,17 +28,13 @@ public class FusekiWriter {
         System.out.println("[INFO] Rendering model as RDF/XML...");
         model.write(System.out, SparqlUtil.RDF_XML);
 
-        UpdateRequest request = UpdateFactory.create();
-        UpdateProcessor processor = UpdateExecutionFactory.createRemote(request, conn.updateEndpoint);
-        processor.execute();
-
         System.out.println("[INFO] Writing the triples to a named graph \"" + GRAPH_URI + "\".");
         String sparqlUpdate = SparqlUtil.insertData(conn.dataEndpoint + GRAPH_URI,
                 new String(out.toByteArray()));
         System.out.println(sparqlUpdate);
 
         UpdateRequest update = UpdateFactory.create(sparqlUpdate);
-        processor = UpdateExecutionFactory.createRemote(update, conn.updateEndpoint);
+        UpdateProcessor processor = UpdateExecutionFactory.createRemote(update, conn.updateEndpoint);
         processor.execute();
     }
 }

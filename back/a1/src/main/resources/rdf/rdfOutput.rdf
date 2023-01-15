@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:a1="http://www.ftn.uns.ac.rs/a1" xmlns:pred="http://www.ftn.uns.ac.rs/a1/pred/" xmlns="http://www.ftn.uns.ac.rs/a1">
+<rdf:Description rdf:about="Zahtev">
+<a1:broj_prijave/>
+<a1:datum_podnosenja/>
+<a1:email_podnosioca/>
+<a1:ime_podnosioca/>
+<a1:prezime_podnosioca/>
+<a1:naslov_dela/>
+<a1:vrsta_dela/>
+</rdf:Description>
+</rdf:RDF>
