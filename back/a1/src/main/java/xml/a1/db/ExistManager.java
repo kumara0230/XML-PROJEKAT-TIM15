@@ -4,6 +4,7 @@ import org.exist.xmldb.EXistResource;
 import org.exist.xupdate.XUpdateProcessor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.w3c.dom.Node;
 import org.xmldb.api.DatabaseManager;
 import org.xmldb.api.base.Collection;
 import org.xmldb.api.base.Database;
@@ -180,6 +181,23 @@ public class ExistManager {
             XUpdateQueryService service = (XUpdateQueryService) col.getService("XUpdateQueryService", "1.0");
             service.setProperty("indent", "yes");
             service.updateResource(document, String.format(chosenTemplate, contextXPath, patch));
+        } finally {
+            if (col != null) {
+                col.close();
+            }
+        }
+    }
+
+    public Node getZahtevAsNode(String collectionUri,String documentId) throws Exception {
+        createConnection();
+        Collection col = null;
+        XMLResource res = null;
+        try {
+            col = DatabaseManager.getCollection(authManager.getUri() + collectionUri, authManager.getUser(),
+                    authManager.getPassword());
+//            col.setProperty(OutputKeys.INDENT, "yes");
+            res = (XMLResource) col.getResource(documentId);
+            return res.getContentAsDOM();
         } finally {
             if (col != null) {
                 col.close();

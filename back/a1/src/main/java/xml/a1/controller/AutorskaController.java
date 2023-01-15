@@ -44,6 +44,11 @@ public class AutorskaController {
         }
     }
 
+    @GetMapping(value = "/pdf")
+    public ResponseEntity<?> convertToPdf() throws Exception {
+        this.service.toPdf();
+        return new ResponseEntity<>("Success", HttpStatus.OK);
+    }
 
     @PostMapping(value = "/jaxB", consumes = MediaType.APPLICATION_XML_VALUE, produces = "application/xml")
     public ResponseEntity<String> getChangedXMLJaxB(@RequestBody XMLDto dto) throws Exception {

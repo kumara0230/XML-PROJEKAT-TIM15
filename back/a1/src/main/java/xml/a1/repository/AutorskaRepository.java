@@ -3,6 +3,8 @@ package xml.a1.repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import xml.a1.db.ExistManager;
+import org.w3c.dom.Node;
+
 
 @Repository
 public class AutorskaRepository {
@@ -24,5 +26,10 @@ public class AutorskaRepository {
 
     public String getFileFromExistTest() throws Exception {
         return (String) existManager.load(collectionId, "saveFromFileTest.xml").getContent();
+    }
+
+    public Node getFileAsNode() throws Exception {
+        String documentId = "saveFromFileTest.xml";
+        return existManager.getZahtevAsNode(collectionId, documentId);
     }
 }

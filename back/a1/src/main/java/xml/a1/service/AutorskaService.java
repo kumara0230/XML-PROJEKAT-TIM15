@@ -9,6 +9,7 @@ import xml.a1.fuseki.MetadataExtractor;
 import xml.a1.jaxb.JaxB;
 import xml.a1.model.Zahtev;
 import xml.a1.repository.AutorskaRepository;
+import xml.a1.transformers.PDFTransformer;
 
 import javax.xml.bind.JAXBException;
 import java.io.IOException;
@@ -16,19 +17,24 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.w3c.dom.Node;
+
 @Service
 public class AutorskaService {
 
     private final JaxB jaxB;
     private final AutorskaRepository autorskaRepository;
     private final MetadataExtractor metadataExtractor;
+    private final PDFTransformer pdfTransformer;
 
 
     @Autowired
-    public AutorskaService(JaxB jaxB, AutorskaRepository autorskaRepository, MetadataExtractor metadataExtractor) {
+    public AutorskaService(JaxB jaxB, AutorskaRepository autorskaRepository, MetadataExtractor metadataExtractor,
+                           PDFTransformer pdfTransformer) {
         this.jaxB = jaxB;
         this.autorskaRepository = autorskaRepository;
         this.metadataExtractor = metadataExtractor;
+        this.pdfTransformer = pdfTransformer;
     }
 
 
@@ -75,5 +81,10 @@ public class AutorskaService {
         autorskaRepository.saveAutorska(xmlTxt);
 //        metadataExtractor.extractMetadata(xmlTxt);
 //        FusekiWriter.saveRDF();
+    }
+
+    public void toPdf() throws Exception {
+        Node file = this.autorskaRepository.getFileAsNode();
+        this.pdfTransformer.parseToPdf(file);
     }
 }
