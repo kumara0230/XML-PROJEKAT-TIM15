@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:pred="http://www.ftn.uns.ac.rs/p1/pred/" xmlns:p1="http://ftn.uns.ac.rs/p1">
+<rdf:Description rdf:about="http://www.ftn.uns.ac.rs/p1/Broj_prijave0">
+<pred:Broj_prijave>Broj_prijave0</pred:Broj_prijave>
+<pred:Datum_prijema>2006-05-04</pred:Datum_prijema>
+<pred:EmailPodnosioca>Email0</pred:EmailPodnosioca>
+<pred:Naziv_pronalaska_na_srpskom>Naziv_pronalaska_na_srpskom0</pred:Naziv_pronalaska_na_srpskom>
+<pred:Naziv_pronalaska_na_engleskom>Naziv_pronalaska_na_engleskom0</pred:Naziv_pronalaska_na_engleskom>
+<pred:Dostavljanje_elektronskim_putem>false</pred:Dostavljanje_elektronskim_putem>
+</rdf:Description>
+</rdf:RDF>
