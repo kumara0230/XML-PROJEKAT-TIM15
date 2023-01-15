@@ -2,6 +2,7 @@ package xml.p1.repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.w3c.dom.Node;
 import xml.p1.db.ExistManager;
 
 @Repository
@@ -27,4 +28,8 @@ public class PatentRepository {
         return (String) existManager.load(collectionId, "saveFromFileTestP1.xml").getContent();
     }
 
+    public Node getFileAsNode() throws Exception {
+        String documentId = "saveFromFileTestP1.xml";
+        return existManager.getZahtevAsNode(collectionId, documentId);
+    }
 }

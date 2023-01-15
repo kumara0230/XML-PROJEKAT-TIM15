@@ -2,12 +2,14 @@ package xml.p1.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.w3c.dom.Node;
 import xml.p1.fuseki.FusekiReader;
 import xml.p1.fuseki.FusekiWriter;
 import xml.p1.fuseki.MetadataExtractor;
 import xml.p1.jaxb.JaxB;
 import xml.p1.model.ZahtevZaPriznanjePatenta;
 import xml.p1.repository.PatentRepository;
+import xml.p1.transformers.PDFTransformer;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -20,13 +22,15 @@ public class PatentiService {
     private final JaxB jaxB;
     private final PatentRepository patentiRepository;
     private final MetadataExtractor metadataExtractor;
+    private final PDFTransformer pdfTransformer;
 
 
     @Autowired
-    public PatentiService(JaxB jaxB, PatentRepository patentiRepository, MetadataExtractor metadataExtractor) {
+    public PatentiService(JaxB jaxB, PatentRepository patentiRepository, MetadataExtractor metadataExtractor, PDFTransformer pdfTransformer) {
         this.jaxB = jaxB;
         this.patentiRepository = patentiRepository;
         this.metadataExtractor = metadataExtractor;
+        this.pdfTransformer = pdfTransformer;
     }
 
 
@@ -64,6 +68,11 @@ public class PatentiService {
 
     public String getFileFromExistTest() throws Exception {
         return this.patentiRepository.getFileFromExistTest();
+    }
+
+    public void toPdf() throws Exception {
+        Node file = this.patentiRepository.getFileAsNode();
+        this.pdfTransformer.parseToPdf(file);
     }
 
 //    public void saveZahtevToDatabases(XMLDto zahtev) throws Exception {
