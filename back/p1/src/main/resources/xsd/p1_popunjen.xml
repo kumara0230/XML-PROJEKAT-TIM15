@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<p1:Zahtev_za_priznanje_patenta xmlns="http://ftn.uns.ac.rs/p1"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:p1="http://ftn.uns.ac.rs/p1"
+ xsi:schemaLocation="http://ftn.uns.ac.rs/p1 p1schema.xsd">
+    <p1:Popunjava_zavod>
+        <p1:Broj_prijave>P-1</p1:Broj_prijave>
+        <p1:Datum_prijema>2023-09-13</p1:Datum_prijema>
+        <p1:Priznati_datum_podnosenja>2023-09-13</p1:Priznati_datum_podnosenja>
+    </p1:Popunjava_zavod>
+    <p1:Naziv_pronalaska>
+        <p1:Naziv_pronalaska_na_srpskom>Patent o patentu</p1:Naziv_pronalaska_na_srpskom>
+        <p1:Naziv_pronalaska_na_engleskom>Pattent of pattent</p1:Naziv_pronalaska_na_engleskom>
+    </p1:Naziv_pronalaska>
+    <p1:Podnosilac_prijave>
+        <p1:Podaci_o_licu xsi:type="p1:TFizicko_lice">
+            <p1:Adresa>
+                <p1:Ulica>Jevrejska</p1:Ulica>
+                <p1:Broj>23</p1:Broj>
+                <p1:Mesto>Novi Sad</p1:Mesto>
+                <p1:Postanski_broj>21000</p1:Postanski_broj>
+            </p1:Adresa>
+            <p1:Kontakt>
+                <p1:Telefon>021450810</p1:Telefon>
+                <p1:Faks>021458133</p1:Faks>
+                <p1:Email>emailneki1@gmail.com</p1:Email>
+            </p1:Kontakt>
+            <p1:Ime>Pera</p1:Ime>
+            <p1:Prezime>Peric</p1:Prezime>
+            <p1:Drzavljanstvo>Srpsko</p1:Drzavljanstvo>
+        </p1:Podaci_o_licu>
+    </p1:Podnosilac_prijave>
+    <p1:Pronalazac_patenta>
+        <p1:Podaci_o_licu xsi:type="p1:TFizicko_lice">
+            <p1:Adresa>
+                <p1:Ulica>Bulevar Mihajla Pupina</p1:Ulica>
+                <p1:Broj>23</p1:Broj>
+                <p1:Mesto>Novi Sad</p1:Mesto>
+                <p1:Postanski_broj>21000</p1:Postanski_broj>
+            </p1:Adresa>
+            <p1:Kontakt>
+                <p1:Telefon>021450810</p1:Telefon>
+                <p1:Faks>021458133</p1:Faks>
+                <p1:Email>emailneki2@gmail.com</p1:Email>
+            </p1:Kontakt>
+            <p1:Ime>Mika</p1:Ime>
+            <p1:Prezime>Mikic</p1:Prezime>
+            <p1:Drzavljanstvo>Srpsko</p1:Drzavljanstvo>
+        </p1:Podaci_o_licu>
+    </p1:Pronalazac_patenta>
+    <p1:Predstavnik_patenta>
+        <p1:Podaci_o_licu xsi:type="p1:TFizicko_lice">
+            <p1:Adresa>
+                <p1:Ulica>Trg Dositeja Obradovica</p1:Ulica>
+                <p1:Broj>3</p1:Broj>
+                <p1:Mesto></p1:Mesto>
+                <p1:Postanski_broj>21000</p1:Postanski_broj>
+            </p1:Adresa>
+            <p1:Kontakt>
+                <p1:Telefon>021450810</p1:Telefon>
+                <p1:Faks>021458133</p1:Faks>
+                <p1:Email>emailneki3@gmail.com</p1:Email>
+            </p1:Kontakt>
+            <p1:Ime>Zika</p1:Ime>
+            <p1:Prezime>Pavlovic</p1:Prezime>
+            <p1:Drzavljanstvo>Srpsko</p1:Drzavljanstvo>
+        </p1:Podaci_o_licu>
+        <p1:Punomocnik>zastupanje</p1:Punomocnik>
+        <p1:Zajednicki_predstavnik>true</p1:Zajednicki_predstavnik>
+    </p1:Predstavnik_patenta>
+    <p1:Dostavljanje>
+        <p1:Adresa>
+            <p1:Ulica>Bulevar Oslobodjenja</p1:Ulica>
+            <p1:Broj>23</p1:Broj>
+            <p1:Mesto>Novi Sad</p1:Mesto>
+            <p1:Postanski_broj>21000</p1:Postanski_broj>
+        </p1:Adresa>
+        <p1:Dostavljanje_elektronskim_putem>true</p1:Dostavljanje_elektronskim_putem>
+    </p1:Dostavljanje>
+    <p1:Zahtevi_za_priznanje_prava_prvenstva_iz_ranijih_prijava>
+        <p1:Zahtev_za_priznanje_prava_prvenstva_iz_ranijih_prijava>
+            <p1:Datum_podnosenja_ranije_prijave>2023-09-13</p1:Datum_podnosenja_ranije_prijave>
+            <p1:Broj_ranije_prijave>I-1</p1:Broj_ranije_prijave>
+            <p1:Dvoslovna_oznaka_drzave_regionalne_ili_medjunarodne_organizacije>RS</p1:Dvoslovna_oznaka_drzave_regionalne_ili_medjunarodne_organizacije>
+        </p1:Zahtev_za_priznanje_prava_prvenstva_iz_ranijih_prijava>
+    </p1:Zahtevi_za_priznanje_prava_prvenstva_iz_ranijih_prijava>
+</p1:Zahtev_za_priznanje_patenta>

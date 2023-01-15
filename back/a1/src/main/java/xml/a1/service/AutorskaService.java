@@ -19,17 +19,10 @@ import java.util.Map;
 @Service
 public class AutorskaService {
 
-//    private final DOMParser domParser;
     private final JaxB jaxB;
     private final AutorskaRepository autorskaRepository;
     private final MetadataExtractor metadataExtractor;
 
-//    public XMLService(DOMParser domParser, JaxB jaxB, AutorskaRepository autorskaRepository, MetadataExtractor metadataExtractor) {
-//        this.domParser = domParser;
-//        this.jaxB = jaxB;
-//        this.autorskaRepository = autorskaRepository;
-//        this.metadataExtractor = metadataExtractor;
-//    }
 
     @Autowired
     public AutorskaService(JaxB jaxB, AutorskaRepository autorskaRepository, MetadataExtractor metadataExtractor) {
@@ -38,21 +31,6 @@ public class AutorskaService {
         this.metadataExtractor = metadataExtractor;
     }
 
-//    public String playWithXML(XMLDto dto) throws Exception {
-//        Document document = domParser.buildDocumentFromText(dto.getText());
-//        NodeList profesori = document.getElementsByTagName("profesor");
-//
-//        for (int i = 0; i < profesori.getLength(); i++) {
-//            Element profesor = (Element) profesori.item(i);
-//            profesor.setAttribute("id", "prof" + i);
-//
-//            Element titula = document.createElement("Titila");
-//            titula.appendChild(document.createTextNode("Profesor"));
-//            profesor.appendChild(titula);
-//        }
-//
-//        return domParser.getDocumentAsString(document);
-//    }
 
     public String jaxBTest(XMLDto dto) throws Exception {
 //        JAXBContext context = JAXBContext.newInstance(User.class);
