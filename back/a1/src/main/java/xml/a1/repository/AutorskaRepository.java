@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.w3c.dom.Node;
 import xml.a1.db.ExistManager;
+import xml.a1.model.Zahtev;
 
 
 @Repository
@@ -32,5 +33,9 @@ public class AutorskaRepository {
     public Node getFileAsNode() throws Exception {
         String documentId = "saveFromFileTest.xml";
         return existManager.getZahtevAsNode(collectionId, documentId);
+    }
+
+    public void save(Zahtev zahtev) {
+        // TODO
     }
 }

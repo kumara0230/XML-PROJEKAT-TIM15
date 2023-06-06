@@ -92,6 +92,7 @@ public class AutorskaService {
 
     public Zahtev kreirajZahtev(RequestAutorskoDelo requestAutorskoDelo) throws DatatypeConfigurationException {
         Zahtev zahtev = autorskaMapper.mapAutorska(requestAutorskoDelo);
-
+        this.autorskaRepository.save(zahtev);
+        return zahtev;
     }
 }

@@ -34,6 +34,8 @@ public class AutorskaMapper {
         PopunjavaZavod popunjavaZavod = new PopunjavaZavod();
         popunjavaZavod.setBrojPrijave("A-" + String.valueOf(LocalDateTime.now()));
         popunjavaZavod.setDatumPodnosenja(genDatumPodnosenja());
+        // opis?
+        return popunjavaZavod;
     }
 
     private XMLGregorianCalendar genDatumPodnosenja() throws DatatypeConfigurationException {
