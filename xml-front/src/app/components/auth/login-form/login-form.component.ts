@@ -9,8 +9,9 @@ import { ToastrService } from 'ngx-toastr';
 import { HttpErrorResponse } from '@angular/common/http';
 import ValidateForm from 'src/app/helpers/validateform';
 import { AuthService } from 'src/app/services/auth.service';
-import DecodeJwt from 'src/app/helpers/decodeJwt';
 import { LoginResponse } from 'src/app/models/LoginResponse';
+import { xml2json } from 'xml-js';
+
 
 @Component({
   selector: 'app-login-form',
@@ -60,21 +61,17 @@ export class LoginFormComponent implements OnInit {
     }
   }
 
-  successLogin(res: LoginResponse) {
-    sessionStorage.setItem('access_token', res.accessToken);
+  successLogin(res: any) {
+    const result = xml2json(res, { trim: true, compact: true, spaces: 4 });
+    const parsedData = JSON.parse(result);
+    const token = parsedData.LoginResponse.accessToken._text
+    sessionStorage.setItem('access_token', token);
     this.router.navigate(['/choose-service']);
   }
 
   loginError(err: HttpErrorResponse) {
-    if (err.status === 409)
-      this.toastr.error(
-        'Please login with your email and password.\nOnly clients can sign-in with Facebook or Google',
-        'Login Error'
-      );
-    else if (err.status === 401)
+    if (err.status === 401)
       this.toastr.error('Wrong email or password', 'Login Error');
-    else if (err.status === 403)
-      this.toastr.error('Please confirm your email address', 'Login Error');
     else this.toastr.error('An unexpected error occurred', 'Login Error');
   }
 }

@@ -32,7 +32,7 @@ export class AuthService {
 
   login(loginObj: any) {
     const xmlPayload = JsonToXML.parse("loginRequest", loginObj);
-    return this.http.post<LoginResponse>(`${this.baseUrl}login`, xmlPayload, this.requestOptions);
+    return this.http.post<any>(`${this.baseUrl}login`, xmlPayload, this.requestOptions);
   }
 
   logout() {
