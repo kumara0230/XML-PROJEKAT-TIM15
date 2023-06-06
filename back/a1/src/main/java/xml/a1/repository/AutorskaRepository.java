@@ -2,16 +2,17 @@ package xml.a1.repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import xml.a1.db.ExistManager;
 import org.w3c.dom.Node;
+import xml.a1.db.ExistManager;
 
 
 @Repository
 public class AutorskaRepository {
     private String collectionId = "/db/autorska";
     private ExistManager existManager;
+
     @Autowired
-    public AutorskaRepository(ExistManager existManager){
+    public AutorskaRepository(ExistManager existManager) {
         this.existManager = existManager;
     }
 

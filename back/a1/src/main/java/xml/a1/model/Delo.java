@@ -8,18 +8,14 @@
 
 package xml.a1.model;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 
 
 /**
  * <p>Java class for anonymous complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType&gt;
  *   &lt;complexContent&gt;
@@ -37,18 +33,16 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "naslovDela",
-    "alternativniNaslov",
-    "deloPrerade",
-    "vrstaAutorskogDela",
-    "formaZapisa",
-    "deloStvorenoURadnomOdnosu",
-    "nacinKoriscenjaDela"
+        "naslovDela",
+        "alternativniNaslov",
+        "deloPrerade",
+        "vrstaAutorskogDela",
+        "formaZapisa",
+        "deloStvorenoURadnomOdnosu",
+        "nacinKoriscenjaDela"
 })
 @XmlRootElement(name = "Delo")
 public class Delo {
@@ -70,11 +64,9 @@ public class Delo {
 
     /**
      * Gets the value of the naslovDela property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getNaslovDela() {
         return naslovDela;
@@ -82,11 +74,9 @@ public class Delo {
 
     /**
      * Sets the value of the naslovDela property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setNaslovDela(String value) {
         this.naslovDela = value;
@@ -94,11 +84,9 @@ public class Delo {
 
     /**
      * Gets the value of the alternativniNaslov property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getAlternativniNaslov() {
         return alternativniNaslov;
@@ -106,11 +94,9 @@ public class Delo {
 
     /**
      * Sets the value of the alternativniNaslov property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setAlternativniNaslov(String value) {
         this.alternativniNaslov = value;
@@ -118,11 +104,9 @@ public class Delo {
 
     /**
      * Gets the value of the deloPrerade property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link DeloPrerade }
-     *     
+     *
+     * @return possible object is
+     * {@link DeloPrerade }
      */
     public DeloPrerade getDeloPrerade() {
         return deloPrerade;
@@ -130,11 +114,9 @@ public class Delo {
 
     /**
      * Sets the value of the deloPrerade property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link DeloPrerade }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link DeloPrerade }
      */
     public void setDeloPrerade(DeloPrerade value) {
         this.deloPrerade = value;
@@ -142,11 +124,9 @@ public class Delo {
 
     /**
      * Gets the value of the vrstaAutorskogDela property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getVrstaAutorskogDela() {
         return vrstaAutorskogDela;
@@ -154,11 +134,9 @@ public class Delo {
 
     /**
      * Sets the value of the vrstaAutorskogDela property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setVrstaAutorskogDela(String value) {
         this.vrstaAutorskogDela = value;
@@ -166,11 +144,9 @@ public class Delo {
 
     /**
      * Gets the value of the formaZapisa property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getFormaZapisa() {
         return formaZapisa;
@@ -178,11 +154,9 @@ public class Delo {
 
     /**
      * Sets the value of the formaZapisa property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setFormaZapisa(String value) {
         this.formaZapisa = value;
@@ -190,11 +164,9 @@ public class Delo {
 
     /**
      * Gets the value of the deloStvorenoURadnomOdnosu property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
+     *
+     * @return possible object is
+     * {@link Boolean }
      */
     public Boolean isDeloStvorenoURadnomOdnosu() {
         return deloStvorenoURadnomOdnosu;
@@ -202,11 +174,9 @@ public class Delo {
 
     /**
      * Sets the value of the deloStvorenoURadnomOdnosu property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Boolean }
      */
     public void setDeloStvorenoURadnomOdnosu(Boolean value) {
         this.deloStvorenoURadnomOdnosu = value;
@@ -214,11 +184,9 @@ public class Delo {
 
     /**
      * Gets the value of the nacinKoriscenjaDela property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getNacinKoriscenjaDela() {
         return nacinKoriscenjaDela;
@@ -226,11 +194,9 @@ public class Delo {
 
     /**
      * Sets the value of the nacinKoriscenjaDela property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setNacinKoriscenjaDela(String value) {
         this.nacinKoriscenjaDela = value;

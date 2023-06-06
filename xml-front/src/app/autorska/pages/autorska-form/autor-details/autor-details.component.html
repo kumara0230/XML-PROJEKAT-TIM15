@@ -1,0 +1,87 @@
+<div style="display: flex;">
+    <h4>Podaci o Autoru</h4>
+</div>
+
+<div *ngIf="!isPodonosilacAutor()" [formGroup]="form" style="display: flex; justify-content: center; gap: 10vh;">
+    <div>
+        <div class="form-group mt-1" formGroupName="autor">
+            <label>Ime</label>
+            <input type="text" class="form-control" formControlName="ime">
+        </div>
+
+        <div class="form-group mt-1" formGroupName="autor">
+            <label>Prezime</label>
+            <input type="text" class="form-control" formControlName="prezime">
+        </div>
+
+        <div class="form-group mt-1" formGroupName="autor">
+            <label>Pseudonim</label>
+            <input type="text" class="form-control" formControlName="pseudonim">
+        </div>
+
+        <div class="form-group mt-1" formGroupName="autor">
+            <label>Godina smrti</label>
+            <input type="text" class="form-control" formControlName="godinaSmrti">
+        </div>
+
+        <div class="form-group mt-1" formGroupName="autor">
+            <label>Drzavljanstvo</label>
+            <input type="text" class="form-control" formControlName="drzavljanstvo">
+        </div>
+
+        <div class="form-group mt-1" formGroupName="autor">
+            <label>Broj telefona</label>
+            <input type="text" class="form-control" formControlName="brojTelefona">
+        </div>
+
+
+    </div>
+
+    <div>
+        <div class="form-group mt-1" formGroupName="autor">
+            <label>Ulica</label>
+            <input type="text" class="form-control" formControlName="ulica">
+        </div>
+
+        <div class="form-group mt-1" formGroupName="autor">
+            <label>Broj</label>
+            <input type="text" class="form-control" formControlName="broj">
+        </div>
+
+        <div class="form-group mt-1" formGroupName="autor">
+            <label>Mesto</label>
+            <input type="text" class="form-control" formControlName="mesto">
+        </div>
+
+        <div class="form-group mt-1" formGroupName="autor">
+            <label>Postanski broj</label>
+            <input type="text" class="form-control" formControlName="postanskiBroj">
+        </div>
+
+        <div class="form-group mt-1" formGroupName="autor">
+            <label>Email</label>
+            <input type="email" class="form-control" formControlName="email">
+        </div>
+        <div class="form-group mt-1" formGroupName="autor">
+            <label>Faks</label>
+            <input type="text" class="form-control" formControlName="faks">
+        </div>
+
+    </div>
+
+
+</div>
+
+<button *ngIf="!isPodonosilacAutor()" type="button" class="btn" style="width: 50%; margin-left: 25%; background-color: black; color: white;" matStepperNext
+(click)="autorAnoniman()">Autor Anoniman</button>
+
+<div *ngIf="isPodonosilacAutor()" style="display: flex; justify-content: center;">
+    <h5>Podnosilac je autor</h5>
+</div>
+<br />
+<div>
+    <button type="button" class="btn btn-secondary" style="width: 50%; margin-left: 25%;"
+        matStepperPrevious>Back</button>
+    <button type="button" class="btn btn-primary" style="width: 50%; margin-left: 25%;" matStepperNext
+        (click)="next()">Next</button>
+</div>

@@ -7,7 +7,7 @@
 >
     <xsl:template match="/">
         <rdf:RDF>
-            <xsl:apply-templates />
+            <xsl:apply-templates/>
         </rdf:RDF>
     </xsl:template>
 

@@ -1,0 +1,70 @@
+<h4>Podaci o Podnosiocu</h4>
+
+<div [formGroup]="form" style="display: flex; justify-content: center; gap: 10vh;">
+    <div>
+
+        <div class="form-group" formGroupName="podnosilac">
+            <label>Ime</label>
+            <input type="text" class="form-control" formControlName="ime">
+        </div>
+
+        <div class="form-group mt-1" formGroupName="podnosilac">
+            <label>Prezime</label>
+            <input type="text" class="form-control" formControlName="prezime">
+        </div>
+
+        <div class="form-group mt-1" formGroupName="podnosilac">
+            <label>Poslovno ime (pravna lica)</label>
+            <input type="text" class="form-control" formControlName="poslovnoIme">
+        </div>
+
+        <div class="form-group mt-1" formGroupName="podnosilac">
+            <label>Broj telefona</label>
+            <input type="text" class="form-control" formControlName="brojTelefona">
+        </div>
+
+        <div class="form-group mt-1" formGroupName="podnosilac">
+            <label>Email</label>
+            <input type="email" class="form-control" formControlName="email">
+        </div>
+        <div class="form-group mt-1" formGroupName="podnosilac">
+            <label>Faks</label>
+            <input type="text" class="form-control" formControlName="faks">
+        </div>
+    </div>
+
+    <div>
+        <div class="form-group mt-1" formGroupName="podnosilac">
+            <label>Ulica</label>
+            <input type="text" class="form-control" formControlName="ulica">
+        </div>
+
+        <div class="form-group mt-1" formGroupName="podnosilac">
+            <label>Broj</label>
+            <input type="text" class="form-control" formControlName="broj">
+        </div>
+
+        <div class="form-group mt-1" formGroupName="podnosilac">
+            <label>Mesto</label>
+            <input type="text" class="form-control" formControlName="mesto">
+        </div>
+
+        <div class="form-group mt-1" formGroupName="podnosilac">
+            <label>Postanski broj</label>
+            <input type="text" class="form-control" formControlName="postanskiBroj">
+        </div>
+
+        <div class="form-group mt-1" formGroupName="podnosilac">
+            <label>Drzavljanstvo</label>
+            <input type="text" class="form-control" formControlName="drzavljanstvo">
+        </div>
+
+        <div class="form-group mt-4" formGroupName="podnosilac">
+            <input type="checkbox" class="form-check-input m-2" formControlName="podnosilacAutor">
+            <label class="form-check-label m-2">Podnosilac je i autor</label>
+        </div>
+        
+    </div>
+</div>
+<br />
+<button type="button" class="btn btn-primary" style="width: 50%; margin-left: 25%;" matStepperNext (click)="next()">Next</button>

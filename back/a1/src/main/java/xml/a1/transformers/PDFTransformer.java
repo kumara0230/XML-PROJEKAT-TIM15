@@ -7,11 +7,9 @@ import com.itextpdf.tool.xml.XMLWorkerHelper;
 import org.springframework.stereotype.Component;
 import org.w3c.dom.Node;
 import org.xml.sax.InputSource;
-import org.xml.sax.SAXException;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.*;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
@@ -44,6 +42,7 @@ public class PDFTransformer {
 
     /**
      * Creates a PDF using iText Java API
+     *
      * @param filePath
      * @throws IOException
      * @throws DocumentException
@@ -61,6 +60,7 @@ public class PDFTransformer {
         document.close();
 
     }
+
     public void generateHTML(Node node, String htmlFile) throws FileNotFoundException {
 
         try {

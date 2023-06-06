@@ -8,20 +8,15 @@
 
 package xml.a1.model;
 
+import javax.xml.bind.annotation.*;
 import java.math.BigInteger;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlType;
 
 
 /**
  * <p>Java class for anonymous complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType&gt;
  *   &lt;complexContent&gt;
@@ -43,15 +38,13 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "ulica",
-    "broj",
-    "mesto",
-    "postanskiBroj"
+        "ulica",
+        "broj",
+        "mesto",
+        "postanskiBroj"
 })
 @XmlRootElement(name = "Adresa")
 public class Adresa {
@@ -68,11 +61,9 @@ public class Adresa {
 
     /**
      * Gets the value of the ulica property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getUlica() {
         return ulica;
@@ -80,11 +71,9 @@ public class Adresa {
 
     /**
      * Sets the value of the ulica property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setUlica(String value) {
         this.ulica = value;
@@ -92,11 +81,9 @@ public class Adresa {
 
     /**
      * Gets the value of the broj property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
+     *
+     * @return possible object is
+     * {@link BigInteger }
      */
     public BigInteger getBroj() {
         return broj;
@@ -104,11 +91,9 @@ public class Adresa {
 
     /**
      * Sets the value of the broj property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link BigInteger }
      */
     public void setBroj(BigInteger value) {
         this.broj = value;
@@ -116,11 +101,9 @@ public class Adresa {
 
     /**
      * Gets the value of the mesto property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getMesto() {
         return mesto;
@@ -128,11 +111,9 @@ public class Adresa {
 
     /**
      * Sets the value of the mesto property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setMesto(String value) {
         this.mesto = value;
@@ -140,7 +121,6 @@ public class Adresa {
 
     /**
      * Gets the value of the postanskiBroj property.
-     * 
      */
     public int getPostanskiBroj() {
         return postanskiBroj;
@@ -148,7 +128,6 @@ public class Adresa {
 
     /**
      * Sets the value of the postanskiBroj property.
-     * 
      */
     public void setPostanskiBroj(int value) {
         this.postanskiBroj = value;

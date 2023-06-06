@@ -6,7 +6,6 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import xml.a1.dto.XMLDto;
-import xml.a1.model.Zahtev;
 import xml.a1.service.AutorskaService;
 
 import java.io.IOException;
@@ -22,6 +21,20 @@ public class AutorskaController {
         super();
         this.service = service;
     }
+
+//    @PostMapping(value = "/dodaj-autorska", consumes = "application/xml", produces = "application/xml")
+//    public ResponseEntity<ObrazacAutorskoDeloDTO> kreirajZahtev(@RequestBody ObrazacAutorskoDeloCreationDTO obrazacAutorskoDeloCreationDTO, HttpServletRequest request) {
+//        try {
+//            String token = tokenUtils.getAuthHeaderFromHeader(request);
+//            if (autorskaService.proveriKorisnika(token, false)) {
+//                ObrazacAutorskoDelo obrazacAutorskoDelo = autorskaService.kreirajZahtev(obrazacAutorskoDeloCreationDTO);
+//                return new ResponseEntity<>(new ObrazacAutorskoDeloDTO(obrazacAutorskoDelo), HttpStatus.CREATED);
+//            }
+//            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+//        } catch (Exception e) {
+//            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+//        }
+//    }
 
     @GetMapping(value = "/existFusekiSave")
     public ResponseEntity<?> existFusekiSave() {

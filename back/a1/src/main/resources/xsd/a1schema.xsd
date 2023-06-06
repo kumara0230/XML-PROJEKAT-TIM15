@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
-    targetNamespace="http://ftn.uns.ac.rs/a1" xmlns:a1="http://ftn.uns.ac.rs/a1">
+           targetNamespace="http://ftn.uns.ac.rs/a1" xmlns:a1="http://ftn.uns.ac.rs/a1">
     <xs:element name="Zahtev">
         <xs:complexType>
             <xs:sequence>
@@ -37,8 +37,8 @@
                 <xs:element name="Naslov_dela" type="xs:string"/>
                 <xs:element minOccurs="0" name="Alternativni_naslov" type="xs:string"/>
                 <xs:element minOccurs="0" ref="a1:DeloPrerade"/>
-                <xs:element name="Vrsta_autorskog_dela" type="xs:string"> </xs:element>
-                <xs:element name="Forma_zapisa" type="xs:string"> </xs:element>
+                <xs:element name="Vrsta_autorskog_dela" type="xs:string"></xs:element>
+                <xs:element name="Forma_zapisa" type="xs:string"></xs:element>
                 <xs:element minOccurs="0" name="Delo_stvoreno_u_radnom_odnosu" type="xs:boolean"/>
                 <xs:element minOccurs="0" name="Nacin_koriscenja_dela" type="xs:string"/>
             </xs:sequence>

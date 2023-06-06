@@ -2,27 +2,12 @@ package xml.a1;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.xml.sax.SAXException;
-import xml.a1.model.Zahtev;
-import xml.a1.util.MyValidationEventHandler;
-
-import javax.tools.FileObject;
-import javax.xml.XMLConstants;
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
-import javax.xml.bind.Unmarshaller;
-import javax.xml.validation.Schema;
-import javax.xml.validation.SchemaFactory;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 
 @SpringBootApplication
 public class A1Application {
 
-	public static void main(String[] args) {
-		SpringApplication.run(A1Application.class, args);
+    public static void main(String[] args) {
+        SpringApplication.run(A1Application.class, args);
 //		try {
 //			System.out.println("[INFO] Example: JAXB unmarshalling/marshalling.\n");
 //
@@ -65,5 +50,5 @@ public class A1Application {
 //		} catch (SAXException e) {
 //			throw new RuntimeException(e);
 //		}
-	}
+    }
 }

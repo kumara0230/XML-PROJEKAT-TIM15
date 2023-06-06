@@ -2,6 +2,7 @@ package xml.a1.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.w3c.dom.Node;
 import xml.a1.dto.XMLDto;
 import xml.a1.fuseki.FusekiReader;
 import xml.a1.fuseki.FusekiWriter;
@@ -11,13 +12,10 @@ import xml.a1.model.Zahtev;
 import xml.a1.repository.AutorskaRepository;
 import xml.a1.transformers.PDFTransformer;
 
-import javax.xml.bind.JAXBException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-
-import org.w3c.dom.Node;
 
 @Service
 public class AutorskaService {

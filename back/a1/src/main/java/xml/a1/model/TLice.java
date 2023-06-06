@@ -8,18 +8,14 @@
 
 package xml.a1.model;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSeeAlso;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 
 
 /**
  * <p>Java class for TLice complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="TLice"&gt;
  *   &lt;complexContent&gt;
@@ -32,17 +28,15 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TLice", propOrder = {
-    "adresa",
-    "kontakt"
+        "adresa",
+        "kontakt"
 })
 @XmlSeeAlso({
-    TFizickoLice.class,
-    TPravnoLice.class
+        TFizickoLice.class,
+        TPravnoLice.class
 })
 public abstract class TLice {
 
@@ -53,11 +47,9 @@ public abstract class TLice {
 
     /**
      * Gets the value of the adresa property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Adresa }
-     *     
+     *
+     * @return possible object is
+     * {@link Adresa }
      */
     public Adresa getAdresa() {
         return adresa;
@@ -65,11 +57,9 @@ public abstract class TLice {
 
     /**
      * Sets the value of the adresa property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Adresa }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Adresa }
      */
     public void setAdresa(Adresa value) {
         this.adresa = value;
@@ -77,11 +67,9 @@ public abstract class TLice {
 
     /**
      * Gets the value of the kontakt property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Kontakt }
-     *     
+     *
+     * @return possible object is
+     * {@link Kontakt }
      */
     public Kontakt getKontakt() {
         return kontakt;
@@ -89,11 +77,9 @@ public abstract class TLice {
 
     /**
      * Sets the value of the kontakt property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Kontakt }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Kontakt }
      */
     public void setKontakt(Kontakt value) {
         this.kontakt = value;

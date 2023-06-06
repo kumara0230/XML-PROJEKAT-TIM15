@@ -8,20 +8,15 @@
 
 package xml.a1.model;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
  * <p>Java class for anonymous complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType&gt;
  *   &lt;complexContent&gt;
@@ -35,14 +30,12 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "opisDela",
-    "brojPrijave",
-    "datumPodnosenja"
+        "opisDela",
+        "brojPrijave",
+        "datumPodnosenja"
 })
 @XmlRootElement(name = "Popunjava_zavod")
 public class PopunjavaZavod {
@@ -57,11 +50,9 @@ public class PopunjavaZavod {
 
     /**
      * Gets the value of the opisDela property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getOpisDela() {
         return opisDela;
@@ -69,11 +60,9 @@ public class PopunjavaZavod {
 
     /**
      * Sets the value of the opisDela property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setOpisDela(String value) {
         this.opisDela = value;
@@ -81,11 +70,9 @@ public class PopunjavaZavod {
 
     /**
      * Gets the value of the brojPrijave property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getBrojPrijave() {
         return brojPrijave;
@@ -93,11 +80,9 @@ public class PopunjavaZavod {
 
     /**
      * Sets the value of the brojPrijave property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setBrojPrijave(String value) {
         this.brojPrijave = value;
@@ -105,11 +90,9 @@ public class PopunjavaZavod {
 
     /**
      * Gets the value of the datumPodnosenja property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @return possible object is
+     * {@link XMLGregorianCalendar }
      */
     public XMLGregorianCalendar getDatumPodnosenja() {
         return datumPodnosenja;
@@ -117,11 +100,9 @@ public class PopunjavaZavod {
 
     /**
      * Sets the value of the datumPodnosenja property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link XMLGregorianCalendar }
      */
     public void setDatumPodnosenja(XMLGregorianCalendar value) {
         this.datumPodnosenja = value;

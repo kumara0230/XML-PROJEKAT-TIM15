@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Zahtev xmlns="a1ns"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="a1ns a1schema.xsd">
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="a1ns a1schema.xsd">
     <Podnosilac xsi:type="TPravno_lice">
         <Adresa>
             <ulica>Jevrejska</ulica>
@@ -23,7 +23,7 @@
             </Adresa>
             <Broj_telefona>0665011426</Broj_telefona>
             <Email>autor@gmail.com</Email>
-            <Ime>Autor </Ime>
+            <Ime>Autor</Ime>
             <Prezime>Autorovic</Prezime>
             <Drzavljanstvo>srpsko</Drzavljanstvo>
         </Lice>

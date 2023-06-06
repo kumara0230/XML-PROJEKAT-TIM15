@@ -16,9 +16,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for TPravno_lice complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="TPravno_lice"&gt;
  *   &lt;complexContent&gt;
@@ -30,27 +30,22 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TPravno_lice", propOrder = {
-    "poslovnoIme"
+        "poslovnoIme"
 })
 public class TPravnoLice
-    extends TLice
-{
+        extends TLice {
 
     @XmlElement(name = "poslovno_ime", required = true)
     protected String poslovnoIme;
 
     /**
      * Gets the value of the poslovnoIme property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getPoslovnoIme() {
         return poslovnoIme;
@@ -58,11 +53,9 @@ public class TPravnoLice
 
     /**
      * Sets the value of the poslovnoIme property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setPoslovnoIme(String value) {
         this.poslovnoIme = value;
