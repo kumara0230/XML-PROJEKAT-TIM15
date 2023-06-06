@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Zahtev } from 'src/app/autorska/model/Zahtev';
+import { AutorskaService } from 'src/app/services/autorska.service';
 
 @Component({
   selector: 'app-delo-prerade-details',
@@ -12,7 +13,7 @@ export class DeloPreradeDetailsComponent implements OnInit {
   @Input() form!: FormGroup;
   @Input() zahtev!: Zahtev;
 
-  constructor() { }
+  constructor(private autorskaService: AutorskaService) { }
 
   ngOnInit(): void {
 
@@ -38,7 +39,14 @@ export class DeloPreradeDetailsComponent implements OnInit {
 
     console.log("FINISHHHH");
     console.log(this.zahtev);
-    
-    
+    this.autorskaService.sendNewRequest(this.zahtev).subscribe({
+      next: () => {
+
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
+
   }
 }

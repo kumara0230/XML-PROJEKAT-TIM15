@@ -47,8 +47,8 @@ public class Autor {
     @XmlElement(name = "Pseudonim_autora")
     protected String pseudonimAutora;
     @XmlElement(name = "Godina_smrti")
-    @XmlSchemaType(name = "gYear")
-    protected XMLGregorianCalendar godinaSmrti;
+//    @XmlSchemaType(name = "gYear")
+    protected String godinaSmrti;
     @XmlElement(name = "Autor_anoniman", defaultValue = "false")
     protected boolean autorAnoniman;
 
@@ -98,7 +98,7 @@ public class Autor {
      * @return possible object is
      * {@link XMLGregorianCalendar }
      */
-    public XMLGregorianCalendar getGodinaSmrti() {
+    public String getGodinaSmrti() {
         return godinaSmrti;
     }
 
@@ -108,7 +108,7 @@ public class Autor {
      * @param value allowed object is
      *              {@link XMLGregorianCalendar }
      */
-    public void setGodinaSmrti(XMLGregorianCalendar value) {
+    public void setGodinaSmrti(String value) {
         this.godinaSmrti = value;
     }
 

@@ -9,7 +9,6 @@ import { ToastrService } from 'ngx-toastr';
 import { HttpErrorResponse } from '@angular/common/http';
 import ValidateForm from 'src/app/helpers/validateform';
 import { AuthService } from 'src/app/services/auth.service';
-import { LoginResponse } from 'src/app/models/LoginResponse';
 import { xml2json } from 'xml-js';
 
 

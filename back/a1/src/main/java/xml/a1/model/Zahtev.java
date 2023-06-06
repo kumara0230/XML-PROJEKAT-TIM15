@@ -35,6 +35,7 @@ import javax.xml.bind.annotation.*;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
         "podnosilac",
+        "podnosilacAutor",
         "autor",
         "punomocnik",
         "delo",
@@ -53,6 +54,16 @@ public class Zahtev {
     protected Delo delo;
     @XmlElement(name = "Popunjava_zavod", required = true)
     protected PopunjavaZavod popunjavaZavod;
+    @XmlElement(name = "podnosilac_autor", required = true)
+    protected boolean podnosilacAutor;
+
+    public boolean isPodnosilacAutor() {
+        return podnosilacAutor;
+    }
+
+    public void setPodnosilacAutor(boolean podnosilacAutor) {
+        this.podnosilacAutor = podnosilacAutor;
+    }
 
     /**
      * Gets the value of the podnosilac property.

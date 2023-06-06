@@ -5,6 +5,7 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element ref="a1:Podnosilac"/>
+                <xs:element name="podnosilac_autor" type="xs:boolean"/>
                 <xs:element minOccurs="0" ref="a1:Autor"/>
                 <xs:element minOccurs="0" ref="a1:Punomocnik"/>
                 <xs:element ref="a1:Delo"/>
@@ -16,8 +17,8 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element minOccurs="0" name="Lice" type="a1:TFizicko_lice"/>
-                <xs:element minOccurs="0" name="Pseudonim_autora" nillable="false" type="xs:string"/>
-                <xs:element minOccurs="0" name="Godina_smrti" nillable="false" type="xs:gYear"/>
+                <xs:element minOccurs="0" name="Pseudonim_autora" type="xs:string"/>
+                <xs:element minOccurs="0" name="Godina_smrti" type="xs:string"/>
                 <xs:element minOccurs="0" name="Autor_anoniman" type="xs:boolean"/>
             </xs:sequence>
         </xs:complexType>

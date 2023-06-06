@@ -75,8 +75,12 @@
 <button *ngIf="!isPodonosilacAutor()" type="button" class="btn" style="width: 50%; margin-left: 25%; background-color: black; color: white;" matStepperNext
 (click)="autorAnoniman()">Autor Anoniman</button>
 
-<div *ngIf="isPodonosilacAutor()" style="display: flex; justify-content: center;">
-    <h5>Podnosilac je autor</h5>
+<div *ngIf="isPodonosilacAutor()" style="display: flex; justify-content: center; flex-direction: column;">
+    <h1>Podnosilac je autor</h1>
+    <div class="form-group mt-1" formGroupName="autor">
+        <label>Pseudonim (ako postoji)</label>
+        <input type="text" class="form-control" formControlName="pseudonim">
+    </div>
 </div>
 <br />
 <div>

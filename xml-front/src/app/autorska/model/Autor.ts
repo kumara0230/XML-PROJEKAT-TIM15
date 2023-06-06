@@ -10,6 +10,6 @@ export interface Autor {
     prezime?: String,
     drzavljanstvo?: String,
     pseudonim?: String,
-    godinaSmrti?: Number,
+    godinaSmrti?: String,
     autorAnoniman?: boolean
 }
