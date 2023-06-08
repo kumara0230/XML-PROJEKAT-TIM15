@@ -14,6 +14,7 @@ import xml.a1.service.UserService;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "autorska")
@@ -40,6 +41,24 @@ public class AutorskaController {
                 return new ResponseEntity<>(HttpStatus.CREATED);
             }
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @GetMapping(value = "/all", produces = "application/xml")
+    public ResponseEntity<?> getAll(HttpServletRequest request) {
+        try {
+            String token = request.getHeader("Authorization");
+            if (token == null) return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+
+            List<Zahtev> zahtevi = autorskaService.getAll(token);
+            List<RequestAutorskoDelo> zahteviDTO = new ArrayList<>();
+            for (Zahtev zahtev : zahtevi) {
+                zahteviDTO.add(new RequestAutorskoDelo(zahtev));
+            }
+            return new ResponseEntity<>(zahteviDTO, HttpStatus.OK);
         } catch (Exception e) {
             e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);

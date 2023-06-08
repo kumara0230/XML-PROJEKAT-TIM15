@@ -8,4 +8,5 @@ export interface Zahtev {
     autor?: Autor | undefined,
     punomocnik?: Punomocnik | undefined,
     delo?: Delo,
+    [key: string]: any
 }

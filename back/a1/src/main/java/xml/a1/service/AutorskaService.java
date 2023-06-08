@@ -13,10 +13,10 @@ import xml.a1.model.Zahtev;
 import xml.a1.repository.AutorskaRepository;
 import xml.a1.transformers.PDFTransformer;
 
-import javax.xml.datatype.DatatypeConfigurationException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -27,16 +27,18 @@ public class AutorskaService {
     private final MetadataExtractor metadataExtractor;
     private final PDFTransformer pdfTransformer;
     private final AutorskaMapper autorskaMapper;
+    private final UserService userService;
 
 
     @Autowired
     public AutorskaService(JaxB jaxB, AutorskaRepository autorskaRepository, MetadataExtractor metadataExtractor,
-                           PDFTransformer pdfTransformer, AutorskaMapper autorskaMapper) {
+                           PDFTransformer pdfTransformer, AutorskaMapper autorskaMapper, UserService userService) {
         this.jaxB = jaxB;
         this.autorskaRepository = autorskaRepository;
         this.metadataExtractor = metadataExtractor;
         this.pdfTransformer = pdfTransformer;
         this.autorskaMapper = autorskaMapper;
+        this.userService = userService;
     }
 
 
@@ -94,5 +96,17 @@ public class AutorskaService {
         Zahtev zahtev = autorskaMapper.mapAutorska(requestAutorskoDelo);
         this.autorskaRepository.save(zahtev);
         return zahtev;
+    }
+
+    public List<Zahtev> getAll(String token) throws Exception {
+        if (userService.authorizeUser(token, true)) {
+            // get all requests (radnik trazi)
+            return autorskaRepository.getAllRequests();
+
+        } else {
+            // get all resenja (klijent trazi)
+            // todo
+            return null;
+        }
     }
 }

@@ -78,7 +78,7 @@ public class AutorskaMapper {
     private TLice parsePodnosilac(PodnosilacDTO podnosilacDTO) {
         if (podnosilacDTO.getPoslovnoIme() != null) {           // pravno lice
             TPravnoLice podnosilac = new TPravnoLice();
-            podnosilac.setPoslovnoIme(podnosilac.getPoslovnoIme());
+            podnosilac.setPoslovnoIme(podnosilacDTO.getPoslovnoIme());
             podnosilac.setAdresa(mapAddress(podnosilacDTO.getAdresa()));
             Kontakt k = new Kontakt();
             k.setEmail(podnosilacDTO.getEmail());

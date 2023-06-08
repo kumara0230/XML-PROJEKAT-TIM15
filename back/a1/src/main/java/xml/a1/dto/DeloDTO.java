@@ -1,6 +1,8 @@
 package xml.a1.dto;
 
 
+import xml.a1.model.Delo;
+
 import javax.xml.bind.annotation.XmlElement;
 
 public class DeloDTO {
@@ -19,6 +21,21 @@ public class DeloDTO {
     private String nacinKoriscenjaDela;
     @XmlElement
     private DeloPreradeDTO deloPrerade;
+    public DeloDTO() {}
+    public DeloDTO(Delo delo) {
+        this.naslov = delo.getNaslovDela();
+        this.vrsta = delo.getVrstaAutorskogDela();
+        this.formaZapisa = delo.getFormaZapisa();
+        this.deloStvorenoURadnomOdnosu = delo.isDeloStvorenoURadnomOdnosu();
+        this.nacinKoriscenjaDela = delo.getNacinKoriscenjaDela();
+
+        if (delo.getAlternativniNaslov() != null)
+            this.alternativniNaziv = delo.getAlternativniNaslov();
+
+        if (delo.getDeloPrerade() != null)
+            this.deloPrerade = new DeloPreradeDTO(delo.getDeloPrerade());
+
+    }
 
     public String getNaslov() {
         return naslov;

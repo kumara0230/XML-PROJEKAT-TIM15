@@ -4,10 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.w3c.dom.Node;
 import xml.a1.db.ExistManager;
+import xml.a1.db.ExistReader;
 import xml.a1.db.ExistWriter;
 import xml.a1.fuseki.FusekiWriter;
 import xml.a1.fuseki.MetadataExtractor;
 import xml.a1.model.Zahtev;
+
+import java.util.List;
 
 
 @Repository
@@ -49,5 +52,10 @@ public class AutorskaRepository {
 
         metadataExtractor.extractFromZahtev(newZahtev);
         FusekiWriter.saveRDF();
+    }
+
+    public List<Zahtev> getAllRequests() throws Exception {
+        ExistReader existReader = new ExistReader();
+        return existReader.getAllRequests();
     }
 }

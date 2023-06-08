@@ -1,5 +1,10 @@
 package xml.a1.dto;
 
+import xml.a1.model.TFizickoLice;
+import xml.a1.model.TLice;
+import xml.a1.model.TPravnoLice;
+import xml.a1.model.Zahtev;
+
 import javax.xml.bind.annotation.XmlElement;
 
 public class PodnosilacDTO {
@@ -25,6 +30,20 @@ public class PodnosilacDTO {
 
     public PodnosilacDTO() {
 
+    }
+    public PodnosilacDTO(Zahtev zahtev) {
+        TLice podnosilac = zahtev.getPodnosilac();
+
+        if (podnosilac instanceof TFizickoLice) {
+            TFizickoLice fizickoLice = (TFizickoLice) podnosilac;
+            this.ime = fizickoLice.getIme();
+            this.prezime = fizickoLice.getPrezime();
+        } else {
+            TPravnoLice pravnoLice = (TPravnoLice) podnosilac;
+            this.poslovnoIme = pravnoLice.getPoslovnoIme();
+        }
+        this.podnosilacAutor = zahtev.isPodnosilacAutor();
+        this.email = zahtev.getPodnosilac().getKontakt().getEmail();
     }
 
     public AdresaDTO getAdresa() {

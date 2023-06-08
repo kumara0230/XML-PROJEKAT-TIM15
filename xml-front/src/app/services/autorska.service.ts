@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Zahtev } from '../autorska/model/Zahtev';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import * as JsonToXML from "js2xmlparser";
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -26,4 +27,9 @@ export class AutorskaService {
     console.log(xmlPayload);
     return this.http.post<any>(`${this.baseUrl}new-request`, xmlPayload, this.requestOptions);
   }
+
+  getAll(): any {
+    return this.http.get<any>(`${this.baseUrl}all`, this.requestOptions);
+  }
+
 }

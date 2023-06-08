@@ -1,5 +1,7 @@
 package xml.a1.dto;
 
+import xml.a1.model.Adresa;
+
 import javax.xml.bind.annotation.XmlElement;
 import java.math.BigInteger;
 
@@ -12,6 +14,14 @@ public class AdresaDTO {
     private String mesto;
     @XmlElement
     private int postanskiBroj;
+
+    public AdresaDTO() {}
+    public AdresaDTO(Adresa adresa) {
+        this.ulica = adresa.getUlica();
+        this.broj = adresa.getBroj();
+        this.mesto = adresa.getMesto();
+        this.postanskiBroj = adresa.getPostanskiBroj();
+    }
 
     public String getUlica() {
         return ulica;

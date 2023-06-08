@@ -1,5 +1,7 @@
 package xml.a1.dto;
 
+import xml.a1.model.DeloPrerade;
+
 import javax.xml.bind.annotation.XmlElement;
 
 public class DeloPreradeDTO {
@@ -14,6 +16,17 @@ public class DeloPreradeDTO {
     private String pseudonim;
     @XmlElement
     private String godinaSmrti;
+
+    public DeloPreradeDTO(DeloPrerade deloPrerade) {
+        this.naslovIzvornogDela = deloPrerade.getNaslovIzvornogDela();
+        this.ime = deloPrerade.getAutor().getLice().getIme();
+        this.prezime = deloPrerade.getAutor().getLice().getPrezime();
+        if (deloPrerade.getAutor().getPseudonimAutora() != null)
+            this.pseudonim = deloPrerade.getAutor().getPseudonimAutora();
+        if (deloPrerade.getAutor().getGodinaSmrti() != null) {
+            this.godinaSmrti = deloPrerade.getAutor().getGodinaSmrti();
+        }
+    }
 
     public String getNaslovIzvornogDela() {
         return naslovIzvornogDela;

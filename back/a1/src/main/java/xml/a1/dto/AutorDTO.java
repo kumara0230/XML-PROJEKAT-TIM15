@@ -1,5 +1,7 @@
 package xml.a1.dto;
 
+import xml.a1.model.Autor;
+
 import javax.xml.bind.annotation.XmlElement;
 
 public class AutorDTO {
@@ -25,6 +27,18 @@ public class AutorDTO {
     private String godinaSmrti;
     @XmlElement
     private boolean autorAnoniman;
+
+    public AutorDTO(){}
+
+    public AutorDTO(Autor autor) {
+        if (autor.getPseudonimAutora() != null) {
+            this.pseudonim = autor.getPseudonimAutora();
+        }
+        if (autor.getLice() != null && autor.getLice().getIme() != null) {
+            this.ime = autor.getLice().getIme();
+        }
+        // ...
+    }
 
 
     public AdresaDTO getAdresa() {
