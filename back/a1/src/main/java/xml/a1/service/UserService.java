@@ -12,16 +12,12 @@ import xml.a1.dto.KorisnikDTO;
 @Service
 public class UserService {
 
-    @Bean
-    public RestTemplate restTemplate() {
-        return new RestTemplate();
-    }
 
     @Autowired
     private RestTemplate restTemplate;
 
     public boolean authorizeUser(String token, boolean shouldBeSluzbenik) throws Exception {
-        final String uri = "http://localhost:9003/auth/get/" + token;
+        final String uri = "http://localhost:8089/auth/get/" + token;
         ResponseEntity<KorisnikDTO> responseEntity = restTemplate.exchange(
                 uri,
                 HttpMethod.GET,

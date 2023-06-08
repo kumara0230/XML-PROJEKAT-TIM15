@@ -33,12 +33,15 @@ public class AutorskaController {
     public ResponseEntity<?> newReq(@RequestBody RequestAutorskoDelo requestAutorskoDelo, HttpServletRequest request) {
         try {
             String token = request.getHeader("Authorization");
+            if (token == null) return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+
             if (userService.authorizeUser(token, false)) {
                 Zahtev zahtev = autorskaService.kreirajZahtev(requestAutorskoDelo);
                 return new ResponseEntity<>(HttpStatus.CREATED);
             }
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         } catch (Exception e) {
+            e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }

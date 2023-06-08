@@ -36,11 +36,11 @@ export class AuthService {
   }
 
   logout() {
-    sessionStorage.removeItem('access_token');
+    localStorage.removeItem('access_token');
   }
 
   isLoggedIn() {
-    if (!sessionStorage.getItem('access_token')) {
+    if (!localStorage.getItem('access_token')) {
       return false;
     }
     return true;

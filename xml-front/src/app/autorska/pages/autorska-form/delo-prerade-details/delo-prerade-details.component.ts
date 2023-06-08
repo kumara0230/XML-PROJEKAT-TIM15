@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Zahtev } from 'src/app/autorska/model/Zahtev';
 import { AutorskaService } from 'src/app/services/autorska.service';
 
@@ -13,7 +15,9 @@ export class DeloPreradeDetailsComponent implements OnInit {
   @Input() form!: FormGroup;
   @Input() zahtev!: Zahtev;
 
-  constructor(private autorskaService: AutorskaService) { }
+  constructor(private autorskaService: AutorskaService,
+    private toastr: ToastrService,
+    private router: Router) { }
 
   ngOnInit(): void {
 
@@ -24,27 +28,31 @@ export class DeloPreradeDetailsComponent implements OnInit {
     return this.form.value['delo']['isDeloPrerade'];
   }
 
+  isNextDisabled() {
+    return this.isDeloPrerade() && !this.form.get('deloPrerade')?.valid;
+  }
+
 
   next() { // finish
     this.form.get('deloPrerade')!.markAllAsTouched();
     this.form.get('deloPrerade')!.updateValueAndValidity();
 
-    this.zahtev.delo!.deloPrerade = {
-      naslovIzvornogDela: this.form.value['deloPrerade']['naslovIzvornogDela'],
-      ime: this.form.value['deloPrerade']['ime'],
-      prezime: this.form.value['deloPrerade']['prezime'],
-      pseudonim: this.form.value['deloPrerade']['pseudonim'],
-      godinaSmrti: this.form.value['deloPrerade']['godinaSmrti'],
+    const formValues = this.form.get('deloPrerade')?.value;
+
+    for (const key in formValues) {
+      if (formValues[key] !== null) {
+        if (!this.zahtev.delo!['deloPrerade']) this.zahtev.delo!['deloPrerade'] = {}
+        this.zahtev.delo!['deloPrerade'][key] = formValues[key];
+      }
     }
 
-    console.log("FINISHHHH");
-    console.log(this.zahtev);
     this.autorskaService.sendNewRequest(this.zahtev).subscribe({
       next: () => {
-
+        this.toastr.success('Request is successfully sent');
+        this.router.navigate(['/autorska']);
       },
       error: (err) => {
-        console.log(err);
+        this.toastr.error(err.error);
       }
     });
 

@@ -64,7 +64,7 @@ export class LoginFormComponent implements OnInit {
     const result = xml2json(res, { trim: true, compact: true, spaces: 4 });
     const parsedData = JSON.parse(result);
     const token = parsedData.LoginResponse.accessToken._text
-    sessionStorage.setItem('access_token', token);
+    localStorage.setItem('access_token', token);
     this.router.navigate(['/choose-service']);
   }
 

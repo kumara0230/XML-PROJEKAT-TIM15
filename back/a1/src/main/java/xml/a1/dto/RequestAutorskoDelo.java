@@ -7,46 +7,46 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class RequestAutorskoDelo {
 
     @XmlElement
-    private PodnosilacDTO podnosilacDTO;
+    private PodnosilacDTO podnosilac;
 
     @XmlElement
-    private AutorDTO autorDTO;
+    private AutorDTO autor;
 
     @XmlElement
-    private PunomocnikDTO punomocnikDTO;
+    private PunomocnikDTO punomocnik;
 
     @XmlElement
-    private DeloDTO deloDTO;
+    private DeloDTO delo;
 
-    public PodnosilacDTO getPodnosilacDTO() {
-        return podnosilacDTO;
+    public PodnosilacDTO getPodnosilac() {
+        return podnosilac;
     }
 
-    public void setPodnosilacDTO(PodnosilacDTO podnosilacDTO) {
-        this.podnosilacDTO = podnosilacDTO;
+    public void setPodnosilac(PodnosilacDTO podnosilac) {
+        this.podnosilac = podnosilac;
     }
 
-    public AutorDTO getAutorDTO() {
-        return autorDTO;
+    public AutorDTO getAutor() {
+        return autor;
     }
 
-    public void setAutorDTO(AutorDTO autorDTO) {
-        this.autorDTO = autorDTO;
+    public void setAutor(AutorDTO autor) {
+        this.autor = autor;
     }
 
-    public PunomocnikDTO getPunomocnikDTO() {
-        return punomocnikDTO;
+    public PunomocnikDTO getPunomocnik() {
+        return punomocnik;
     }
 
-    public void setPunomocnikDTO(PunomocnikDTO punomocnikDTO) {
-        this.punomocnikDTO = punomocnikDTO;
+    public void setPunomocnik(PunomocnikDTO punomocnik) {
+        this.punomocnik = punomocnik;
     }
 
-    public DeloDTO getDeloDTO() {
-        return deloDTO;
+    public DeloDTO getDelo() {
+        return delo;
     }
 
-    public void setDeloDTO(DeloDTO deloDTO) {
-        this.deloDTO = deloDTO;
+    public void setDelo(DeloDTO delo) {
+        this.delo = delo;
     }
 }

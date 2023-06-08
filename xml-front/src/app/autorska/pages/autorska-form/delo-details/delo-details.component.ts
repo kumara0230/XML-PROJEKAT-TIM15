@@ -22,13 +22,14 @@ export class DeloDetailsComponent implements OnInit {
     this.form.get('delo')!.markAllAsTouched();
     this.form.get('delo')!.updateValueAndValidity();
 
-    this.zahtev.delo = {
-      naslov: this.form.value['delo']['naslov'],
-      vrsta: this.form.value['delo']['vrsta'],
-      formaZapisa: this.form.value['delo']['formaZapisa'],
-      alternativniNaziv: this.form.value['delo']['alternativniNaziv'],
-      deloStvorenoURadnomOdnosu: this.form.value['delo']['deloStvorenoURadnomOdnosu'],
-      nacinKoriscenjaDela: this.form.value['delo']['nacinKoriscenjaDela'],
+    
+    const formValues = this.form.get('delo')?.value;
+
+    for (const key in formValues) {
+      if (formValues[key] !== null) {
+        if (!this.zahtev.delo) this.zahtev.delo = {}
+        this.zahtev.delo[key] = formValues[key];
+      }
     }
   }
 }

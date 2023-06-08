@@ -4,6 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.w3c.dom.Node;
 import xml.a1.db.ExistManager;
+import xml.a1.db.ExistWriter;
+import xml.a1.fuseki.FusekiWriter;
+import xml.a1.fuseki.MetadataExtractor;
 import xml.a1.model.Zahtev;
 
 
@@ -11,10 +14,12 @@ import xml.a1.model.Zahtev;
 public class AutorskaRepository {
     private String collectionId = "/db/autorska";
     private ExistManager existManager;
+    private final MetadataExtractor metadataExtractor;
 
     @Autowired
-    public AutorskaRepository(ExistManager existManager) {
+    public AutorskaRepository(ExistManager existManager, MetadataExtractor metadataExtractor) {
         this.existManager = existManager;
+        this.metadataExtractor = metadataExtractor;
     }
 
     public void saveAutorska(String text) throws Exception {
@@ -35,7 +40,14 @@ public class AutorskaRepository {
         return existManager.getZahtevAsNode(collectionId, documentId);
     }
 
-    public void save(Zahtev zahtev) {
-        // TODO
+    public void save(Zahtev zahtev) throws Exception {
+        ExistWriter existWriter = new ExistWriter();
+        Zahtev newZahtev = existWriter.saveAutorska(
+                "autorska",
+                zahtev.getPopunjavaZavod().getBrojPrijave() + ".xml",
+                zahtev);
+
+        metadataExtractor.extractFromZahtev(newZahtev);
+        FusekiWriter.saveRDF();
     }
 }

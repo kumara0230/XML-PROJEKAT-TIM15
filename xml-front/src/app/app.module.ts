@@ -8,7 +8,7 @@ import { LoginFormComponent } from './components/auth/login-form/login-form.comp
 import { SignupFormComponent } from './components/auth/signup-form/signup-form.component';
 import { SignupComponent } from './pages/auth/signup/signup.component';
 import { ToastrModule } from 'ngx-toastr';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ChooseServiceComponent } from './pages/choose-service/choose-service.component';
@@ -29,6 +29,7 @@ import {MatListModule} from '@angular/material/list';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatInputModule} from '@angular/material/input';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     MatStepperModule,
     MatInputModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

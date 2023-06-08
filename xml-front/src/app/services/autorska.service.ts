@@ -20,8 +20,10 @@ export class AutorskaService {
   constructor(private http: HttpClient) { }
 
   sendNewRequest(zahtev: Zahtev) {
+    console.log('pre parse');
+    console.log(zahtev);
     const xmlPayload = JsonToXML.parse("RequestAutorskoDelo", zahtev);
     console.log(xmlPayload);
-    return this.http.post<any>(`${this.baseUrl}register`, xmlPayload, this.requestOptions);
+    return this.http.post<any>(`${this.baseUrl}new-request`, xmlPayload, this.requestOptions);
   }
 }

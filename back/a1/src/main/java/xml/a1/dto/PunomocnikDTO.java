@@ -5,18 +5,18 @@ import javax.xml.bind.annotation.XmlElement;
 public class PunomocnikDTO {
 
     @XmlElement
-    private AdresaDTO adresaDTO;
+    private AdresaDTO adresa;
     @XmlElement
     private String ime;
     @XmlElement
     private String prezime;
 
-    public AdresaDTO getAdresaDTO() {
-        return adresaDTO;
+    public AdresaDTO getAdresa() {
+        return adresa;
     }
 
-    public void setAdresaDTO(AdresaDTO adresaDTO) {
-        this.adresaDTO = adresaDTO;
+    public void setAdresa(AdresaDTO adresa) {
+        this.adresa = adresa;
     }
 
     public String getIme() {

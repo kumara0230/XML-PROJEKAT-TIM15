@@ -4,17 +4,17 @@
     <div>
 
         <div class="form-group" formGroupName="delo">
-            <label>Naslov</label>
+            <label>Naslov*</label>
             <input type="text" class="form-control" formControlName="naslov">
         </div>
 
         <div class="form-group mt-1" formGroupName="delo">
-            <label>Vrsta dela</label>
+            <label>Vrsta dela*</label>
             <input type="text" class="form-control" formControlName="vrsta">
         </div>
 
         <div class="form-group mt-1" formGroupName="delo">
-            <label>Forma zapisa</label>
+            <label>Forma zapisa*</label>
             <input type="text" class="form-control" formControlName="formaZapisa">
         </div>
 
@@ -28,7 +28,7 @@
         </div>
 
         <div class="form-group mt-1" formGroupName="delo">
-            <label>Nacin koriscenja dela</label>
+            <label>Nacin koriscenja dela*</label>
             <input type="text" class="form-control" formControlName="nacinKoriscenjaDela">
         </div>
 
@@ -45,4 +45,4 @@
 <br />
 <button type="button" class="btn btn-secondary" style="width: 50%; margin-left: 25%;" matStepperPrevious>Back</button>
 <button type="button" class="btn btn-primary" style="width: 50%; margin-left: 25%;" matStepperNext
-    (click)="next()">Next</button>
+    (click)="next()" [disabled]="!form.get('delo')?.valid">Next</button>

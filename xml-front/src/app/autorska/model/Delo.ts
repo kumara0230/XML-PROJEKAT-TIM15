@@ -1,11 +1,12 @@
 import { DeloPrerade } from "./DeloPrerade";
 
 export interface Delo {
-    naslov: String,
-    vrsta: String,
-    formaZapisa: String,
-    alternativniNaziv: String,
-    deloStvorenoURadnomOdnosu: boolean,
-    nacinKoriscenjaDela: String,
-    deloPrerade?: DeloPrerade 
+    [key: string] : any;
+    // naslov: String,
+    // vrsta: String,
+    // formaZapisa: String,
+    // alternativniNaziv?: String | undefined,
+    // deloStvorenoURadnomOdnosu: boolean,
+    // nacinKoriscenjaDela: String,
+    // deloPrerade?: DeloPrerade | undefined,
 }

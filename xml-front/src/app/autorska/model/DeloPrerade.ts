@@ -1,7 +1,8 @@
 export interface DeloPrerade {
-    naslovIzvornogDela: string,
-    ime: String,
-    prezime: String,
-    pseudonim: String,
-    godinaSmrti: Number
+    [key: string] : any;
+    // naslovIzvornogDela: string,
+    // ime: String,
+    // prezime: String,
+    // pseudonim: String,
+    // godinaSmrti: Number
 }

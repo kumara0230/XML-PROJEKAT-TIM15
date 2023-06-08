@@ -4,12 +4,12 @@
     <div>
 
         <div class="form-group" formGroupName="podnosilac">
-            <label>Ime</label>
+            <label>Ime (fizicka lica)</label>
             <input type="text" class="form-control" formControlName="ime">
         </div>
 
         <div class="form-group mt-1" formGroupName="podnosilac">
-            <label>Prezime</label>
+            <label>Prezime (fizicka lica)</label>
             <input type="text" class="form-control" formControlName="prezime">
         </div>
 
@@ -19,12 +19,12 @@
         </div>
 
         <div class="form-group mt-1" formGroupName="podnosilac">
-            <label>Broj telefona</label>
+            <label>Broj telefona*</label>
             <input type="text" class="form-control" formControlName="brojTelefona">
         </div>
 
         <div class="form-group mt-1" formGroupName="podnosilac">
-            <label>Email</label>
+            <label>Email*</label>
             <input type="email" class="form-control" formControlName="email">
         </div>
         <div class="form-group mt-1" formGroupName="podnosilac">
@@ -35,27 +35,27 @@
 
     <div>
         <div class="form-group mt-1" formGroupName="podnosilac">
-            <label>Ulica</label>
+            <label>Ulica*</label>
             <input type="text" class="form-control" formControlName="ulica">
         </div>
 
         <div class="form-group mt-1" formGroupName="podnosilac">
-            <label>Broj</label>
+            <label>Broj*</label>
             <input type="text" class="form-control" formControlName="broj">
         </div>
 
         <div class="form-group mt-1" formGroupName="podnosilac">
-            <label>Mesto</label>
+            <label>Mesto*</label>
             <input type="text" class="form-control" formControlName="mesto">
         </div>
 
         <div class="form-group mt-1" formGroupName="podnosilac">
-            <label>Postanski broj</label>
+            <label>Postanski broj*</label>
             <input type="text" class="form-control" formControlName="postanskiBroj">
         </div>
 
         <div class="form-group mt-1" formGroupName="podnosilac">
-            <label>Drzavljanstvo</label>
+            <label>Drzavljanstvo (fizicka lica)</label>
             <input type="text" class="form-control" formControlName="drzavljanstvo">
         </div>
 
@@ -67,4 +67,4 @@
     </div>
 </div>
 <br />
-<button type="button" class="btn btn-primary" style="width: 50%; margin-left: 25%;" matStepperNext (click)="next()">Next</button>
+<button type="button" [disabled]="!form.get('podnosilac')?.valid" class="btn btn-primary" style="width: 50%; margin-left: 25%;" matStepperNext (click)="next()">Next</button>

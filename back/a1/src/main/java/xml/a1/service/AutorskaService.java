@@ -90,7 +90,7 @@ public class AutorskaService {
         this.pdfTransformer.parseToPdf(file);
     }
 
-    public Zahtev kreirajZahtev(RequestAutorskoDelo requestAutorskoDelo) throws DatatypeConfigurationException {
+    public Zahtev kreirajZahtev(RequestAutorskoDelo requestAutorskoDelo) throws Exception {
         Zahtev zahtev = autorskaMapper.mapAutorska(requestAutorskoDelo);
         this.autorskaRepository.save(zahtev);
         return zahtev;

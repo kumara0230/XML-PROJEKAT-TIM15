@@ -27,10 +27,12 @@ export class PunomocnikDetailsComponent implements OnInit {
     this.form.get('punomocnik')!.updateValueAndValidity();
 
     this.zahtev.punomocnik = {
-      ulica: this.form.value['punomocnik']['ulica'],
-      broj: this.form.value['punomocnik']['broj'],
-      mesto: this.form.value['punomocnik']['mesto'],
-      postanskiBroj: this.form.value['punomocnik']['postanskiBroj'],
+      adresa: {
+        ulica: this.form.value['punomocnik']['ulica'],
+        broj: this.form.value['punomocnik']['broj'],
+        mesto: this.form.value['punomocnik']['mesto'],
+        postanskiBroj: this.form.value['punomocnik']['postanskiBroj'],
+      },
       ime: this.form.value['punomocnik']['ime'],
       prezime: this.form.value['punomocnik']['prezime'],
     }

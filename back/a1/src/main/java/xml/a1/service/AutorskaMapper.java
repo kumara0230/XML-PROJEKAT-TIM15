@@ -20,11 +20,11 @@ public class AutorskaMapper {
     public Zahtev mapAutorska(RequestAutorskoDelo requestAutorskoDelo) throws DatatypeConfigurationException {
 
         Zahtev zahtev = new Zahtev();
-        zahtev.setPodnosilac(parsePodnosilac(requestAutorskoDelo.getPodnosilacDTO()));
-        zahtev.setPodnosilacAutor(requestAutorskoDelo.getPodnosilacDTO().isPodnosilacAutor());
+        zahtev.setPodnosilac(parsePodnosilac(requestAutorskoDelo.getPodnosilac()));
+        zahtev.setPodnosilacAutor(requestAutorskoDelo.getPodnosilac().isPodnosilacAutor());
         zahtev.setAutor(parseAutor(requestAutorskoDelo));
         zahtev.setPunomocnik(parsePunomocnik(requestAutorskoDelo));
-        zahtev.setDelo(parseDelo(requestAutorskoDelo.getDeloDTO()));
+        zahtev.setDelo(parseDelo(requestAutorskoDelo.getDelo()));
         zahtev.setPopunjavaZavod(popuniZavod(requestAutorskoDelo));
         // opis dela???
         return zahtev;
@@ -32,7 +32,8 @@ public class AutorskaMapper {
 
     private PopunjavaZavod popuniZavod(RequestAutorskoDelo requestAutorskoDelo) throws DatatypeConfigurationException {
         PopunjavaZavod popunjavaZavod = new PopunjavaZavod();
-        popunjavaZavod.setBrojPrijave("A-" + String.valueOf(LocalDateTime.now()));
+        Date now = new Date();
+        popunjavaZavod.setBrojPrijave("A-" + now.getTime());
         popunjavaZavod.setDatumPodnosenja(genDatumPodnosenja());
         // opis?
         return popunjavaZavod;
@@ -53,7 +54,7 @@ public class AutorskaMapper {
         if (deloDTO.getAlternativniNaziv() != null) delo.setAlternativniNaslov(deloDTO.getAlternativniNaziv());
         delo.setVrstaAutorskogDela(deloDTO.getVrsta());
         delo.setFormaZapisa(deloDTO.getFormaZapisa());
-        delo.setNacinKoriscenjaDela(deloDTO.getNacinKoriscenja());
+        delo.setNacinKoriscenjaDela(deloDTO.getNacinKoriscenjaDela());
         delo.setDeloStvorenoURadnomOdnosu(deloDTO.isDeloStvorenoURadnomOdnosu());
 
         if (deloDTO.getDeloPrerade() != null) {
@@ -78,7 +79,7 @@ public class AutorskaMapper {
         if (podnosilacDTO.getPoslovnoIme() != null) {           // pravno lice
             TPravnoLice podnosilac = new TPravnoLice();
             podnosilac.setPoslovnoIme(podnosilac.getPoslovnoIme());
-            podnosilac.setAdresa(mapAddress(podnosilacDTO.getAdresaDTO()));
+            podnosilac.setAdresa(mapAddress(podnosilacDTO.getAdresa()));
             Kontakt k = new Kontakt();
             k.setEmail(podnosilacDTO.getEmail());
             k.setBrojTelefona(podnosilacDTO.getBrojTelefona());
@@ -87,7 +88,7 @@ public class AutorskaMapper {
             return podnosilac;
         } else {                                                // fizicko lice
             TFizickoLice podnosilac = new TFizickoLice();
-            podnosilac.setAdresa(mapAddress(podnosilacDTO.getAdresaDTO()));
+            podnosilac.setAdresa(mapAddress(podnosilacDTO.getAdresa()));
             Kontakt k = new Kontakt();
             k.setEmail(podnosilacDTO.getEmail());
             k.setBrojTelefona(podnosilacDTO.getBrojTelefona());
@@ -110,32 +111,34 @@ public class AutorskaMapper {
     }
 
     private Autor parseAutor(RequestAutorskoDelo requestAutorskoDelo) {
+        if (requestAutorskoDelo.getAutor() == null) return null;
+
         Autor autor = new Autor();
 
-        if (requestAutorskoDelo.getAutorDTO().isAutorAnoniman()) {
+        if (requestAutorskoDelo.getAutor().isAutorAnoniman()) {
             autor.setAutorAnoniman(true);
             return autor;
         }
         autor.setAutorAnoniman(false);
 
-        if (requestAutorskoDelo.getAutorDTO().getPseudonim() != null)
-            autor.setPseudonimAutora(requestAutorskoDelo.getAutorDTO().getPseudonim());
+        if (requestAutorskoDelo.getAutor().getPseudonim() != null)
+            autor.setPseudonimAutora(requestAutorskoDelo.getAutor().getPseudonim());
 
-        if (requestAutorskoDelo.getPodnosilacDTO().isPodnosilacAutor()) return autor;
+        if (requestAutorskoDelo.getPodnosilac().isPodnosilacAutor()) return autor;
 
         TFizickoLice fizickoLice = new TFizickoLice();
-        fizickoLice.setDrzavljanstvo(requestAutorskoDelo.getAutorDTO().getDrzavljanstvo());
-        fizickoLice.setIme(requestAutorskoDelo.getAutorDTO().getIme());
-        fizickoLice.setPrezime(requestAutorskoDelo.getAutorDTO().getPrezime());
+        fizickoLice.setDrzavljanstvo(requestAutorskoDelo.getAutor().getDrzavljanstvo());
+        fizickoLice.setIme(requestAutorskoDelo.getAutor().getIme());
+        fizickoLice.setPrezime(requestAutorskoDelo.getAutor().getPrezime());
 
-        if (requestAutorskoDelo.getAutorDTO().getGodinaSmrti() != null)
-            autor.setGodinaSmrti(requestAutorskoDelo.getAutorDTO().getGodinaSmrti());
+        if (requestAutorskoDelo.getAutor().getGodinaSmrti() != null)
+            autor.setGodinaSmrti(requestAutorskoDelo.getAutor().getGodinaSmrti());
         else {
-            fizickoLice.setAdresa(mapAddress(requestAutorskoDelo.getAutorDTO().getAdresa()));
+            fizickoLice.setAdresa(mapAddress(requestAutorskoDelo.getAutor().getAdresa()));
             Kontakt k = new Kontakt();
-            k.setFaks(requestAutorskoDelo.getAutorDTO().getFaks());
-            k.setBrojTelefona(requestAutorskoDelo.getAutorDTO().getBrojTelefona());
-            k.setEmail(requestAutorskoDelo.getAutorDTO().getEmail());
+            k.setFaks(requestAutorskoDelo.getAutor().getFaks());
+            k.setBrojTelefona(requestAutorskoDelo.getAutor().getBrojTelefona());
+            k.setEmail(requestAutorskoDelo.getAutor().getEmail());
             fizickoLice.setKontakt(k);
         }
         autor.setLice(fizickoLice);
@@ -143,13 +146,13 @@ public class AutorskaMapper {
     }
 
     private Punomocnik parsePunomocnik(RequestAutorskoDelo requestAutorskoDelo) {
-        if (requestAutorskoDelo.getPunomocnikDTO() == null) {
+        if (requestAutorskoDelo.getPunomocnik() == null) {
             return null;
         }
         Punomocnik punomocnik = new Punomocnik();
-        punomocnik.setAdresa(mapAddress(requestAutorskoDelo.getPunomocnikDTO().getAdresaDTO()));
-        punomocnik.setIme(requestAutorskoDelo.getPunomocnikDTO().getIme());
-        punomocnik.setPrezime(requestAutorskoDelo.getPunomocnikDTO().getPrezime());
+        punomocnik.setAdresa(mapAddress(requestAutorskoDelo.getPunomocnik().getAdresa()));
+        punomocnik.setIme(requestAutorskoDelo.getPunomocnik().getIme());
+        punomocnik.setPrezime(requestAutorskoDelo.getPunomocnik().getPrezime());
         return punomocnik;
     }
 

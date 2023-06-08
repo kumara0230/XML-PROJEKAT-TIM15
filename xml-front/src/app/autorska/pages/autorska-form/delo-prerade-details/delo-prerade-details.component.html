@@ -5,17 +5,17 @@
 <div *ngIf="isDeloPrerade()" [formGroup]="form" style="display: flex; justify-content: center; gap: 10vh;">
     <div>
         <div class="form-group mt-1" formGroupName="deloPrerade">
-            <label>Naslov izvornog dela</label>
+            <label>Naslov izvornog dela*</label>
             <input type="text" class="form-control" formControlName="naslovIzvornogDela">
         </div>
 
         <div class="form-group mt-1" formGroupName="deloPrerade">
-            <label>Ime Autora</label>
+            <label>Ime Autora*</label>
             <input type="text" class="form-control" formControlName="ime">
         </div>
 
         <div class="form-group mt-1" formGroupName="deloPrerade">
-            <label>Prezime Autora</label>
+            <label>Prezime Autora*</label>
             <input type="text" class="form-control" formControlName="prezime">
         </div>
 
@@ -40,5 +40,5 @@
     <button type="button" class="btn btn-secondary" style="width: 50%; margin-left: 25%;"
         matStepperPrevious>Back</button>
     <button type="button" class="btn btn-primary" style="width: 50%; margin-left: 25%;" matStepperNext
-        (click)="next()">Finish</button>
+        [disabled]="isNextDisabled()" (click)="next()">Finish</button>
 </div>

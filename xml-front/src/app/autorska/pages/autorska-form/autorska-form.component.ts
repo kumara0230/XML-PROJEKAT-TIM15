@@ -20,8 +20,8 @@ export class AutorskaFormComponent implements OnInit {
         'mesto': new FormControl(null, Validators.required),
         'postanskiBroj': new FormControl(null, Validators.required),
 
-        'brojTelefona': new FormControl(null),
-        'email': new FormControl(null),
+        'brojTelefona': new FormControl(null, Validators.required),
+        'email': new FormControl(null, Validators.required),
         'faks': new FormControl(null),
 
         'ime': new FormControl(null),
@@ -53,13 +53,13 @@ export class AutorskaFormComponent implements OnInit {
       }),
 
       'punomocnik': new FormGroup({
-        'ulica': new FormControl(null),
-        'broj': new FormControl(null),
-        'mesto': new FormControl(null),
-        'postanskiBroj': new FormControl(null),
+        'ulica': new FormControl(null, Validators.required),
+        'broj': new FormControl(null, Validators.required),
+        'mesto': new FormControl(null, Validators.required),
+        'postanskiBroj': new FormControl(null, Validators.required),
 
-        'ime': new FormControl(null),
-        'prezime': new FormControl(null),
+        'ime': new FormControl(null, Validators.required),
+        'prezime': new FormControl(null, Validators.required),
       }),
 
       'delo': new FormGroup({
@@ -67,14 +67,14 @@ export class AutorskaFormComponent implements OnInit {
         'vrsta': new FormControl(null, Validators.required),
         'formaZapisa': new FormControl(null, Validators.required),
         'alternativniNaziv': new FormControl(null),
-        'deloStvorenoURadnomOdnosu': new FormControl(null),
-        'nacinKoriscenjaDela': new FormControl(null),
-        'isDeloPrerade': new FormControl(null),
+        'deloStvorenoURadnomOdnosu': new FormControl(false),
+        'nacinKoriscenjaDela': new FormControl(null, Validators.required),
+        'isDeloPrerade': new FormControl(false),
       }),
       'deloPrerade': new FormGroup({
-        'naslovIzvornogDela': new FormControl(null),
-        'ime': new FormControl(null),
-        'prezime': new FormControl(null),
+        'naslovIzvornogDela': new FormControl(null, Validators.required),
+        'ime': new FormControl(null, Validators.required),
+        'prezime': new FormControl(null, Validators.required),
         'pseudonim': new FormControl(null),
         'godinaSmrti': new FormControl(null),
       })

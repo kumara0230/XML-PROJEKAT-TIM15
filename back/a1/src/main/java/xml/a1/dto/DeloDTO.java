@@ -16,7 +16,7 @@ public class DeloDTO {
     @XmlElement
     private boolean deloStvorenoURadnomOdnosu;
     @XmlElement
-    private String nacinKoriscenja;
+    private String nacinKoriscenjaDela;
     @XmlElement
     private DeloPreradeDTO deloPrerade;
 
@@ -60,12 +60,12 @@ public class DeloDTO {
         this.deloStvorenoURadnomOdnosu = deloStvorenoURadnomOdnosu;
     }
 
-    public String getNacinKoriscenja() {
-        return nacinKoriscenja;
+    public String getNacinKoriscenjaDela() {
+        return nacinKoriscenjaDela;
     }
 
-    public void setNacinKoriscenja(String nacinKoriscenja) {
-        this.nacinKoriscenja = nacinKoriscenja;
+    public void setNacinKoriscenjaDela(String nacinKoriscenjaDela) {
+        this.nacinKoriscenjaDela = nacinKoriscenjaDela;
     }
 
     public DeloPreradeDTO getDeloPrerade() {
