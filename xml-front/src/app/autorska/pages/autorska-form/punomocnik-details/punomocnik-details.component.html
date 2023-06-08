@@ -1,0 +1,44 @@
+<h4>Podaci o Punomoćniku</h4>
+
+<div [formGroup]="form" style="display: flex; justify-content: center; gap: 10vh;">
+    <div>
+
+        <div class="form-group" formGroupName="punomocnik">
+            <label>Ime*</label>
+            <input type="text" class="form-control" formControlName="ime">
+        </div>
+
+        <div class="form-group mt-1" formGroupName="punomocnik">
+            <label>Prezime*</label>
+            <input type="text" class="form-control" formControlName="prezime">
+        </div>
+
+        <div class="form-group mt-1" formGroupName="punomocnik">
+            <label>Ulica*</label>
+            <input type="text" class="form-control" formControlName="ulica">
+        </div>
+    </div>
+
+    <div>
+        <div class="form-group mt-1" formGroupName="punomocnik">
+            <label>Broj*</label>
+            <input type="text" class="form-control" formControlName="broj">
+        </div>
+
+        <div class="form-group mt-1" formGroupName="punomocnik">
+            <label>Mesto*</label>
+            <input type="text" class="form-control" formControlName="mesto">
+        </div>
+
+        <div class="form-group mt-1" formGroupName="punomocnik">
+            <label>Postanski broj*</label>
+            <input type="text" class="form-control" formControlName="postanskiBroj">
+        </div>
+    </div>
+</div>
+<br />
+<button type="button" class="btn" style="width: 50%; margin-left: 25%; background-color: black; color: white;" matStepperNext
+(click)="noPunomocnik()">Prijava se ne podnosi preko punomocnika</button>
+<button type="button" class="btn btn-secondary" style="width: 50%; margin-left: 25%;"
+matStepperPrevious>Back</button>
+<button type="button" [disabled]="!form.get('punomocnik')?.valid" class="btn btn-primary" style="width: 50%; margin-left: 25%;" matStepperNext (click)="next()">Next</button>

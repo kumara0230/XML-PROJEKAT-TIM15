@@ -1,0 +1,44 @@
+<app-navbar></app-navbar>
+
+<div class="container col-md-12">
+	<form [formGroup]="autorskaForm">
+		<mat-horizontal-stepper #stepper>
+
+			<mat-step formGroupName="podnosilac" [stepControl]="autorskaForm.get('podnosilac')!">
+
+				<ng-template matStepLabel>Podnosilac</ng-template>
+				<app-podnosilac-details [zahtev]="zahtev" [form]="autorskaForm"></app-podnosilac-details>
+
+			</mat-step>
+
+			<mat-step formGroupName="autor" [stepControl]="autorskaForm.get('autor')!">
+
+				<ng-template matStepLabel>Autor</ng-template>
+				<app-autor-details [zahtev]="zahtev" [form]="autorskaForm"></app-autor-details>
+
+			</mat-step>
+
+			<mat-step formGroupName="punomocnik" [stepControl]="autorskaForm.get('punomocnik')!">
+
+				<ng-template matStepLabel>Punomoćnik</ng-template>
+				<app-punomocnik-details [zahtev]="zahtev" [form]="autorskaForm"></app-punomocnik-details>
+
+			</mat-step>
+
+			<mat-step formGroupName="delo" [stepControl]="autorskaForm.get('delo')!">
+
+				<ng-template matStepLabel>Delo</ng-template>
+				<app-delo-details [zahtev]="zahtev" [form]="autorskaForm"></app-delo-details>
+
+			</mat-step>
+
+			<mat-step formGroupName="deloPrerade" [stepControl]="autorskaForm.get('deloPrerade')!">
+
+				<ng-template matStepLabel>Delo Prerade</ng-template>
+				<app-delo-prerade-details [form]="autorskaForm" [zahtev]="zahtev"></app-delo-prerade-details>
+
+			</mat-step>
+
+		</mat-horizontal-stepper>
+	</form>
+</div>

@@ -8,18 +8,14 @@
 
 package xml.a1.model;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 
 
 /**
  * <p>Java class for anonymous complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType&gt;
  *   &lt;complexContent&gt;
@@ -35,16 +31,15 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "podnosilac",
-    "autor",
-    "punomocnik",
-    "delo",
-    "popunjavaZavod"
+        "podnosilac",
+        "podnosilacAutor",
+        "autor",
+        "punomocnik",
+        "delo",
+        "popunjavaZavod"
 })
 @XmlRootElement(name = "Zahtev")
 public class Zahtev {
@@ -59,14 +54,22 @@ public class Zahtev {
     protected Delo delo;
     @XmlElement(name = "Popunjava_zavod", required = true)
     protected PopunjavaZavod popunjavaZavod;
+    @XmlElement(name = "podnosilac_autor", required = true)
+    protected boolean podnosilacAutor;
+
+    public boolean isPodnosilacAutor() {
+        return podnosilacAutor;
+    }
+
+    public void setPodnosilacAutor(boolean podnosilacAutor) {
+        this.podnosilacAutor = podnosilacAutor;
+    }
 
     /**
      * Gets the value of the podnosilac property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TLice }
-     *     
+     *
+     * @return possible object is
+     * {@link TLice }
      */
     public TLice getPodnosilac() {
         return podnosilac;
@@ -74,11 +77,9 @@ public class Zahtev {
 
     /**
      * Sets the value of the podnosilac property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link TLice }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link TLice }
      */
     public void setPodnosilac(TLice value) {
         this.podnosilac = value;
@@ -86,11 +87,9 @@ public class Zahtev {
 
     /**
      * Gets the value of the autor property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Autor }
-     *     
+     *
+     * @return possible object is
+     * {@link Autor }
      */
     public Autor getAutor() {
         return autor;
@@ -98,11 +97,9 @@ public class Zahtev {
 
     /**
      * Sets the value of the autor property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Autor }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Autor }
      */
     public void setAutor(Autor value) {
         this.autor = value;
@@ -110,11 +107,9 @@ public class Zahtev {
 
     /**
      * Gets the value of the punomocnik property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Punomocnik }
-     *     
+     *
+     * @return possible object is
+     * {@link Punomocnik }
      */
     public Punomocnik getPunomocnik() {
         return punomocnik;
@@ -122,11 +117,9 @@ public class Zahtev {
 
     /**
      * Sets the value of the punomocnik property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Punomocnik }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Punomocnik }
      */
     public void setPunomocnik(Punomocnik value) {
         this.punomocnik = value;
@@ -134,11 +127,9 @@ public class Zahtev {
 
     /**
      * Gets the value of the delo property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Delo }
-     *     
+     *
+     * @return possible object is
+     * {@link Delo }
      */
     public Delo getDelo() {
         return delo;
@@ -146,11 +137,9 @@ public class Zahtev {
 
     /**
      * Sets the value of the delo property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Delo }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Delo }
      */
     public void setDelo(Delo value) {
         this.delo = value;
@@ -158,11 +147,9 @@ public class Zahtev {
 
     /**
      * Gets the value of the popunjavaZavod property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link PopunjavaZavod }
-     *     
+     *
+     * @return possible object is
+     * {@link PopunjavaZavod }
      */
     public PopunjavaZavod getPopunjavaZavod() {
         return popunjavaZavod;
@@ -170,11 +157,9 @@ public class Zahtev {
 
     /**
      * Sets the value of the popunjavaZavod property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link PopunjavaZavod }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link PopunjavaZavod }
      */
     public void setPopunjavaZavod(PopunjavaZavod value) {
         this.popunjavaZavod = value;

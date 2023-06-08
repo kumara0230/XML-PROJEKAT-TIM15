@@ -16,9 +16,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for TFizicko_lice complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="TFizicko_lice"&gt;
  *   &lt;complexContent&gt;
@@ -32,18 +32,15 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TFizicko_lice", propOrder = {
-    "ime",
-    "prezime",
-    "drzavljanstvo"
+        "ime",
+        "prezime",
+        "drzavljanstvo"
 })
 public class TFizickoLice
-    extends TLice
-{
+        extends TLice {
 
     @XmlElement(name = "Ime", required = true)
     protected String ime;
@@ -54,11 +51,9 @@ public class TFizickoLice
 
     /**
      * Gets the value of the ime property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getIme() {
         return ime;
@@ -66,11 +61,9 @@ public class TFizickoLice
 
     /**
      * Sets the value of the ime property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setIme(String value) {
         this.ime = value;
@@ -78,11 +71,9 @@ public class TFizickoLice
 
     /**
      * Gets the value of the prezime property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getPrezime() {
         return prezime;
@@ -90,11 +81,9 @@ public class TFizickoLice
 
     /**
      * Sets the value of the prezime property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setPrezime(String value) {
         this.prezime = value;
@@ -102,11 +91,9 @@ public class TFizickoLice
 
     /**
      * Gets the value of the drzavljanstvo property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getDrzavljanstvo() {
         return drzavljanstvo;
@@ -114,11 +101,9 @@ public class TFizickoLice
 
     /**
      * Sets the value of the drzavljanstvo property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setDrzavljanstvo(String value) {
         this.drzavljanstvo = value;

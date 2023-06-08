@@ -1,0 +1,46 @@
+<app-navbar></app-navbar>
+
+<!-- Lista prethodnih zahteva -->
+<div class="container mt-4">
+	<h2>Vaši zahtevi:</h2>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Naziv autorskog dela</th>
+				<th>Vreme podnošenja</th>
+				<th>Status zahteva</th>
+				<th>Export</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td class="m-2">Konan Movie</td>
+				<td class="m-2">18/2/2023</td>
+				<td class="m-2">PENDING</td>
+				<td>
+					<button class="btn btn-secondary m-2">JSON</button>
+					<button class="btn btn-secondary m-2">PDF</button>
+				</td>
+			</tr>
+			<tr>
+				<td class="m-2">Konan Movie</td>
+				<td class="m-2">18/2/2023</td>
+				<td class="m-2">PENDING</td>
+				<td>
+					<button class="btn btn-secondary m-2">JSON</button>
+					<button class="btn btn-secondary m-2">PDF</button>
+				</td>
+			</tr>
+			<!-- <tr *ngFor="let zahtev of prethodniZahtevi">
+				<td>{{ zahtev.nazivDela }}</td>
+				<td>{{ zahtev.vremePodnosenja }}</td>
+				<td>{{ zahtev.status }}</td>
+			</tr> -->
+		</tbody>
+	</table>
+</div>
+
+<!-- Dugme za novi zahtev -->
+<div class="container text-center mt-4">
+	<button class="btn btn-primary" routerLink="/autorska/new">Novi zahtev</button>
+</div>

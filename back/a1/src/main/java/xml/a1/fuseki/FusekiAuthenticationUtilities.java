@@ -55,8 +55,7 @@ public class FusekiAuthenticationUtilities {
     /**
      * Read a resource for an example.
      *
-     * @param fileName
-     *            the name of the resource
+     * @param fileName the name of the resource
      * @return an input stream for the resource
      * @throws IOException
      */

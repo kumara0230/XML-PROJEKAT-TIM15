@@ -8,18 +8,14 @@
 
 package xml.a1.model;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 
 
 /**
  * <p>Java class for anonymous complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType&gt;
  *   &lt;complexContent&gt;
@@ -33,14 +29,12 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "brojTelefona",
-    "email",
-    "faks"
+        "brojTelefona",
+        "email",
+        "faks"
 })
 @XmlRootElement(name = "Kontakt")
 public class Kontakt {
@@ -54,11 +48,9 @@ public class Kontakt {
 
     /**
      * Gets the value of the brojTelefona property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getBrojTelefona() {
         return brojTelefona;
@@ -66,11 +58,9 @@ public class Kontakt {
 
     /**
      * Sets the value of the brojTelefona property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setBrojTelefona(String value) {
         this.brojTelefona = value;
@@ -78,11 +68,9 @@ public class Kontakt {
 
     /**
      * Gets the value of the email property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getEmail() {
         return email;
@@ -90,11 +78,9 @@ public class Kontakt {
 
     /**
      * Sets the value of the email property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setEmail(String value) {
         this.email = value;
@@ -102,11 +88,9 @@ public class Kontakt {
 
     /**
      * Gets the value of the faks property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getFaks() {
         return faks;
@@ -114,11 +98,9 @@ public class Kontakt {
 
     /**
      * Sets the value of the faks property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setFaks(String value) {
         this.faks = value;

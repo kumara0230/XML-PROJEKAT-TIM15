@@ -1,0 +1,144 @@
+.outer {
+    height: 100vh;
+    background: url("https://img.freepik.com/free-photo/ring-binder-used-stored-documents_23-2149362575.jpg?w=1380&t=st=1685790303~exp=1685790903~hmac=f0b532f2de3aa9f7b413ee243542aa821fc673779d3799753dfbb10c2e9ac23b");
+    background-size: cover;
+    background-position: center;
+}
+
+.row {
+    justify-content: center;
+}
+.panel-heading {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#forget{
+    min-width: 100px;
+    margin-left: auto;
+    text-decoration: none;
+    color: rgb(12, 92, 241);
+    cursor: pointer;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+.form-inline{
+    padding-left: 10px;
+    margin: 0;
+    cursor: pointer;
+}
+
+.btn {
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+.panel {
+    min-height: 380px;
+    box-shadow: 10px 10px 50px rgb(141, 141, 141);
+    border-radius: 12px;
+}
+
+.input-field{
+    border-radius: 10px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    color: #4d4d4d;
+}
+
+.gray-input-field {
+    border-radius: 10px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    color: #4d4d4d;
+}
+
+.gray-input-field input {
+    font-size: 16px;
+    border-radius: 10px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    color: #4d4d4d;
+    background-color: rgb(238, 238, 238);
+    border-color: rgb(238, 238, 238);}
+
+.input-field input {
+    border: none;
+    outline: none;
+    box-shadow: none;
+    width: 100%;
+}
+
+.input-field.error {
+    border: 1px solid red;
+    color: red;
+}
+
+.fa-eye-slash.btn {
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+.input-field img,
+.fb-login-btn img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+    position: relative;
+}
+
+
+
+.bordert {
+    border-top: 1px solid #aaa;
+    position: relative;
+}
+
+.bordert:after {
+    content: "or connect with";
+    position: absolute;
+    top: -13px;
+    left: 36%;
+    background-color: #fff;
+    padding: 0 8px;
+}
+
+
+/* width */
+::-webkit-scrollbar {
+    border-radius: 10px;
+    width: 2px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.modal-dialog {
+    top: 5%;
+}

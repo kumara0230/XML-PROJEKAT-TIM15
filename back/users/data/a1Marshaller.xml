@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Zahtev xmlns="a1ns">
+    <Podnosilac xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="TFizicko_lice">
+        <Adresa>
+            <Ulica>Jevrejska</Ulica>
+            <Broj>2</Broj>
+            <Mesto>Novi Sad</Mesto>
+            <Postanski_broj>21000</Postanski_broj>
+        </Adresa>
+        <Kontakt>
+            <Broj_telefona>0653253235</Broj_telefona>
+            <Email>mail@gmail.com</Email>
+            <Faks>021-255-221</Faks>
+        </Kontakt>
+        <Ime>Pera</Ime>
+        <Prezime>Peric</Prezime>
+        <Drzavljanstvo>srpsko</Drzavljanstvo>
+    </Podnosilac>
+    <Autor>
+        <Lice>
+            <Adresa>
+                <Ulica>Jevrejska</Ulica>
+                <Broj>22</Broj>
+                <Mesto>Novi Sad</Mesto>
+                <Postanski_broj>21000</Postanski_broj>
+            </Adresa>
+            <Kontakt>
+                <Broj_telefona>0612512121</Broj_telefona>
+                <Email>autor@mail.com</Email>
+            </Kontakt>
+            <Ime>Novo ime autora</Ime>
+            <Prezime>Autoric</Prezime>
+            <Drzavljanstvo>srpsko</Drzavljanstvo>
+        </Lice>
+        <Pseudonim_autora>AutrPs</Pseudonim_autora>
+        <Godina_smrti>2021</Godina_smrti>
+        <Autor_anoniman>false</Autor_anoniman>
+    </Autor>
+    <Punomocnik>
+        <Ime>Punom</Ime>
+        <Prezime>Ocnik</Prezime>
+        <Adresa>
+            <Ulica>Jevrejska</Ulica>
+            <Broj>23</Broj>
+            <Mesto>Novi Sad</Mesto>
+            <Postanski_broj>21000</Postanski_broj>
+        </Adresa>
+    </Punomocnik>
+    <Delo>
+        <Naslov_dela>Delo</Naslov_dela>
+        <Alternativni_naslov>AltNaslovDela</Alternativni_naslov>
+        <Delo_prerade>
+            <Naslov_izvornog_dela>Izvorno Delo</Naslov_izvornog_dela>
+            <Autor>
+                <Lice>
+                    <Adresa>
+                        <Ulica>Jevrejska</Ulica>
+                        <Broj>28</Broj>
+                        <Mesto>Novi Sad</Mesto>
+                        <Postanski_broj>21000</Postanski_broj>
+                    </Adresa>
+                    <Kontakt/>
+                    <Ime>Izv Autor</Ime>
+                    <Prezime>Autoric</Prezime>
+                    <Drzavljanstvo>srpsko</Drzavljanstvo>
+                </Lice>
+                <Pseudonim_autora>PsIzvAut</Pseudonim_autora>
+                <Autor_anoniman>false</Autor_anoniman>
+            </Autor>
+        </Delo_prerade>
+        <Vrsta_autorskog_dela>film</Vrsta_autorskog_dela>
+        <Forma_zapisa>video</Forma_zapisa>
+        <Delo_stvoreno_u_radnom_odnosu>true</Delo_stvoreno_u_radnom_odnosu>
+    </Delo>
+    <Popunjava_zavod>
+        <Opis_dela>Opis dela</Opis_dela>
+        <Broj_prijave>A-12321</Broj_prijave>
+        <Datum_podnosenja>2022-12-10</Datum_podnosenja>
+    </Popunjava_zavod>
+</Zahtev>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<a1:Zahtev xmlns="http://ftn.uns.ac.rs/a1"
-           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-           xmlns:a1="http://www.ftn.uns.ac.rs/a1"
-           xsi:schemaLocation="http://ftn.uns.ac.rs/a1 file:/home/drgcvc/Documents/xml/XML-PROJEKAT-TIM15/back/a1/src/main/resources/xsd/a1schema.xsd">
+<a1:Zahtev
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:a1="http://www.ftn.uns.ac.rs/a1"
+        xsi:schemaLocation="http://ftn.uns.ac.rs/a1 file:/home/drgcvc/Documents/xml/XML-PROJEKAT-TIM15/back/a1/src/main/resources/xsd/a1schema.xsd">
     <a1:Podnosilac xsi:type="a1:TFizicko_lice">
         <a1:Adresa>
             <a1:ulica>ulica0</a1:ulica>

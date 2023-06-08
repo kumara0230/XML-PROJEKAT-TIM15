@@ -8,20 +8,15 @@
 
 package xml.a1.model;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
  * <p>Java class for anonymous complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType&gt;
  *   &lt;complexContent&gt;
@@ -36,15 +31,13 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "lice",
-    "pseudonimAutora",
-    "godinaSmrti",
-    "autorAnoniman"
+        "lice",
+        "pseudonimAutora",
+        "godinaSmrti",
+        "autorAnoniman"
 })
 @XmlRootElement(name = "Autor")
 public class Autor {
@@ -54,18 +47,16 @@ public class Autor {
     @XmlElement(name = "Pseudonim_autora")
     protected String pseudonimAutora;
     @XmlElement(name = "Godina_smrti")
-    @XmlSchemaType(name = "gYear")
-    protected XMLGregorianCalendar godinaSmrti;
+//    @XmlSchemaType(name = "gYear")
+    protected String godinaSmrti;
     @XmlElement(name = "Autor_anoniman", defaultValue = "false")
     protected boolean autorAnoniman;
 
     /**
      * Gets the value of the lice property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TFizickoLice }
-     *     
+     *
+     * @return possible object is
+     * {@link TFizickoLice }
      */
     public TFizickoLice getLice() {
         return lice;
@@ -73,11 +64,9 @@ public class Autor {
 
     /**
      * Sets the value of the lice property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link TFizickoLice }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link TFizickoLice }
      */
     public void setLice(TFizickoLice value) {
         this.lice = value;
@@ -85,11 +74,9 @@ public class Autor {
 
     /**
      * Gets the value of the pseudonimAutora property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getPseudonimAutora() {
         return pseudonimAutora;
@@ -97,11 +84,9 @@ public class Autor {
 
     /**
      * Sets the value of the pseudonimAutora property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setPseudonimAutora(String value) {
         this.pseudonimAutora = value;
@@ -109,31 +94,26 @@ public class Autor {
 
     /**
      * Gets the value of the godinaSmrti property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @return possible object is
+     * {@link XMLGregorianCalendar }
      */
-    public XMLGregorianCalendar getGodinaSmrti() {
+    public String getGodinaSmrti() {
         return godinaSmrti;
     }
 
     /**
      * Sets the value of the godinaSmrti property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link XMLGregorianCalendar }
      */
-    public void setGodinaSmrti(XMLGregorianCalendar value) {
+    public void setGodinaSmrti(String value) {
         this.godinaSmrti = value;
     }
 
     /**
      * Gets the value of the autorAnoniman property.
-     * 
      */
     public boolean isAutorAnoniman() {
         return autorAnoniman;
@@ -141,7 +121,6 @@ public class Autor {
 
     /**
      * Sets the value of the autorAnoniman property.
-     * 
      */
     public void setAutorAnoniman(boolean value) {
         this.autorAnoniman = value;

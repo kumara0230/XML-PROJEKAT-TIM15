@@ -15,18 +15,17 @@ import javax.xml.namespace.QName;
 
 
 /**
- * This object contains factory methods for each 
- * Java content interface and Java element interface 
- * generated in the generatedpackage package. 
- * <p>An ObjectFactory allows you to programatically 
- * construct new instances of the Java representation 
- * for XML content. The Java representation of XML 
- * content can consist of schema derived interfaces 
- * and classes representing the binding of schema 
- * type definitions, element declarations and model 
- * groups.  Factory methods for each of these are 
+ * This object contains factory methods for each
+ * Java content interface and Java element interface
+ * generated in the generatedpackage package.
+ * <p>An ObjectFactory allows you to programatically
+ * construct new instances of the Java representation
+ * for XML content. The Java representation of XML
+ * content can consist of schema derived interfaces
+ * and classes representing the binding of schema
+ * type definitions, element declarations and model
+ * groups.  Factory methods for each of these are
  * provided in this class.
- * 
  */
 @XmlRegistry
 public class ObjectFactory {
@@ -35,14 +34,12 @@ public class ObjectFactory {
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: generatedpackage
-     * 
      */
     public ObjectFactory() {
     }
 
     /**
      * Create an instance of {@link Zahtev }
-     * 
      */
     public Zahtev createZahtev() {
         return new Zahtev();
@@ -50,7 +47,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Autor }
-     * 
      */
     public Autor createAutor() {
         return new Autor();
@@ -58,7 +54,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TFizickoLice }
-     * 
      */
     public TFizickoLice createTFizickoLice() {
         return new TFizickoLice();
@@ -66,7 +61,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Punomocnik }
-     * 
      */
     public Punomocnik createPunomocnik() {
         return new Punomocnik();
@@ -74,7 +68,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Adresa }
-     * 
      */
     public Adresa createAdresa() {
         return new Adresa();
@@ -82,7 +75,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Delo }
-     * 
      */
     public Delo createDelo() {
         return new Delo();
@@ -90,7 +82,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DeloPrerade }
-     * 
      */
     public DeloPrerade createDeloPrerade() {
         return new DeloPrerade();
@@ -98,7 +89,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link PopunjavaZavod }
-     * 
      */
     public PopunjavaZavod createPopunjavaZavod() {
         return new PopunjavaZavod();
@@ -106,7 +96,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Ustanova }
-     * 
      */
     public Ustanova createUstanova() {
         return new Ustanova();
@@ -114,7 +103,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Kontakt }
-     * 
      */
     public Kontakt createKontakt() {
         return new Kontakt();
@@ -122,7 +110,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TPravnoLice }
-     * 
      */
     public TPravnoLice createTPravnoLice() {
         return new TPravnoLice();
@@ -130,11 +117,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TLice }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TLice }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link TLice }{@code >}
      */
     @XmlElementDecl(namespace = "a1ns", name = "Podnosilac")
     public JAXBElement<TLice> createPodnosilac(TLice value) {

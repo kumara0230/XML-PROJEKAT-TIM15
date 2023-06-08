@@ -2,7 +2,6 @@ package xml.a1.db;
 
 import org.exist.xmldb.EXistResource;
 import org.exist.xupdate.XUpdateProcessor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.w3c.dom.Node;
 import org.xmldb.api.DatabaseManager;
@@ -188,7 +187,7 @@ public class ExistManager {
         }
     }
 
-    public Node getZahtevAsNode(String collectionUri,String documentId) throws Exception {
+    public Node getZahtevAsNode(String collectionUri, String documentId) throws Exception {
         createConnection();
         Collection col = null;
         XMLResource res = null;

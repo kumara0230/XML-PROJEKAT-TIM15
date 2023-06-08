@@ -8,18 +8,14 @@
 
 package xml.a1.model;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 
 
 /**
  * <p>Java class for anonymous complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType&gt;
  *   &lt;complexContent&gt;
@@ -39,13 +35,11 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "nazivUstanove",
-    "adresa"
+        "nazivUstanove",
+        "adresa"
 })
 @XmlRootElement(name = "Ustanova")
 public class Ustanova {
@@ -57,11 +51,9 @@ public class Ustanova {
 
     /**
      * Gets the value of the nazivUstanove property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getNazivUstanove() {
         return nazivUstanove;
@@ -69,11 +61,9 @@ public class Ustanova {
 
     /**
      * Sets the value of the nazivUstanove property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setNazivUstanove(String value) {
         this.nazivUstanove = value;
@@ -81,11 +71,9 @@ public class Ustanova {
 
     /**
      * Gets the value of the adresa property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Adresa }
-     *     
+     *
+     * @return possible object is
+     * {@link Adresa }
      */
     public Adresa getAdresa() {
         return adresa;
@@ -93,11 +81,9 @@ public class Ustanova {
 
     /**
      * Sets the value of the adresa property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Adresa }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Adresa }
      */
     public void setAdresa(Adresa value) {
         this.adresa = value;

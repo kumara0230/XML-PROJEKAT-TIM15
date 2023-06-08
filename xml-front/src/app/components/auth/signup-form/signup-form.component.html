@@ -1,0 +1,90 @@
+<div class="panel-heading">
+  <h1 class="pt-3 font-weight-bold mt-2">Sign Up</h1>
+</div>
+<div class="panel-body p-3">
+  <form [formGroup]="signupForm">
+
+    <div class="form-group pt-3">
+      <div class="input-field"
+        [class.error]="signupForm.controls['firstName'].touched && signupForm.controls['firstName'].invalid">
+        <span class="fa fa-user p-2"></span>
+        <input id="firstNameField" formControlName="firstName" type="text" placeholder="First Name">
+      </div>
+    </div>
+    <small *ngIf="signupForm.controls['firstName'].touched && signupForm.hasError('required', 'firstName')"
+      class="text-danger">*First Name is required</small>
+    <small *ngIf="signupForm.controls['firstName'].touched && signupForm.hasError('minlength', 'firstName')"
+      class="text-danger">*First Name must be at least 2 characters long</small>
+    <small *ngIf="signupForm.controls['firstName'].touched && signupForm.hasError('maxlength', 'firstName')"
+      class="text-danger">*Maximum number of characters is 32</small>
+
+
+    <div class="form-group pt-3">
+      <div class="input-field"
+        [class.error]="signupForm.controls['lastName'].touched && signupForm.controls['lastName'].invalid">
+        <span class="fa fa-user p-2"></span>
+        <input id="lastNameField" formControlName="lastName" type="text" placeholder="Last Name">
+      </div>
+    </div>
+    <small *ngIf="signupForm.controls['lastName'].touched && signupForm.hasError('required', 'lastName')"
+      class="text-danger">*Last Name is required</small>
+    <small *ngIf="signupForm.controls['lastName'].touched && signupForm.hasError('minlength', 'lastName')"
+      class="text-danger">*Last Name must be at least 2 characters long</small>
+    <small *ngIf="signupForm.controls['lastName'].touched && signupForm.hasError('maxlength', 'lastName')"
+      class="text-danger">*Maximum number of characters is 32</small>
+
+
+    <div class="form-group pt-3">
+      <div class="input-field"
+        [class.error]="signupForm.controls['email'].touched && signupForm.controls['email'].invalid">
+        <span class="fa fa-user p-2"></span>
+        <input id="emailField" formControlName="email" type="text" placeholder="Email">
+      </div>
+    </div>
+    <small *ngIf="signupForm.controls['email'].touched && signupForm.hasError('required', 'email')"
+      class="text-danger">*Email is required</small>
+    <small *ngIf="signupForm.controls['email'].touched && signupForm.hasError('pattern', 'email')"
+      class="text-danger">*Invalid email</small>
+
+
+    <div class="form-group pt-3">
+      <div class="input-field"
+        [class.error]="signupForm.controls['password'].touched && signupForm.controls['password'].invalid">
+        <span class="fa fa-lock p-2"></span>
+        <input id="passwordField" formControlName="password" type="{{type}}" placeholder="Password">
+        <span (click)="hideShowPass()" class="fa {{eyeIcon}}"></span>
+      </div>
+    </div>
+    <small *ngIf="signupForm.controls['password'].touched && signupForm.hasError('required', 'password')"
+      class="text-danger">*Password is required</small>
+    <small *ngIf="signupForm.controls['password'].touched && signupForm.hasError('minlength', 'password')"
+      class="text-danger">*Password must be at least 8 characters long</small>
+    <small *ngIf="signupForm.controls['password'].touched && signupForm.hasError('maxlength', 'password')"
+      class="text-danger">*Maximum number of characters is 32</small>
+
+
+    <div class="form-group pt-3">
+      <div class="input-field"
+        [class.error]="signupForm.controls['repPassword'].touched && signupForm.controls['repPassword'].invalid">
+        <span class="fa fa-lock p-2"></span>
+        <input id="repeatedPasswordField" formControlName="repPassword" type="{{type}}" placeholder="Confirm Password">
+        <span (click)="hideShowPass()" class="fa {{eyeIcon}}"></span>
+      </div>
+    </div>
+    <small *ngIf="signupForm.controls['repPassword'].touched && signupForm.hasError('required', 'repPassword')"
+      class="text-danger">*Confirm password is required</small>
+    <small
+      *ngIf="signupForm.errors?.['passwordMismatchError'] && signupForm.controls['repPassword'].touched && !signupForm.hasError('required','repPassword')"
+      class="text-danger">*Passwords do not match</small>
+
+    <div class="form-group pt-3">
+        <input type="checkbox" class="form-check-input m-2" formControlName="isSluzbenik">
+        <label class="form-check-label m-2">Sluzbenik</label>
+    </div>
+
+    <button (click)="onSingup()" [disabled]="!signupForm.valid || disableSubmit" type="submit"
+      class="btn btn-primary btn-block mt-4 w-100">Sign up</button>
+    <div class="text-center pt-4 text-muted">Already have account? <span id="forget" (click)="goToLogin()">Login</span>
+    </div>
+  </form>
+</div>
