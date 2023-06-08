@@ -6,7 +6,9 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import xml.a1.dto.RequestAutorskoDelo;
+import xml.a1.dto.ResenjeDTO;
 import xml.a1.dto.XMLDto;
+import xml.a1.model.Resenje;
 import xml.a1.model.Zahtev;
 import xml.a1.service.AutorskaService;
 import xml.a1.service.UserService;
@@ -63,6 +65,18 @@ public class AutorskaController {
             e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
+    }
+
+    @PostMapping(value = "/new-resenje", consumes = "application/xml")
+    public ResponseEntity<?> napraviResenje(@RequestBody ResenjeDTO resenjeDTO, HttpServletRequest request) throws Exception {
+        String token = request.getHeader("Authorization");
+        if (token == null) return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+
+        if (userService.authorizeUser(token, true)) {
+            Resenje resenje = autorskaService.makeResenje(resenjeDTO);
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
     }
 
     @GetMapping(value = "/existFusekiSave")

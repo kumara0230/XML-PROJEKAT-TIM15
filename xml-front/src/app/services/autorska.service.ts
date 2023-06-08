@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class AutorskaService {
 
+
   private baseUrl = 'http://localhost:8081/autorska/';
   private requestOptions: Object = {
     headers: new HttpHeaders({
@@ -21,15 +22,17 @@ export class AutorskaService {
   constructor(private http: HttpClient) { }
 
   sendNewRequest(zahtev: Zahtev) {
-    console.log('pre parse');
-    console.log(zahtev);
     const xmlPayload = JsonToXML.parse("RequestAutorskoDelo", zahtev);
-    console.log(xmlPayload);
     return this.http.post<any>(`${this.baseUrl}new-request`, xmlPayload, this.requestOptions);
   }
 
   getAll(): any {
     return this.http.get<any>(`${this.baseUrl}all`, this.requestOptions);
+  }
+
+  sendResenje(resenje:any) {
+    const xmlPayload = JsonToXML.parse("ResenjeDTO", resenje);
+    return this.http.post<any>(`${this.baseUrl}new-resenje`, xmlPayload, this.requestOptions);
   }
 
 }

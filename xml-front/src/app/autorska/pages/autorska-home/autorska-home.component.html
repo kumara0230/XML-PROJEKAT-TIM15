@@ -1,15 +1,21 @@
 <app-navbar></app-navbar>
 
+<!-- Dugme za novi zahtev -->
+<div class="container text-center mt-2" *ngIf="getRole() === 'korisnik'">
+	<button class="btn btn-primary" style="width: 100%;" routerLink="/autorska/new">Novi zahtev</button>
+</div>
 <!-- Lista prethodnih zahteva -->
 <div class="container mt-4">
-	<h2>Zahtevi:</h2>
+	<h2 *ngIf="getRole() === 'korisnik'">Rešenja:</h2>
+	<h2 *ngIf="getRole() !== 'korisnik'">Zahtevi:</h2>
+
 	<table class="table table-striped">
 		<thead>
 			<tr>
 				<th>Broj prijave</th>
 				<th>Vreme podnošenja</th>
 				<th>Podnosilac</th>
-				<th>Export</th>
+				<th>Action</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -18,18 +24,19 @@
 				<td>{{ zahtev['datumPodnosenja'] | date: 'dd/MM/yyyy'}}</td>
 				<td>{{ zahtev['podnosilac'] }}</td>
 
-				<td>
+				<td *ngIf="getRole() === 'korisnik'">
+					<button class="btn btn-secondary m-2">RDF</button>
 					<button class="btn btn-secondary m-2">JSON</button>
 					<button class="btn btn-secondary m-2">PDF</button>
 					<button class="btn btn-secondary m-2">HTML</button>
-
+				</td>
+				<td *ngIf="getRole() !== 'korisnik'">
+					<button class="btn btn-secondary m-2">PDF</button>
+					<button class="btn btn-secondary m-2">HTML</button>
+					<button  class="btn btn-primary m-2" (click)="otvoriModal(zahtev)">Rešenje</button>
 				</td>
 			</tr>
 		</tbody>
 	</table>
 </div>
 
-<!-- Dugme za novi zahtev -->
-<div class="container text-center mt-4" *ngIf="getRole() === 'korisnik'">
-	<button class="btn btn-primary" routerLink="/autorska/new">Novi zahtev</button>
-</div>

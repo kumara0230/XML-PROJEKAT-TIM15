@@ -10,7 +10,7 @@ import { SignupComponent } from './pages/auth/signup/signup.component';
 import { ToastrModule } from 'ngx-toastr';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ChooseServiceComponent } from './pages/choose-service/choose-service.component';
 import { AutorskaHomeComponent } from './autorska/pages/autorska-home/autorska-home.component';
 import { AutorskaFormComponent } from './autorska/pages/autorska-form/autorska-form.component';
@@ -30,6 +30,8 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {MatInputModule} from '@angular/material/input';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ResenjeModalComponent } from './autorska/pages/resenje-modal/resenje-modal.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,8 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     PunomocnikDetailsComponent,
     DeloDetailsComponent,
     DeloPreradeDetailsComponent,
-    NavbarComponent
+    NavbarComponent,
+    ResenjeModalComponent
   ],
   imports: [
     BrowserModule,
@@ -62,6 +65,8 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     MatListModule,
     MatStepperModule,
     MatInputModule,
+    MatDialogModule,
+    FormsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }

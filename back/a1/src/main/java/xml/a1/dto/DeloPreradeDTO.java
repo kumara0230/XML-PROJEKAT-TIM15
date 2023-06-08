@@ -28,6 +28,8 @@ public class DeloPreradeDTO {
         }
     }
 
+    public DeloPreradeDTO() {}
+
     public String getNaslovIzvornogDela() {
         return naslovIzvornogDela;
     }
