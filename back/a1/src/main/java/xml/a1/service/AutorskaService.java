@@ -131,7 +131,7 @@ public class AutorskaService {
     public Resenje makeResenje(ResenjeDTO resenjeDTO) throws Exception {
         Resenje resenje = resenjeMapper.mapResenje(resenjeDTO);
         resenjeRepository.save(resenje);
-//        emailService.sendMail(resenje);
+        emailService.sendResenjeMail(resenje);
         return resenje;
 
     }

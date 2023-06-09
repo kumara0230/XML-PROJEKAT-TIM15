@@ -9,6 +9,7 @@
                 <xs:element name="Datum_resenja" type="xs:date"/>
                 <xs:element name="Ime_sluzbenika" type="xs:string"/>
                 <xs:element name="Prezime_sluzbenika" type="xs:string"/>
+                <xs:element name="Email_podnosioca" type="xs:string"/>
                 <xs:element name="Broj_zahteva" type="xs:string"/>
                 <xs:element name="odobreno" type="xs:boolean"/>
                 <xs:choice>

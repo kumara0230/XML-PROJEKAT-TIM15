@@ -20,6 +20,7 @@ public class ResenjeMapper {
         resenje.setImeSluzbenika(resenjeDTO.getImeSluzbenika());
         resenje.setPrezimeSluzbenika(resenjeDTO.getPrezimeSluzbenika());
         resenje.setBrojZahteva(resenjeDTO.getBrZahteva());
+        resenje.setEmailPodnosioca(resenjeDTO.getEmailPodnosioca());
 
         if (resenjeDTO.getObrazlozenje() != null) {                 // odbijen
             resenje.setObrazlozenje(resenjeDTO.getObrazlozenje());

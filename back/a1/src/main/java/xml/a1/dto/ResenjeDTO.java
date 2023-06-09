@@ -7,9 +7,18 @@ public class ResenjeDTO {
     private String brZahteva;
     private String obrazlozenje;
     private boolean odobren;
+    private String emailPodnosioca;
 
     public ResenjeDTO() {
 
+    }
+
+    public String getEmailPodnosioca() {
+        return emailPodnosioca;
+    }
+
+    public void setEmailPodnosioca(String emailPodnosioca) {
+        this.emailPodnosioca = emailPodnosioca;
     }
 
     public boolean isOdobren() {

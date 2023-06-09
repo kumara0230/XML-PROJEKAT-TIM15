@@ -9,6 +9,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
         "datumResenja",
         "imeSluzbenika",
         "prezimeSluzbenika",
+        "emailPodnosioca",
         "brojZahteva",
         "odobreno",
         "sifra",
@@ -32,6 +33,17 @@ public class Resenje {
     protected String imeSluzbenika;
     @XmlElement(name = "Prezime_sluzbenika", required = true)
     protected String prezimeSluzbenika;
+
+    @XmlElement(name = "Email_podnosioca", required = true)
+    protected String emailPodnosioca;
+
+    public String getEmailPodnosioca() {
+        return emailPodnosioca;
+    }
+
+    public void setEmailPodnosioca(String emailPodnosioca) {
+        this.emailPodnosioca = emailPodnosioca;
+    }
 
     public String getBrojResenja() {
         return brojResenja;

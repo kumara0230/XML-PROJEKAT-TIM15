@@ -23,6 +23,9 @@ export class ResenjeModalComponent implements OnInit {
 
   ngOnInit(): void {
 
+    console.log(this.data);
+    
+
   }
 
   odobriZahtev() {
@@ -32,6 +35,7 @@ export class ResenjeModalComponent implements OnInit {
       imeSluzbenika: user?.firstName,
       prezimeSluzbenika: user?.lastName,
       brZahteva: this.data.brojPrijave,
+      emailPodnosioca: this.data.podnosilac
     }
     this.sendResenje(resenje);
     this.dialogRef.close();
@@ -45,6 +49,7 @@ export class ResenjeModalComponent implements OnInit {
       prezimeSluzbenika: user?.lastName,
       brZahteva: this.data.brojPrijave,
       obrazlozenje: this.obrazlozenje,
+      emailPodnosioca: this.data.podnosilac
     }
     this.sendResenje(resenje);
     this.dialogRef.close();
