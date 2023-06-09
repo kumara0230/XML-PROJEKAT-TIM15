@@ -9,7 +9,6 @@ import { Observable } from 'rxjs';
 })
 export class AutorskaService {
 
-
   private baseUrl = 'http://localhost:8081/autorska/';
   private requestOptions: Object = {
     headers: new HttpHeaders({
@@ -17,6 +16,10 @@ export class AutorskaService {
       'Accept': 'application/xml',
     }),
     responseType: 'text',
+  }
+
+  private blobResType: Object = {
+    responseType: 'blob',
   }
 
   constructor(private http: HttpClient) { }
@@ -33,6 +36,10 @@ export class AutorskaService {
   sendResenje(resenje:any) {
     const xmlPayload = JsonToXML.parse("ResenjeDTO", resenje);
     return this.http.post<any>(`${this.baseUrl}new-resenje`, xmlPayload, this.requestOptions);
+  }
+
+  getPdf(format: string, brZahteva: string) {
+    return this.http.get<any>(`${this.baseUrl}generate-pdf/${format}/${brZahteva}`, this.blobResType);
   }
 
 }

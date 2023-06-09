@@ -6,7 +6,7 @@
 </div>
 <!-- Lista prethodnih zahteva -->
 <div class="container mt-4">
-	<h2 *ngIf="getRole() === 'korisnik'">Rešenja:</h2>
+	<h2 *ngIf="getRole() === 'korisnik'">Odobreni zahtevi:</h2>
 	<h2 *ngIf="getRole() !== 'korisnik'">Zahtevi:</h2>
 
 	<table class="table table-striped">
@@ -27,12 +27,12 @@
 				<td *ngIf="getRole() === 'korisnik'">
 					<button class="btn btn-secondary m-2">RDF</button>
 					<button class="btn btn-secondary m-2">JSON</button>
-					<button class="btn btn-secondary m-2">PDF</button>
-					<button class="btn btn-secondary m-2">HTML</button>
+					<button class="btn btn-secondary m-2" (click)="getPdf('pdf', zahtev['brojPrijave'])">PDF</button>
+					<button class="btn btn-secondary m-2" (click)="getPdf('html', zahtev['brojPrijave'])">HTML</button>
 				</td>
 				<td *ngIf="getRole() !== 'korisnik'">
-					<button class="btn btn-secondary m-2">PDF</button>
-					<button class="btn btn-secondary m-2">HTML</button>
+					<button class="btn btn-secondary m-2" (click)="getPdf('pdf', zahtev['brojPrijave'])">PDF</button>
+					<button class="btn btn-secondary m-2" (click)="getPdf('html', zahtev['brojPrijave'])">HTML</button>
 					<button  class="btn btn-primary m-2" (click)="otvoriModal(zahtev)">Rešenje</button>
 				</td>
 			</tr>

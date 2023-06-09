@@ -38,8 +38,7 @@ public class AutorskaRepository {
         return (String) existManager.load(collectionId, "saveFromFileTest.xml").getContent();
     }
 
-    public Node getFileAsNode() throws Exception {
-        String documentId = "saveFromFileTest.xml";
+    public Node getFileAsNode(String documentId) throws Exception {
         return existManager.getZahtevAsNode(collectionId, documentId);
     }
 

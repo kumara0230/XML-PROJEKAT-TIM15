@@ -97,8 +97,8 @@ public class AutorskaService {
     }
 
     public void toPdf() throws Exception {
-        Node file = this.autorskaRepository.getFileAsNode();
-        this.pdfTransformer.parseToPdf(file);
+        Node file = this.autorskaRepository.getFileAsNode("saveFromFileTest.xml");
+//        this.pdfTransformer.parseToPdf(file);
     }
 
     public Zahtev kreirajZahtev(RequestAutorskoDelo requestAutorskoDelo) throws Exception {

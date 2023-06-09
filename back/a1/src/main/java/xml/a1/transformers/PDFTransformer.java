@@ -1,12 +1,14 @@
 package xml.a1.transformers;
 
-import com.itextpdf.text.Document;
+import com.itextpdf.html2pdf.HtmlConverter;
+import com.itextpdf.kernel.geom.PageSize;
+import com.itextpdf.kernel.pdf.PdfDocument;
+import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.text.DocumentException;
-import com.itextpdf.text.pdf.PdfWriter;
-import com.itextpdf.tool.xml.XMLWorkerHelper;
 import org.springframework.stereotype.Component;
 import org.w3c.dom.Node;
 import org.xml.sax.InputSource;
+import xml.a1.fuseki.FusekiWriter;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -15,7 +17,8 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 import java.io.*;
-import java.nio.charset.Charset;
+import java.net.URL;
+import java.nio.file.Paths;
 
 @Component
 
@@ -23,10 +26,11 @@ public class PDFTransformer {
     private static DocumentBuilderFactory documentFactory;
     private static TransformerFactory transformerFactory;
 
-    public static final String XSL_FILE = "src/main/resources/xsl/a1.xsl";
-    public static final String HTML_FILE = "src/main/resources/gen/a1.html";
-    public static final String PDF_FILE = "src/main/resources/gen/a1.pdf";
-    public static final String XML_FILE = "src/main/resources/xsd/instance1.xml";
+    public static final String XSL_FILE = "xsl/a1.xsl";
+    public static final String HTML_FILE = "gen/a1.html";
+    public static final String PDF_FILE = "gen/a1.pdf";
+
+//    public static final String XML_FILE = "xsd/instance1.xml";
 
     static {
         /* Inicijalizacija DOM fabrike */
@@ -44,28 +48,26 @@ public class PDFTransformer {
      * Creates a PDF using iText Java API
      *
      * @param filePath
+     * @return
      * @throws IOException
      * @throws DocumentException
      */
-    public void generatePDF(String filePath, String xhtmlFile) throws IOException, DocumentException {
-        // Step 1
-        Document document = new Document();
-        // Step 2
-        PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(filePath));
-        // Step 3
-        document.open();
-        // Step 4
-        XMLWorkerHelper.getInstance().parseXHtml(writer, document, new FileInputStream(xhtmlFile), Charset.forName("UTF-8"));
-        // Step 5
-        document.close();
+    public ByteArrayOutputStream generatePDF(String filePath, ByteArrayOutputStream xhtmlFile) throws IOException, DocumentException {
+        ByteArrayOutputStream output = new ByteArrayOutputStream();
+        PdfWriter pdfWriter = new PdfWriter(output);
+        PdfDocument pdfDocument = new PdfDocument(pdfWriter);
+        pdfDocument.setDefaultPageSize(new PageSize(780, 2000));
+        HtmlConverter.convertToPdf(new ByteArrayInputStream(xhtmlFile.toByteArray()), pdfDocument);
 
+        return output;
     }
 
-    public void generateHTML(Node node, String htmlFile) throws FileNotFoundException {
+    public ByteArrayOutputStream generateHTML(Node node, String xslFile) throws Exception {
 
         try {
+
             // Initialize Transformer instance
-            StreamSource transformSource = new StreamSource(new File(XSL_FILE));
+            StreamSource transformSource = new StreamSource(new File(xslFile));
             Transformer transformer = transformerFactory.newTransformer(transformSource);
             transformer.setOutputProperty("{http://xml.apache.org/xalan}indent-amount", "2");
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
@@ -75,16 +77,16 @@ public class PDFTransformer {
 
             // Transform DOM to HTML
             DOMSource source = new DOMSource(node);
-            StreamResult result = new StreamResult(new FileOutputStream(HTML_FILE));
-            transformer.transform(source, result);
 
+            ByteArrayOutputStream result = new ByteArrayOutputStream();
 
-        } catch (TransformerConfigurationException e) {
+//            StreamResult result = new StreamResult(new FileOutputStream(HTML_FILE));
+            transformer.transform(source, new StreamResult(result));
+            return result;
+
+        } catch (TransformerException | TransformerFactoryConfigurationError e) {
             e.printStackTrace();
-        } catch (TransformerFactoryConfigurationError e) {
-            e.printStackTrace();
-        } catch (TransformerException e) {
-            e.printStackTrace();
+            throw new Exception();
         }
     }
 
@@ -110,7 +112,7 @@ public class PDFTransformer {
         return document;
     }
 
-    public void parseToPdf(Node node) throws Exception {
+    public ByteArrayOutputStream parseToPdf(String format, Node node) throws Exception {
 //        // create a DocumentBuilderFactory
 //        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 //
@@ -123,18 +125,29 @@ public class PDFTransformer {
 //        Node node = doc.getDocumentElement();
 
         // Creates parent directory if necessary
-        File pdfFile = new File(PDF_FILE);
+        URL res = FusekiWriter.class.getClassLoader().getResource(PDF_FILE);
+        String pdfFilePath = String.valueOf(Paths.get(res.toURI()));
+
+        res = FusekiWriter.class.getClassLoader().getResource(XSL_FILE);
+        String xslFilePath = String.valueOf(Paths.get(res.toURI()));
+
+        res = FusekiWriter.class.getClassLoader().getResource(HTML_FILE);
+        String htmlFilePath = String.valueOf(Paths.get(res.toURI()));
+
+        File pdfFile = new File(pdfFilePath);
 
         if (!pdfFile.getParentFile().exists()) {
             System.out.println("[INFO] A new directory is created: " + pdfFile.getParentFile().getAbsolutePath() + ".");
             pdfFile.getParentFile().mkdir();
         }
 
-        generateHTML(node, XSL_FILE);
-        generatePDF(PDF_FILE, HTML_FILE);
+        ByteArrayOutputStream htmlOutput = generateHTML(node, xslFilePath);
+        ByteArrayOutputStream pdfOutput = generatePDF(pdfFilePath, htmlOutput);
 
-        System.out.println("[INFO] File \"" + PDF_FILE + "\" generated successfully.");
+        System.out.println("[INFO] File \"" + pdfFilePath + "\" generated successfully.");
         System.out.println("[INFO] End.");
+
+        return (format.equals("html")) ? htmlOutput : pdfOutput;
     }
 
 }

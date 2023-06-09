@@ -73,8 +73,20 @@ export class AutorskaHomeComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       // Proverite povratne vrednosti moda (npr. result) i izvršite odgovarajuće radnje
     });
-
   }
+
+  getPdf(format: string, brZahteva: string) {
+    this.autorskaService.getPdf(format, brZahteva).subscribe(response => {
+      const blob = new Blob([response], { type: 'application/octet-stream' });
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `${brZahteva}.${format}`;
+      link.click();
+      window.URL.revokeObjectURL(url);
+    });
+  }
+
 }
 
 
