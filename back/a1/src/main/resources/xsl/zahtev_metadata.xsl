@@ -11,26 +11,26 @@
 
     <xsl:template match="/">
         <rdf:RDF>
-            <xsl:apply-templates select="//a1ns:Zahtev"/>
+            <xsl:apply-templates select="//Zahtev"/>
         </rdf:RDF>
     </xsl:template>
 
-    <xsl:template match="a1ns:Zahtev">
-        <rdf:Description rdf:about="http://www.ftn.uns.ac.rs/a1/{a1ns:Popunjava_zavod/a1ns:Broj_prijave}">
+    <xsl:template match="Zahtev">
+        <rdf:Description rdf:about="http://www.ftn.uns.ac.rs/a1/{Popunjava_zavod/Broj_prijave}">
             <pred:Broj_prijave>
-                <xsl:value-of select="a1ns:Popunjava_zavod/a1ns:Broj_prijave"/>
+                <xsl:value-of select="Popunjava_zavod/Broj_prijave"/>
             </pred:Broj_prijave>
             <pred:Datum_podnosenja>
-                <xsl:value-of select="a1ns:Popunjava_zavod/a1ns:Datum_podnosenja"/>
+                <xsl:value-of select="Popunjava_zavod/Datum_podnosenja"/>
             </pred:Datum_podnosenja>
             <pred:EmailPodnosioca>
-                <xsl:value-of select="a1ns:Podnosilac/a1ns:Kontakt/a1ns:Email"/>
+                <xsl:value-of select="Podnosilac/Kontakt/Email"/>
             </pred:EmailPodnosioca>
             <pred:Naslov_dela>
-                <xsl:value-of select="a1ns:Delo/a1ns:Naslov_dela"/>
+                <xsl:value-of select="Delo/Naslov_dela"/>
             </pred:Naslov_dela>
             <pred:Vrsta_dela>
-                <xsl:value-of select="a1ns:Delo/a1ns:Vrsta_autorskog_dela"/>
+                <xsl:value-of select="Delo/Vrsta_autorskog_dela"/>
             </pred:Vrsta_dela>
         </rdf:Description>
     </xsl:template>

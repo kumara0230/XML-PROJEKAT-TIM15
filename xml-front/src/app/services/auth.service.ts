@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { User } from '../models/User';
 import { LoginResponse } from '../models/LoginResponse';
 import * as JsonToXML from "js2xmlparser";
+import DecodeJwt from '../helpers/decodeJwt';
 
 @Injectable({
   providedIn: 'root',
@@ -24,6 +25,12 @@ export class AuthService {
   whoAmI(): Observable<User> {
     return this.http.get<User>(`${this.baseUrl}whoami`);
   }
+
+  getRole() {
+    const user = DecodeJwt.getUserFromAuthToken();
+    return user?.role;
+  }
+
 
   signUp(userObj: any) {
     const xmlPayload = JsonToXML.parse("korisnikDTO", userObj);

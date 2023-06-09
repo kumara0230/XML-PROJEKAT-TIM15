@@ -1,14 +1,17 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light p-2">
-    <a class="navbar-brand" href="#">Dobrodošli, {{ "Marko Dragicevic" }}!</a>
+    <a class="navbar-brand" routerLink="/choose-service">Dobrodošli, {{ user.email }}!</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav">
+            <li class="nav-item">   
+                <a class="nav-link" style="cursor: pointer;" routerLink="/choose-service">Izbor servisa</a>
+            </li>
             <li class="nav-item">
-                <a class="nav-link" style="cursor: pointer;">Odjavi se</a>
+                <a class="nav-link" style="cursor: pointer;" (click)="logout()">Odjavi se</a>
             </li>
         </ul>
     </div>

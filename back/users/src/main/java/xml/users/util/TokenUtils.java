@@ -6,6 +6,7 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+import xml.users.model.Korisnik;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
@@ -31,14 +32,16 @@ public class TokenUtils {
     // Algoritam za potpisivanje JWT
     private SignatureAlgorithm SIGNATURE_ALGORITHM = SignatureAlgorithm.HS512;
 
-    public String generateToken(String username, boolean isSluzbenik) {
-        String role = isSluzbenik ? "sluzbenik" : "korisnik";
+    public String generateToken(Korisnik korisnik) {
+        String role = korisnik.isSluzbenik() ? "sluzbenik" : "korisnik";
         return Jwts.builder()
                 .setIssuer(APP_NAME)
-                .setSubject(username)
+                .setSubject(korisnik.getEmail())
                 .setAudience(generateAudience())
                 .setIssuedAt(new Date())
                 .claim("role", role)
+                .claim("firstName", korisnik.getIme())
+                .claim("lastName", korisnik.getPrezime())
                 .setExpiration(generateExpirationDate())
                 .signWith(SIGNATURE_ALGORITHM, SECRET).compact();
     }

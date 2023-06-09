@@ -1,5 +1,7 @@
 package xml.a1.dto;
 
+import xml.a1.model.Punomocnik;
+
 import javax.xml.bind.annotation.XmlElement;
 
 public class PunomocnikDTO {
@@ -10,6 +12,13 @@ public class PunomocnikDTO {
     private String ime;
     @XmlElement
     private String prezime;
+
+    public PunomocnikDTO() {}
+    public PunomocnikDTO(Punomocnik punomocnik) {
+        this.adresa = new AdresaDTO(punomocnik.getAdresa());
+        this.ime = punomocnik.getIme();
+        this.prezime = punomocnik.getPrezime();
+    }
 
     public AdresaDTO getAdresa() {
         return adresa;

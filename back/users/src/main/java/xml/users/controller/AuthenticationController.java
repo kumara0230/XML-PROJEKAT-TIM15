@@ -31,7 +31,7 @@ public class AuthenticationController {
             Korisnik korisnik = userService.getUserByEmail(loginDTO.getEmail());
             if (korisnik == null) return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
             if (korisnik.getLozinka().equals(loginDTO.getPassword())) {
-                String token = tokenUtils.generateToken(korisnik.getEmail(), korisnik.isSluzbenik());
+                String token = tokenUtils.generateToken(korisnik);
                 return new ResponseEntity<>(new LoginResponse(token), HttpStatus.OK);
             } else return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         } catch (Exception e) {

@@ -5,5 +5,5 @@
 // Generated on: 2022.12.10 at 06:18:54 PM UTC 
 //
 
-@javax.xml.bind.annotation.XmlSchema(namespace = "a1ns", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
+@javax.xml.bind.annotation.XmlSchema( elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
 package xml.a1.model;
