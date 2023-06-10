@@ -96,7 +96,11 @@
     </xs:complexType>
     <xs:complexType name="TPravno_lice">
         <xs:complexContent>
-            <xs:extension base="p1:TLice"> </xs:extension>
+            <xs:extension base="p1:TLice"> 
+				<xs:sequence>
+                    <xs:element name="poslovno_ime" type="xs:string"/>
+                </xs:sequence>
+			</xs:extension>
         </xs:complexContent>
     </xs:complexType>
     <xs:complexType name="TFizicko_lice">

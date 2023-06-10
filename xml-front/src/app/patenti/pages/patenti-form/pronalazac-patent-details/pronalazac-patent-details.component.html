@@ -1,0 +1,79 @@
+<div style="display: flex;">
+    <h4>Podaci o Pronalazaču</h4>
+</div>
+
+<div *ngIf="!isPodonosilacPronalazac()" [formGroup]="form" style="display: flex; justify-content: center; gap: 10vh;">
+    <div>
+        <div class="form-group" formGroupName="pronalazac">
+            <label>Ime (fizicka lica)</label>
+            <input type="text" class="form-control" formControlName="ime">
+        </div>
+
+        <div class="form-group mt-1" formGroupName="pronalazac">
+            <label>Prezime (fizicka lica)</label>
+            <input type="text" class="form-control" formControlName="prezime">
+        </div>
+
+        <div class="form-group mt-1" formGroupName="pronalazac">
+            <label>Poslovno ime (pravna lica)</label>
+            <input type="text" class="form-control" formControlName="poslovnoIme">
+        </div>
+
+        <div class="form-group mt-1" formGroupName="pronalazac">
+            <label>Broj telefona*</label>
+            <input type="text" class="form-control" formControlName="brojTelefona">
+        </div>
+
+        <div class="form-group mt-1" formGroupName="pronalazac">
+            <label>Email*</label>
+            <input type="email" class="form-control" formControlName="email">
+        </div>
+        <div class="form-group mt-1" formGroupName="pronalazac">
+            <label>Faks</label>
+            <input type="text" class="form-control" formControlName="faks">
+        </div>
+    </div>
+
+    <div>
+        <div class="form-group mt-1" formGroupName="pronalazac">
+            <label>Ulica*</label>
+            <input type="text" class="form-control" formControlName="ulica">
+        </div>
+
+        <div class="form-group mt-1" formGroupName="pronalazac">
+            <label>Broj*</label>
+            <input type="text" class="form-control" formControlName="broj">
+        </div>
+
+        <div class="form-group mt-1" formGroupName="pronalazac">
+            <label>Mesto*</label>
+            <input type="text" class="form-control" formControlName="mesto">
+        </div>
+
+        <div class="form-group mt-1" formGroupName="pronalazac">
+            <label>Postanski broj*</label>
+            <input type="text" class="form-control" formControlName="postanskiBroj">
+        </div>
+
+        <div class="form-group mt-1" formGroupName="pronalazac">
+            <label>Drzavljanstvo (fizicka lica)</label>
+            <input type="text" class="form-control" formControlName="drzavljanstvo">
+        </div>
+    </div>
+
+
+</div>
+
+<!-- <button *ngIf="!isPodonosilacPronalazac()" type="button" class="btn" style="width: 50%; margin-left: 25%; background-color: black; color: white;" matStepperNext
+(click)="autorAnoniman()">Autor Anoniman</button> -->
+
+<div *ngIf="isPodonosilacPronalazac()" [formGroup]="form"  style="display: flex; justify-content: center; flex-direction: column;">
+    <h1>Podnosioc je ujedno i pronalazač. Možemo nastaviti na popunjavanje sledećih podataka.</h1>
+</div>
+<br />
+<div>
+    <button type="button" class="btn btn-secondary" style="width: 50%; margin-left: 25%;"
+        matStepperPrevious>Back</button>
+    <button type="button" class="btn btn-primary" style="width: 50%; margin-left: 25%;" matStepperNext
+        (click)="next()">Next</button>
+</div>

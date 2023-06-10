@@ -5,6 +5,7 @@ import { SignupComponent } from './pages/auth/signup/signup.component';
 import { ChooseServiceComponent } from './pages/choose-service/choose-service.component';
 import { AutorskaHomeComponent } from './autorska/pages/autorska-home/autorska-home.component';
 import { AutorskaFormComponent } from './autorska/pages/autorska-form/autorska-form.component';
+import { PatentiFormComponent } from './patenti/pages/patenti-form/patenti-form.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,9 @@ const routes: Routes = [
   },
   {
     path: 'autorska/new', component: AutorskaFormComponent
+  },
+  {
+    path: 'patenti/new', component: PatentiFormComponent
   },
 ];
 
