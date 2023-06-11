@@ -32,7 +32,7 @@ export class PodnosilacPatentDetailsComponent {
     };
 
     for (const key in podnosilacValues) {
-      if (podnosilacValues[key] && !adresaFileds.includes(key)) {
+      if ((podnosilacValues[key] !== null) && !adresaFileds.includes(key)) {
         this.zahtev.podnosilac[key] = podnosilacValues[key];
       }
     }

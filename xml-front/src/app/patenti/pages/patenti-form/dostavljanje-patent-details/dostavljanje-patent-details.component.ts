@@ -32,7 +32,7 @@ export class DostavljanjePatentDetailsComponent {
     };
 
     for (const key in dostavljanjeValues) {
-      if (dostavljanjeValues[key] && !adresaFileds.includes(key)) {
+      if ((dostavljanjeValues[key] !== null) && !adresaFileds.includes(key)) {
         this.zahtev.dostavljanje[key] = dostavljanjeValues[key];
       }
     }

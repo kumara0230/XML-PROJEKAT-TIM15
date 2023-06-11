@@ -14,9 +14,11 @@ export class RanijePrijavePatentDetailsComponent {
   @Input() form!: FormGroup;
   @Input() zahtev!: Zahtev;
 
-  constructor(private patentiService: PatentiService,
+  constructor(
+    private patentiService: PatentiService,
     private toastr: ToastrService,
-    private router: Router) { }
+    private router: Router
+  ) {}
 
   ngOnInit(): void {}
 
@@ -28,13 +30,28 @@ export class RanijePrijavePatentDetailsComponent {
       .get('zahtevi_za_priznanje_prava_prvenstva_iz_ranijih_prijava')!
       .updateValueAndValidity();
 
-    const formValues = this.form.get('zahtevi_za_priznanje_prava_prvenstva_iz_ranijih_prijava')?.value;
-    const adresaFileds = ['ulica', 'broj', 'mesto', 'postanskiBroj'];
-    this.zahtev.zahtevi_za_priznanje_prava_prvenstva_iz_ranijih_prijava = {};
+    const formValues = this.form.get(
+      'zahtevi_za_priznanje_prava_prvenstva_iz_ranijih_prijava'
+    )?.value;
 
+    let allNull = true;
     for (const key in formValues) {
-      if (formValues[key] && !adresaFileds.includes(key)) {
-        this.zahtev.zahtevi_za_priznanje_prava_prvenstva_iz_ranijih_prijava[key] = formValues[key];
+      if (formValues[key] !== null) {
+        allNull = false;
+        break;
+      }
+    }
+
+    if (!allNull) {
+      const adresaFileds = ['ulica', 'broj', 'mesto', 'postanskiBroj'];
+      this.zahtev.zahtevi_za_priznanje_prava_prvenstva_iz_ranijih_prijava = {};
+
+      for (const key in formValues) {
+        if (formValues[key] && !adresaFileds.includes(key)) {
+          this.zahtev.zahtevi_za_priznanje_prava_prvenstva_iz_ranijih_prijava[
+            key
+          ] = formValues[key];
+        }
       }
     }
 
@@ -48,8 +65,7 @@ export class RanijePrijavePatentDetailsComponent {
       },
       error: (err) => {
         this.toastr.error(err.error);
-      }
+      },
     });
-    
   }
 }

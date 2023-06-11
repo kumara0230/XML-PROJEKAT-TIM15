@@ -32,7 +32,7 @@ export class PredstavnikPatentDetailsComponent {
     };
 
     for (const key in predstavnikValues) {
-      if (predstavnikValues[key] && !adresaFileds.includes(key)) {
+      if ((predstavnikValues[key] !== null) && !adresaFileds.includes(key)) {
         this.zahtev.predstavnik[key] = predstavnikValues[key];
       }
     }
