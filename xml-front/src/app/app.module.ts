@@ -32,6 +32,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ResenjeModalComponent } from './autorska/pages/resenje-modal/resenje-modal.component';
+import { ReportComponent } from './autorska/pages/report/report.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { ResenjeModalComponent } from './autorska/pages/resenje-modal/resenje-mo
     DeloDetailsComponent,
     DeloPreradeDetailsComponent,
     NavbarComponent,
-    ResenjeModalComponent
+    ResenjeModalComponent,
+    ReportComponent
   ],
   imports: [
     BrowserModule,
