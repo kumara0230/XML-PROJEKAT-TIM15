@@ -1,6 +1,5 @@
 package xml.a1.controller;
 
-import org.apache.catalina.users.AbstractRole;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.http.HttpHeaders;
@@ -8,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import xml.a1.dto.DateRangeDTO;
 import xml.a1.dto.RequestAutorskoDelo;
 import xml.a1.dto.ResenjeDTO;
 import xml.a1.dto.XMLDto;
@@ -99,6 +99,31 @@ public class AutorskaController {
             // Postavljanje HTTP zaglavlja za download
             HttpHeaders headers = new HttpHeaders();
             headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=" + brZahteva + "." + format);
+
+            // Vraćanje odgovora sa generisanim fajlom i zaglavljima
+            return ResponseEntity.ok()
+                    .headers(headers)
+                    .contentType(MediaType.parseMediaType(MediaType.APPLICATION_PDF_VALUE))
+                    .body(resource);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @PostMapping(value = "/generate-report", consumes = "application/xml")
+    public ResponseEntity<?> generateDoc(@RequestBody DateRangeDTO dateRangeDTO) {
+        try {
+            // Generisanje PDF/HTML fajla na osnovu xsl fajla i XML podataka
+
+            ByteArrayOutputStream outputStream = autorskaService.generateReport(dateRangeDTO);
+
+            // Kreiranje ByteArrayResource od generisanog fajla
+            ByteArrayResource resource = new ByteArrayResource(outputStream.toByteArray());
+
+            // Postavljanje HTTP zaglavlja za download
+            HttpHeaders headers = new HttpHeaders();
+            headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=report.pdf");
 
             // Vraćanje odgovora sa generisanim fajlom i zaglavljima
             return ResponseEntity.ok()

@@ -5,6 +5,7 @@ import { SignupComponent } from './pages/auth/signup/signup.component';
 import { ChooseServiceComponent } from './pages/choose-service/choose-service.component';
 import { AutorskaHomeComponent } from './autorska/pages/autorska-home/autorska-home.component';
 import { AutorskaFormComponent } from './autorska/pages/autorska-form/autorska-form.component';
+import { ReportComponent } from './autorska/pages/report/report.component';
 import { ZigHomeComponent } from './autorska/zig/pages/zig-home/zig-home.component';
 import { ZigFormComponent } from './autorska/zig/pages/zig-form/zig-form.component';
 
@@ -26,6 +27,9 @@ const routes: Routes = [
   },
   {
     path: 'autorska/new', component: AutorskaFormComponent
+  },
+  {
+    path: 'autorska/reports', component: ReportComponent
   },
   {
     path: 'zig', component: ZigHomeComponent

@@ -1,0 +1,20 @@
+<app-navbar></app-navbar>
+<div class="container mt-5">
+    <h2>Odabir opsega datuma</h2>
+    <div class="row">
+        <div class="col-md-6">
+            <label for="startDate">Datum početka:</label>
+            <input type="date" [(ngModel)]="dateFrom" class="form-control" id="startDate"
+                placeholder="Odaberite datum početka">
+        </div>
+        <div class="col-md-6">
+            <label for="endDate">Datum završetka:</label>
+            <input type="date" [(ngModel)]="dateTo" class="form-control" id="endDate"
+                placeholder="Odaberite datum završetka">
+        </div>
+    </div>
+    <div class="row mt-5">
+        <button class="btn btn-outline-dark" (click)="getReport()">Napravi Izvestaj</button>
+    </div>
+
+</div>

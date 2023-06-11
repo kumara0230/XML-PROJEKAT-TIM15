@@ -1,11 +1,12 @@
 package xml.a1.service;
 
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.w3c.dom.Node;
-import xml.a1.dto.RequestAutorskoDelo;
-import xml.a1.dto.ResenjeDTO;
-import xml.a1.dto.XMLDto;
+import xml.a1.dto.*;
 import xml.a1.fuseki.FusekiReader;
 import xml.a1.fuseki.FusekiWriter;
 import xml.a1.fuseki.MetadataExtractor;
@@ -16,11 +17,9 @@ import xml.a1.repository.AutorskaRepository;
 import xml.a1.repository.ResenjeRepository;
 import xml.a1.transformers.PDFTransformer;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class AutorskaService {
@@ -133,6 +132,57 @@ public class AutorskaService {
         resenjeRepository.save(resenje);
         emailService.sendResenjeMail(resenje);
         return resenje;
+    }
 
+    public ByteArrayOutputStream generateReport(DateRangeDTO dateRangeDTO) throws Exception {
+        int allRequestsCount = 0, acceptedCount = 0, deniedCount = 0;
+
+        ReportResult reportResult = countRequestsForReport(allRequestsCount, acceptedCount, deniedCount, dateRangeDTO);
+
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+
+        Document document = new Document();
+        PdfWriter.getInstance(document, outputStream);
+
+        document.open();
+
+        document.add(new Paragraph("IZVESTAJ ZA PERIOD " + dateRangeDTO.getDateTo() + " - " + dateRangeDTO.getDateFrom()));
+        document.add(new Paragraph("Broj podnetih zahteva: " + reportResult.getAllRequestsCount()));
+        document.add(new Paragraph("Broj prihvacenih zahteva: " + reportResult.getAcceptedCount()));
+        document.add(new Paragraph("Broj odbijenih zahteva: " + reportResult.getDeniedCount()));
+
+        document.close();
+
+        return outputStream;
+    }
+
+    private ReportResult countRequestsForReport(int allRequestsCount, int acceptedCount, int deniedCount, DateRangeDTO dateRangeDTO) throws Exception {
+        List<Resenje> resenja = autorskaRepository.getAllResenja();
+        List<Zahtev> zahtevi = autorskaRepository.getAllRequests();
+        ReportResult reportResult = new ReportResult(0, 0, 0);
+
+        for (Zahtev zahtev : zahtevi) {
+            Date zahtevDate = zahtev.getPopunjavaZavod().getDatumPodnosenja().toGregorianCalendar().getTime();
+            if (zahtevDate.before(dateRangeDTO.getDateTo()) && zahtevDate.after(dateRangeDTO.getDateFrom())) {
+                reportResult.setAllRequestsCount(reportResult.getAllRequestsCount() + 1);
+
+                Boolean accepted = checkIfRequestIsAccepted(zahtev, resenja);
+                if (accepted != null) {
+                    if (accepted) reportResult.setAcceptedCount(reportResult.getAcceptedCount() + 1);
+
+                    else reportResult.setDeniedCount(reportResult.getDeniedCount() + 1);
+                }
+            }
+        }
+        return reportResult;
+    }
+
+    private Boolean checkIfRequestIsAccepted(Zahtev zahtev, List<Resenje> resenja) {
+        for (Resenje resenje : resenja) {
+            if (resenje.getBrojZahteva().equals(zahtev.getPopunjavaZavod().getBrojPrijave())) {
+                return resenje.isOdobreno();
+            }
+        }
+        return null;
     }
 }

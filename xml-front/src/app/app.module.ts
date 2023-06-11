@@ -33,6 +33,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ResenjeModalComponent } from './autorska/pages/resenje-modal/resenje-modal.component';
+import { ReportComponent } from './autorska/pages/report/report.component';
 import { ZigFormComponent } from './autorska/zig/pages/zig-form/zig-form.component';
 import { ZigHomeComponent } from './autorska/zig/pages/zig-home/zig-home.component';
 import { PunomocnikZigDetailsComponent } from './autorska/zig/pages/zig-form/punomocnik-zig-details/punomocnik-zig-details.component';
@@ -59,6 +60,7 @@ import { IzgledZnakaComponent } from './autorska/zig/pages/zig-form/izgled-znaka
     DeloPreradeDetailsComponent,
     NavbarComponent,
     ResenjeModalComponent,
+    ReportComponent
     ZigFormComponent,
     ZigHomeComponent,
     PunomocnikZigDetailsComponent,
