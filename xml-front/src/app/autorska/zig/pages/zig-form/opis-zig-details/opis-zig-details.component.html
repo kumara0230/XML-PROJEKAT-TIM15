@@ -1,0 +1,78 @@
+<h4>Opis ziga</h4>
+
+<div [formGroup]="form" style="display: flex; justify-content: center; gap: 10vh;" >
+  <div formGroupName="opis_ziga">
+    <div class="form-group">
+        <br>
+        <label>Navesti opis znaka</label>
+        <input type="text" class="form-control" formControlName="opis" [(ngModel)]="opis">
+    </div>
+
+    <div class="form-group">
+        <br>
+        <label>Naznacenje boje, odnosno boja iz kojih se znak sastoji</label>
+        <input type="text" class="form-control" formControlName="boje" [(ngModel)]="boje">
+    </div>
+
+    <div>
+      <br>
+      <label>Klasa robe prema Nicanskoj klasifikaciji</label>
+      <div>
+        <mat-radio-group  (change)="optionChangedKind($event)">
+          <mat-radio-button value="1">1</mat-radio-button>
+          <mat-radio-button value="2">2</mat-radio-button>
+          <mat-radio-button value="3">3</mat-radio-button>
+          <mat-radio-button value="4">4</mat-radio-button>
+          <mat-radio-button value="5">5</mat-radio-button>
+          <mat-radio-button value="6">6</mat-radio-button>
+          <mat-radio-button value="7">7</mat-radio-button>
+          <mat-radio-button value="8">8</mat-radio-button>
+          <mat-radio-button value="9">9</mat-radio-button>
+          <mat-radio-button value="10">10</mat-radio-button>
+          <mat-radio-button value="11">11</mat-radio-button>
+          <mat-radio-button value="12">12</mat-radio-button>
+          <mat-radio-button value="13">13</mat-radio-button>
+          <mat-radio-button value="14">14</mat-radio-button>
+          <mat-radio-button value="15">15</mat-radio-button>
+          <mat-radio-button value="16">16</mat-radio-button>
+          <mat-radio-button value="17">17</mat-radio-button>
+          <mat-radio-button value="18">18</mat-radio-button>
+          <mat-radio-button value="19">19</mat-radio-button>
+          <mat-radio-button value="20">20</mat-radio-button>
+          <mat-radio-button value="21">21</mat-radio-button>
+          <mat-radio-button value="22">22</mat-radio-button>
+          <mat-radio-button value="23">23</mat-radio-button>
+          <mat-radio-button value="24">24</mat-radio-button>
+          <mat-radio-button value="25">25</mat-radio-button>
+          <mat-radio-button value="26">26</mat-radio-button>
+          <mat-radio-button value="27">27</mat-radio-button>
+          <mat-radio-button value="28">28</mat-radio-button>
+          <mat-radio-button value="29">29</mat-radio-button>
+          <mat-radio-button value="30">30</mat-radio-button>
+          <mat-radio-button value="31">31</mat-radio-button>
+          <mat-radio-button value="32">32</mat-radio-button>
+          <mat-radio-button value="33">33</mat-radio-button>
+          <mat-radio-button value="34">34</mat-radio-button>
+          <mat-radio-button value="35">35</mat-radio-button>
+          <mat-radio-button value="36">36</mat-radio-button>
+          <mat-radio-button value="37">37</mat-radio-button>
+          <mat-radio-button value="38">38</mat-radio-button>
+          <mat-radio-button value="39">39</mat-radio-button>
+          <mat-radio-button value="40">40</mat-radio-button>
+          <mat-radio-button value="41">41</mat-radio-button>
+          <mat-radio-button value="42">42</mat-radio-button>
+          <mat-radio-button value="43">43</mat-radio-button>
+          <mat-radio-button value="44">44</mat-radio-button>
+          <mat-radio-button value="45">45</mat-radio-button>
+      </mat-radio-group>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <br>
+      <label>Zatrazena prava prvenstva i osnov</label>
+      <input type="text" class="form-control" formControlName="prava" [(ngModel)]="prava">
+  </div>
+
+  <button type="button"  class="btn btn-primary" style="width: 50%; margin-left: 25%;" matStepperNext (click)="next()">Next</button>
+</div>

@@ -1,0 +1,14 @@
+<h4>Vrsta ziga</h4>
+
+<div [formGroup]="form" style="display: flex; justify-content: center; gap: 10vh;">
+    <div class="form-group" formGroupName="vrsta_ziga" >
+        <mat-radio-group (change)="optionChangedKind($event)" formControlName="vrsta">
+            <mat-radio-button value="1" >individualni</mat-radio-button>
+            <mat-radio-button value="2" >kolektivni</mat-radio-button>
+            <mat-radio-button value="3">žig garancije</mat-radio-button>
+        </mat-radio-group>
+    </div>
+</div>
+<br />
+<!-- <button type="button" [disabled]="!form.get('podnosilac')?.valid" class="btn btn-primary" style="width: 50%; margin-left: 25%;" matStepperNext (click)="next()">Next</button> -->
+<button type="button"  class="btn btn-primary" style="width: 50%; margin-left: 25%;" matStepperNext (click)="next()">Next</button>
