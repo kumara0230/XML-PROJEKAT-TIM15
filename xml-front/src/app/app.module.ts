@@ -60,7 +60,7 @@ import { IzgledZnakaComponent } from './autorska/zig/pages/zig-form/izgled-znaka
     DeloPreradeDetailsComponent,
     NavbarComponent,
     ResenjeModalComponent,
-    ReportComponent
+    ReportComponent,
     ZigFormComponent,
     ZigHomeComponent,
     PunomocnikZigDetailsComponent,
