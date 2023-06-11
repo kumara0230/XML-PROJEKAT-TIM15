@@ -28,6 +28,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatListModule} from '@angular/material/list';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatInputModule} from '@angular/material/input';
+import { MatRadioModule } from '@angular/material/radio';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -40,6 +41,15 @@ import { PredstavnikPatentDetailsComponent } from './patenti/pages/patenti-form/
 import { DostavljanjePatentDetailsComponent } from './patenti/pages/patenti-form/dostavljanje-patent-details/dostavljanje-patent-details.component';
 import { RanijePrijavePatentDetailsComponent } from './patenti/pages/patenti-form/ranije-prijave-patent-details/ranije-prijave-patent-details.component';
 import { PatentiHomeComponent } from './patenti/pages/patenti-home/patenti-home.component';
+import { ReportComponent } from './autorska/pages/report/report.component';
+import { ZigFormComponent } from './autorska/zig/pages/zig-form/zig-form.component';
+import { ZigHomeComponent } from './autorska/zig/pages/zig-home/zig-home.component';
+import { PunomocnikZigDetailsComponent } from './autorska/zig/pages/zig-form/punomocnik-zig-details/punomocnik-zig-details.component';
+import { PodnosilacZigDetailsComponent } from './autorska/zig/pages/zig-form/podnosilac-zig-details/podnosilac-zig-details.component';
+import { VrstaZigaDetailsComponent } from './autorska/zig/pages/zig-form/vrsta-ziga-details/vrsta-ziga-details.component';
+import { TipZigaDetailsComponent } from './autorska/zig/pages/zig-form/tip-ziga-details/tip-ziga-details.component';
+import { OpisZigDetailsComponent } from './autorska/zig/pages/zig-form/opis-zig-details/opis-zig-details.component';
+import { IzgledZnakaComponent } from './autorska/zig/pages/zig-form/izgled-znaka/izgled-znaka.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +75,16 @@ import { PatentiHomeComponent } from './patenti/pages/patenti-home/patenti-home.
     PredstavnikPatentDetailsComponent,
     DostavljanjePatentDetailsComponent,
     RanijePrijavePatentDetailsComponent,
-    PatentiHomeComponent
+    PatentiHomeComponent,
+    ReportComponent,
+    ZigFormComponent,
+    ZigHomeComponent,
+    PunomocnikZigDetailsComponent,
+    PodnosilacZigDetailsComponent,
+    VrstaZigaDetailsComponent,
+    TipZigaDetailsComponent,
+    OpisZigDetailsComponent,
+    IzgledZnakaComponent,
   ],
   imports: [
     BrowserModule,
@@ -82,7 +101,8 @@ import { PatentiHomeComponent } from './patenti/pages/patenti-home/patenti-home.
     MatStepperModule,
     MatInputModule,
     MatDialogModule,
-    FormsModule
+    FormsModule,
+    MatRadioModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }

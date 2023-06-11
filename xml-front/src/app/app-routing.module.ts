@@ -7,6 +7,10 @@ import { AutorskaHomeComponent } from './autorska/pages/autorska-home/autorska-h
 import { AutorskaFormComponent } from './autorska/pages/autorska-form/autorska-form.component';
 import { PatentiFormComponent } from './patenti/pages/patenti-form/patenti-form.component';
 import { PatentiHomeComponent } from './patenti/pages/patenti-home/patenti-home.component';
+import { ReportComponent } from './autorska/pages/report/report.component';
+import { ZigHomeComponent } from './autorska/zig/pages/zig-home/zig-home.component';
+import { ZigFormComponent } from './autorska/zig/pages/zig-form/zig-form.component';
+
 
 const routes: Routes = [
   {
@@ -33,7 +37,15 @@ const routes: Routes = [
   {
     path: 'patenti', component: PatentiHomeComponent
   },
-  
+  {
+    path: 'autorska/reports', component: ReportComponent
+  },
+  {
+    path: 'zig', component: ZigHomeComponent
+  },
+  {
+    path: 'zig/new', component: ZigFormComponent
+  },
 ];
 
 @NgModule({

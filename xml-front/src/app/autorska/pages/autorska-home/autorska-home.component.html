@@ -4,6 +4,9 @@
 <div class="container text-center mt-2" *ngIf="getRole() === 'korisnik'">
 	<button class="btn btn-primary" style="width: 100%;" routerLink="/autorska/new">Novi zahtev</button>
 </div>
+<div class="container text-center mt-2" *ngIf="getRole() !== 'korisnik'">
+	<button class="btn btn-primary" style="width: 100%;" routerLink="/autorska/reports">Izvestaji</button>
+</div>
 <!-- Lista prethodnih zahteva -->
 <div class="container mt-4">
 	<h2 *ngIf="getRole() === 'korisnik'">Odobreni zahtevi:</h2>
