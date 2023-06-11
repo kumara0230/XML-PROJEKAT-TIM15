@@ -88,22 +88,22 @@ public class ZigoviService {
     public List<ZahtevZaPriznanjeZiga> getAll(String token) throws Exception {
         List<ZahtevZaPriznanjeZiga> retList = new ArrayList<>();
         List<ZahtevZaPriznanjeZiga> requests = zigoviRepository.getAllRequests();
-//        for (ZahtevZaPriznanjeZiga req : requests) {
-//            Resenje resenje = resenjeRepository.getByBrojPrijave(req.getPopunjavaZavod().getBrojPrijaveZiga());
-//
-//            if (userService.authorizeUser(token, true)) {
-//                // za sluzbenika svi neobradjeni zahtevi
-//                if (resenje == null) {
-//                    retList.add(req);
-//                }
-//            } else {
-//                // za korisnika svi odobreni zahtevi
-//                if (resenje != null && resenje.isOdobreno()) {
-//                    retList.add(req);
-//                }
-//            }
-//        }
-        return requests;
+        for (ZahtevZaPriznanjeZiga req : requests) {
+            Resenje resenje = resenjeRepository.getByBrojPrijave(req.getPopunjavaZavod().getBrojPrijaveZiga());
+
+            if (userService.authorizeUser(token, true)) {
+                // za sluzbenika svi neobradjeni zahtevi
+                if (resenje == null) {
+                    retList.add(req);
+                }
+            } else {
+                // za korisnika svi odobreni zahtevi
+                if (resenje != null && resenje.isOdobreno()) {
+                    retList.add(req);
+                }
+            }
+        }
+        return retList;
     }
 
     public Resenje makeResenje(ResenjeDTO resenjeDTO) throws Exception {

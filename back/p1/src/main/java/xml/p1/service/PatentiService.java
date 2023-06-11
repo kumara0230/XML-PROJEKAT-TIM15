@@ -2,7 +2,6 @@ package xml.p1.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.w3c.dom.Node;
 import xml.p1.dto.RequestPatent;
 import xml.p1.dto.ResenjeDTO;
 import xml.p1.fuseki.FusekiReader;
@@ -31,10 +30,11 @@ public class PatentiService {
     private final PatentiMapper patentiMapper;
     private final ResenjeMapper resenjeMapper;
     private final ResenjeRepository resenjeRepository;
+    private final UserService userService;
 
 
     @Autowired
-    public PatentiService(JaxB jaxB, PatentRepository patentiRepository, MetadataExtractor metadataExtractor, PDFTransformer pdfTransformer, PatentiMapper patentiMapper, ResenjeMapper resenjeMapper, ResenjeRepository resenjeRepository) {
+    public PatentiService(JaxB jaxB, PatentRepository patentiRepository, MetadataExtractor metadataExtractor, PDFTransformer pdfTransformer, PatentiMapper patentiMapper, ResenjeMapper resenjeMapper, ResenjeRepository resenjeRepository, UserService userService) {
         this.jaxB = jaxB;
         this.patentiRepository = patentiRepository;
         this.metadataExtractor = metadataExtractor;
@@ -42,6 +42,7 @@ public class PatentiService {
         this.patentiMapper = patentiMapper;
         this.resenjeMapper = resenjeMapper;
         this.resenjeRepository = resenjeRepository;
+        this.userService = userService;
     }
 
 
@@ -104,22 +105,22 @@ public class PatentiService {
     public List<ZahtevZaPriznanjePatenta> getAll(String token) throws Exception {
         List<ZahtevZaPriznanjePatenta> retList = new ArrayList<>();
         List<ZahtevZaPriznanjePatenta> requests = patentiRepository.getAllRequests();
-//        for (ZahtevZaPriznanjePatenta req : requests) {
-//            Resenje resenje = resenjeRepository.getByBrojPrijave(req.getPopunjavaZavod().getBrojPrijave());
-//
-//            if (userService.authorizeUser(token, true)) {
-//                // za sluzbenika svi neobradjeni zahtevi
-//                if (resenje == null) {
-//                    retList.add(req);
-//                }
-//            } else {
-//                // za korisnika svi odobreni zahtevi
-//                if (resenje != null && resenje.isOdobreno()) {
-//                    retList.add(req);
-//                }
-//            }
-//        }
-        return requests;
+        for (ZahtevZaPriznanjePatenta req : requests) {
+            Resenje resenje = resenjeRepository.getByBrojPrijave(req.getPopunjavaZavod().getBrojPrijave());
+
+            if (userService.authorizeUser(token, true)) {
+                // za sluzbenika svi neobradjeni zahtevi
+                if (resenje == null) {
+                    retList.add(req);
+                }
+            } else {
+                // za korisnika svi odobreni zahtevi
+                if (resenje != null && resenje.isOdobreno()) {
+                    retList.add(req);
+                }
+            }
+        }
+        return retList;
     }
 
     public Resenje makeResenje(ResenjeDTO resenjeDTO) throws Exception {

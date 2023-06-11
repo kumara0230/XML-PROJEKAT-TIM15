@@ -3,6 +3,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
 import DecodeJwt from 'src/app/helpers/decodeJwt';
 import { AutorskaService } from 'src/app/services/autorska.service';
+import { PatentiService } from 'src/app/services/patenti.service';
 import { ZigService } from 'src/app/services/zig.service';
 
 @Component({
@@ -21,7 +22,8 @@ export class ResenjeModalComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any,
     private autorskaService: AutorskaService,
     private toastr: ToastrService,
-    private zigService: ZigService
+    private zigService: ZigService,
+    private patentService: PatentiService
   ) { }
 
 
@@ -67,6 +69,9 @@ export class ResenjeModalComponent implements OnInit {
     else if (this.service === "zig") {
       this.sendZigResenje(resenje);
     }
+    else {
+      this.sendPatentResenje(resenje);
+    }
   }
 
   sendAutorskaResenje(resenje: any) {
@@ -82,6 +87,17 @@ export class ResenjeModalComponent implements OnInit {
 
   sendZigResenje(resenje: any) {
     this.zigService.sendResenje(resenje).subscribe({
+      next: () => {
+        this.toastr.success('Success!');
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    })
+  }
+
+  sendPatentResenje(resenje: any) {
+    this.patentService.sendResenje(resenje).subscribe({
       next: () => {
         this.toastr.success('Success!');
       },
