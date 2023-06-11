@@ -1,7 +1,10 @@
 package xml.p1.dto;
 
+import xml.p1.model.ZahtevZaPriznanjePatenta;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.datatype.XMLGregorianCalendar;
 
 @XmlRootElement
 public class RequestPatent {
@@ -24,6 +27,11 @@ public class RequestPatent {
     @XmlElement
     private ZahteviZaPriznanjePravaPrvenstvaIzRanijihPrijavaDTO zahteviZaPriznanjePravaPrvenstvaIzRanijihPrijava;
 
+    @XmlElement
+    private XMLGregorianCalendar datumPodnosenja;
+
+    @XmlElement
+    private String brojPrijave;
 
     public RequestPatent() {}
 
@@ -37,6 +45,13 @@ public class RequestPatent {
         this.predstavnik = predstavnik;
         this.dostavljanje = dostavljanje;
         this.zahteviZaPriznanjePravaPrvenstvaIzRanijihPrijava = zahteviZaPriznanjePravaPrvenstvaIzRanijihPrijava;
+    }
+
+    public RequestPatent(ZahtevZaPriznanjePatenta zahtev) {
+        this.podnosilac = new PodnosilacDTO(zahtev);
+        this.pronalazac = new PronalazacDTO(zahtev.getPronalazacPatenta());
+        this.datumPodnosenja = zahtev.getPopunjavaZavod().getDatumPrijema();
+        this.brojPrijave = zahtev.getPopunjavaZavod().getBrojPrijave();
     }
 
     public NazivPronalaskaDTO getNazivPronalaska() {
@@ -85,5 +100,21 @@ public class RequestPatent {
 
     public void setZahteviZaPriznanjePravaPrvenstvaIzRanijihPrijava(ZahteviZaPriznanjePravaPrvenstvaIzRanijihPrijavaDTO zahteviZaPriznanjePravaPrvenstvaIzRanijihPrijava) {
         this.zahteviZaPriznanjePravaPrvenstvaIzRanijihPrijava = zahteviZaPriznanjePravaPrvenstvaIzRanijihPrijava;
+    }
+
+    public XMLGregorianCalendar getDatumPodnosenja() {
+        return datumPodnosenja;
+    }
+
+    public void setDatumPodnosenja(XMLGregorianCalendar datumPodnosenja) {
+        this.datumPodnosenja = datumPodnosenja;
+    }
+
+    public String getBrojPrijave() {
+        return brojPrijave;
+    }
+
+    public void setBrojPrijave(String brojPrijave) {
+        this.brojPrijave = brojPrijave;
     }
 }

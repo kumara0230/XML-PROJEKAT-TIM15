@@ -4,12 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.w3c.dom.Node;
 import xml.p1.db.ExistManager;
+import xml.p1.db.ExistReader;
 import xml.p1.db.ExistWriter;
 import xml.p1.fuseki.FusekiWriter;
 import xml.p1.fuseki.MetadataExtractor;
 import xml.p1.model.ZahtevZaPriznanjePatenta;
 
 import java.io.IOException;
+import java.util.List;
 
 @Repository
 public class PatentRepository {
@@ -36,8 +38,7 @@ public class PatentRepository {
         return (String) existManager.load(collectionId, "saveFromFileTestP1.xml").getContent();
     }
 
-    public Node getFileAsNode() throws Exception {
-        String documentId = "saveFromFileTestP1.xml";
+    public Node getFileAsNode(String documentId) throws Exception {
         return existManager.getZahtevAsNode(collectionId, documentId);
     }
 
@@ -53,4 +54,8 @@ public class PatentRepository {
         FusekiWriter.saveRDF();
     }
 
+    public List<ZahtevZaPriznanjePatenta> getAllRequests() throws Exception {
+        ExistReader existReader = new ExistReader();
+        return existReader.getAllRequests();
+    }
 }

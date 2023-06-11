@@ -13,4 +13,5 @@ export interface Zahtev {
     predstavnik?: Predstavnik | undefined,
     dostavljanje?: Dostavljanje,
     zahtevi_za_priznanje_prava_prvenstva_iz_ranijih_prijava?: Zahtev_za_priznanje_prava_prvenstva_iz_ranijih_prijava,
+    [key: string]: any,
 }

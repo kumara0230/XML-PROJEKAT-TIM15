@@ -39,6 +39,7 @@ import { PronalazacPatentDetailsComponent } from './patenti/pages/patenti-form/p
 import { PredstavnikPatentDetailsComponent } from './patenti/pages/patenti-form/predstavnik-patent-details/predstavnik-patent-details.component';
 import { DostavljanjePatentDetailsComponent } from './patenti/pages/patenti-form/dostavljanje-patent-details/dostavljanje-patent-details.component';
 import { RanijePrijavePatentDetailsComponent } from './patenti/pages/patenti-form/ranije-prijave-patent-details/ranije-prijave-patent-details.component';
+import { PatentiHomeComponent } from './patenti/pages/patenti-home/patenti-home.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { RanijePrijavePatentDetailsComponent } from './patenti/pages/patenti-for
     PronalazacPatentDetailsComponent,
     PredstavnikPatentDetailsComponent,
     DostavljanjePatentDetailsComponent,
-    RanijePrijavePatentDetailsComponent
+    RanijePrijavePatentDetailsComponent,
+    PatentiHomeComponent
   ],
   imports: [
     BrowserModule,

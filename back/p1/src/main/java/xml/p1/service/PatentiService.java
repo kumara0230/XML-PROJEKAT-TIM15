@@ -4,17 +4,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.w3c.dom.Node;
 import xml.p1.dto.RequestPatent;
+import xml.p1.dto.ResenjeDTO;
 import xml.p1.fuseki.FusekiReader;
 import xml.p1.fuseki.FusekiWriter;
 import xml.p1.fuseki.MetadataExtractor;
 import xml.p1.jaxb.JaxB;
+import xml.p1.model.Resenje;
 import xml.p1.model.ZahtevZaPriznanjePatenta;
 import xml.p1.repository.PatentRepository;
+import xml.p1.repository.ResenjeRepository;
 import xml.p1.transformers.PDFTransformer;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -25,15 +29,19 @@ public class PatentiService {
     private final MetadataExtractor metadataExtractor;
     private final PDFTransformer pdfTransformer;
     private final PatentiMapper patentiMapper;
+    private final ResenjeMapper resenjeMapper;
+    private final ResenjeRepository resenjeRepository;
 
 
     @Autowired
-    public PatentiService(JaxB jaxB, PatentRepository patentiRepository, MetadataExtractor metadataExtractor, PDFTransformer pdfTransformer, PatentiMapper patentiMapper) {
+    public PatentiService(JaxB jaxB, PatentRepository patentiRepository, MetadataExtractor metadataExtractor, PDFTransformer pdfTransformer, PatentiMapper patentiMapper, ResenjeMapper resenjeMapper, ResenjeRepository resenjeRepository) {
         this.jaxB = jaxB;
         this.patentiRepository = patentiRepository;
         this.metadataExtractor = metadataExtractor;
         this.pdfTransformer = pdfTransformer;
         this.patentiMapper = patentiMapper;
+        this.resenjeMapper = resenjeMapper;
+        this.resenjeRepository = resenjeRepository;
     }
 
 
@@ -74,8 +82,8 @@ public class PatentiService {
     }
 
     public void toPdf() throws Exception {
-        Node file = this.patentiRepository.getFileAsNode();
-        this.pdfTransformer.parseToPdf(file);
+//        Node file = this.patentiRepository.getFileAsNode();
+//        this.pdfTransformer.parseToPdf(file);
     }
 
 //    public void saveZahtevToDatabases(XMLDto zahtev) throws Exception {
@@ -93,4 +101,30 @@ public class PatentiService {
         return zahtev;
     }
 
+    public List<ZahtevZaPriznanjePatenta> getAll(String token) throws Exception {
+        List<ZahtevZaPriznanjePatenta> retList = new ArrayList<>();
+        List<ZahtevZaPriznanjePatenta> requests = patentiRepository.getAllRequests();
+//        for (ZahtevZaPriznanjePatenta req : requests) {
+//            Resenje resenje = resenjeRepository.getByBrojPrijave(req.getPopunjavaZavod().getBrojPrijave());
+//
+//            if (userService.authorizeUser(token, true)) {
+//                // za sluzbenika svi neobradjeni zahtevi
+//                if (resenje == null) {
+//                    retList.add(req);
+//                }
+//            } else {
+//                // za korisnika svi odobreni zahtevi
+//                if (resenje != null && resenje.isOdobreno()) {
+//                    retList.add(req);
+//                }
+//            }
+//        }
+        return requests;
+    }
+
+    public Resenje makeResenje(ResenjeDTO resenjeDTO) throws Exception {
+        Resenje resenje = resenjeMapper.mapResenje(resenjeDTO);
+        resenjeRepository.save(resenje);
+        return resenje;
+    }
 }

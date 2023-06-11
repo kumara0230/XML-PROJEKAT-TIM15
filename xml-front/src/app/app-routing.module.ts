@@ -6,6 +6,7 @@ import { ChooseServiceComponent } from './pages/choose-service/choose-service.co
 import { AutorskaHomeComponent } from './autorska/pages/autorska-home/autorska-home.component';
 import { AutorskaFormComponent } from './autorska/pages/autorska-form/autorska-form.component';
 import { PatentiFormComponent } from './patenti/pages/patenti-form/patenti-form.component';
+import { PatentiHomeComponent } from './patenti/pages/patenti-home/patenti-home.component';
 
 const routes: Routes = [
   {
@@ -29,6 +30,10 @@ const routes: Routes = [
   {
     path: 'patenti/new', component: PatentiFormComponent
   },
+  {
+    path: 'patenti', component: PatentiHomeComponent
+  },
+  
 ];
 
 @NgModule({

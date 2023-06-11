@@ -1,5 +1,7 @@
 package xml.p1.dto;
 
+import xml.p1.model.*;
+
 import javax.xml.bind.annotation.XmlElement;
 
 public class PronalazacDTO {
@@ -36,6 +38,21 @@ public class PronalazacDTO {
         this.prezime = prezime;
         this.drzavljanstvo = drzavljanstvo;
         this.poslovnoIme = poslovnoIme;
+    }
+
+    public PronalazacDTO(PronalazacPatenta p) {
+        TLice lice = p.getPodaciOLicu();
+
+        if (lice instanceof TFizickoLice) {
+            TFizickoLice fizickoLice = (TFizickoLice) lice;
+            this.ime = fizickoLice.getIme();
+            this.prezime = fizickoLice.getPrezime();
+        } else {
+            TPravnoLice pravnoLice = (TPravnoLice) lice;
+            this.poslovnoIme = pravnoLice.getPoslovnoIme();
+        }
+        this.email = lice.getKontakt().getEmail();
+
     }
 
     public AdresaDTO getAdresa() {

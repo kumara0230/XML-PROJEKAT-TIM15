@@ -7,6 +7,7 @@ import { Zahtev } from '../patenti/model/Zahtev';
   providedIn: 'root',
 })
 export class PatentiService {
+  
 
   private baseUrl = 'http://localhost:8082/patenti/'; // izmeniti 
   private requestOptions: Object = {
@@ -16,6 +17,10 @@ export class PatentiService {
     }),
     responseType: 'text',
   };
+
+  private blobResType: Object = {
+    responseType: 'blob',
+  }
 
   constructor(private http: HttpClient) {}
 
@@ -30,4 +35,16 @@ export class PatentiService {
     return this.http.post<any>(`${this.baseUrl}new-request`, xmlPayload, this.requestOptions);
   }
 
+  getAll(): any {
+    return this.http.get<any>(`${this.baseUrl}all`, this.requestOptions);
+  }
+
+  sendResenje(resenje:any) {
+    const xmlPayload = JsonToXML.parse("ResenjeDTO", resenje);
+    return this.http.post<any>(`${this.baseUrl}new-resenje`, xmlPayload, this.requestOptions);
+  }
+
+  getPdf(format: string, brZahteva: string) {
+    return this.http.get<any>(`${this.baseUrl}generate-pdf/${format}/${brZahteva}`, this.blobResType);
+  }
 }
