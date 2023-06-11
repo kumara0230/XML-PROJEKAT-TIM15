@@ -1,0 +1,51 @@
+
+<div class="container col-md-12">
+	<form [formGroup]="zigForm" >
+		<mat-horizontal-stepper #stepper>
+
+			<mat-step formGroupName="podnosilac" [stepControl]="zigForm.get('podnosilac')!">
+
+				<ng-template matStepLabel>Podnosilac</ng-template>
+				<app-podnosilac-zig-details [zahtev]="zahtev" [form]="zigForm"></app-podnosilac-zig-details>
+
+			</mat-step>
+
+            <mat-step formGroupName="punomocnik" [stepControl]="zigForm.get('punomocnik')!">
+
+				<ng-template matStepLabel>Punomocnik</ng-template>
+				<app-punomocnik-zig-details [zahtev]="zahtev" [form]="zigForm"></app-punomocnik-zig-details>
+
+			</mat-step>
+
+			<mat-step formGroupName="vrsta_ziga" [stepControl]="zigForm.get('vrsta_ziga')!">
+				<ng-template matStepLabel>Vrsta žiga</ng-template>
+				
+				<app-vrsta-ziga-details [zahtev]="zahtev" [form]="zigForm"></app-vrsta-ziga-details>
+
+			</mat-step>
+
+			<mat-step formGroupName="tip_ziga" [stepControl]="zigForm.get('tip_ziga')!">
+				<ng-template matStepLabel>Tip žiga</ng-template>
+				
+				<app-tip-ziga-details [zahtev]="zahtev" [form]="zigForm"></app-tip-ziga-details>
+
+			</mat-step>
+
+			<mat-step formGroupName="opis_ziga" [stepControl]="zigForm.get('opis_ziga')!">
+				<ng-template matStepLabel>Opis znaka</ng-template>
+				
+				<app-opis-zig-details [zahtev]="zahtev" [form]="zigForm"></app-opis-zig-details>
+
+			</mat-step>
+
+			<mat-step formGroupName="upload_ziga" [stepControl]="zigForm.get('upload_ziga')!">
+				<ng-template matStepLabel>Upload znaka</ng-template>
+				
+				<app-izgled-znaka [zahtev]="zahtev" [form]="zigForm"></app-izgled-znaka>
+
+			</mat-step>
+
+
+		</mat-horizontal-stepper>
+	</form>
+</div>
