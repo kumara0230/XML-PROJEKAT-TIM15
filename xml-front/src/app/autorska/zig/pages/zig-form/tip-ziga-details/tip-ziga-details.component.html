@@ -1,0 +1,55 @@
+<h4>Tip ziga</h4>
+
+<div [formGroup]="form" style="display: flex; justify-content: center; gap: 10vh;" >
+    <div formGroupName="tip_ziga">
+        <mat-radio-group (change)="optionChangedKind($event)" formControlName="tip">
+            <mat-radio-button value="1" >verbalni znak(znak u reči)</mat-radio-button>
+            <mat-radio-button value="2" >grafički znak</mat-radio-button>
+            <mat-radio-button value="3">kombinovani znak</mat-radio-button>
+            <mat-radio-button value="4">trodimenzionalni znak</mat-radio-button>
+            <mat-radio-button value="5">druga vrsta znaka</mat-radio-button>
+        </mat-radio-group>
+        <div>
+
+        </div>
+        <div [hidden]="isHiddenOtherKind">
+            <br>
+            <br>
+            <div class="form-group">
+                <br>
+                <label>Navesti vrstu znaka</label>
+                <input type="text" class="form-control" formControlName="tip" [(ngModel)]="druga_vrsta_znaka">
+            </div>
+        </div>
+
+        <div [hidden]="isVerbalniZnak">
+            <mat-radio-group (change)="optionChangedVerbalniZnak($event)">
+                <br>
+                <br>
+
+                <mat-radio-button value="1">Znak u cirilici i latinici</mat-radio-button>
+                <mat-radio-button value="2">Znak u stranom jeziku</mat-radio-button>
+            </mat-radio-group>
+        </div>
+
+        <div [hidden]="isStraniJezik">
+            <div class="form-group" >
+                <br>
+                <br>
+                <label>Transliteracija znaka</label>
+                <input type="text" class="form-control" formControlName="transliteracija" [(ngModel)]="transliteracija">
+            </div>
+            <div class="form-group">
+                <br>
+                <label>Prevod znaka</label>
+                <input type="text" class="form-control" formControlName="prevod" [(ngModel)]="prevod">
+            </div>
+        </div>
+        
+    </div>
+    <div>
+    </div>
+</div>
+<br />
+<!-- <button type="button" [disabled]="!form.get('podnosilac')?.valid" class="btn btn-primary" style="width: 50%; margin-left: 25%;" matStepperNext (click)="next()">Next</button> -->
+<button type="button"  class="btn btn-primary" style="width: 50%; margin-left: 25%;" matStepperNext (click)="next()">Next</button>
