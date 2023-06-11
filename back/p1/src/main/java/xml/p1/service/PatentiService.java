@@ -3,6 +3,7 @@ package xml.p1.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.w3c.dom.Node;
+import xml.p1.dto.RequestPatent;
 import xml.p1.fuseki.FusekiReader;
 import xml.p1.fuseki.FusekiWriter;
 import xml.p1.fuseki.MetadataExtractor;
@@ -23,14 +24,16 @@ public class PatentiService {
     private final PatentRepository patentiRepository;
     private final MetadataExtractor metadataExtractor;
     private final PDFTransformer pdfTransformer;
+    private final PatentiMapper patentiMapper;
 
 
     @Autowired
-    public PatentiService(JaxB jaxB, PatentRepository patentiRepository, MetadataExtractor metadataExtractor, PDFTransformer pdfTransformer) {
+    public PatentiService(JaxB jaxB, PatentRepository patentiRepository, MetadataExtractor metadataExtractor, PDFTransformer pdfTransformer, PatentiMapper patentiMapper) {
         this.jaxB = jaxB;
         this.patentiRepository = patentiRepository;
         this.metadataExtractor = metadataExtractor;
         this.pdfTransformer = pdfTransformer;
+        this.patentiMapper = patentiMapper;
     }
 
 
@@ -83,5 +86,11 @@ public class PatentiService {
 ////        metadataExtractor.extractMetadata(xmlTxt);
 ////        FusekiWriter.saveRDF();
 //    }
+
+    public ZahtevZaPriznanjePatenta kreirajZahtev(RequestPatent requestPatent) throws Exception {
+        ZahtevZaPriznanjePatenta zahtev = patentiMapper.mapPatent(requestPatent);
+        this.patentiRepository.save(zahtev);
+        return zahtev;
+    }
 
 }

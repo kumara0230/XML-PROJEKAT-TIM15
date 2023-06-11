@@ -9,19 +9,25 @@ import org.apache.jena.update.UpdateRequest;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.nio.file.Paths;
 
 public class FusekiWriter {
 
-    private static final String RDF_FILEPATH = "src/main/resources/rdf/rdfOutput.rdf";
+    private static final String RDF_FILEPATH = "rdf/rdfOutput.rdf";
     private static final String GRAPH_URI = "/metadata";
 
-    public static void saveRDF() throws IOException {
+    public static void saveRDF() throws IOException, URISyntaxException {
         System.out.println("[INFO] Loading triples from an RDF/XML to a model...");
 
         FusekiAuthenticationUtilities.ConnectionProperties conn = FusekiAuthenticationUtilities.loadProperties();
 
+        URL res = FusekiWriter.class.getClassLoader().getResource(RDF_FILEPATH);
+        String rdfFile = String.valueOf(Paths.get(res.toURI()));
+
         Model model = ModelFactory.createDefaultModel();
-        model.read(RDF_FILEPATH);
+        model.read(rdfFile);
 
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         model.write(out, SparqlUtil.NTRIPLES);

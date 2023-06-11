@@ -8,7 +8,7 @@ import { Zahtev } from '../patenti/model/Zahtev';
 })
 export class PatentiService {
 
-  private baseUrl = 'http://localhost:80/autorska/'; // izmeniti 
+  private baseUrl = 'http://localhost:8082/patenti/'; // izmeniti 
   private requestOptions: Object = {
     headers: new HttpHeaders({
       'Content-Type': 'application/xml',

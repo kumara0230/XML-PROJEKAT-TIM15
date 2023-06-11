@@ -2,29 +2,53 @@ package xml.p1.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import xml.p1.dto.RequestPatent;
+import xml.p1.model.ZahtevZaPriznanjePatenta;
 import xml.p1.service.PatentiService;
+import xml.p1.service.UserService;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.ArrayList;
 
 @RestController
-@RequestMapping(value = "api/xml/p1")
+@RequestMapping(value = "patenti")
+@CrossOrigin
 public class PatentiController {
-    private PatentiService service;
+    private PatentiService patentiService;
+    private UserService userService;
 
     @Autowired
-    public PatentiController(PatentiService service) {
+    public PatentiController(PatentiService service, UserService userService) {
         super();
-        this.service = service;
+        this.patentiService = service;
+        this.userService = userService;
     }
+
+    @PostMapping(value = "/new-request", consumes = "application/xml")
+    public ResponseEntity<?> newReq(@RequestBody RequestPatent requestPatent, HttpServletRequest request) {
+        try {
+            String token = request.getHeader("Authorization");
+            if (token == null) return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+
+            if (userService.authorizeUser(token, false)) {
+                ZahtevZaPriznanjePatenta zahtev = patentiService.kreirajZahtev(requestPatent);
+                return new ResponseEntity<>(HttpStatus.CREATED);
+            }
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
 
     @GetMapping(value = "/existFusekiSave")
     public ResponseEntity<?> existFusekiSave() {
         try {
-            this.service.existFusekiSave();
+            this.patentiService.existFusekiSave();
             return new ResponseEntity<>(HttpStatus.OK);
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -35,7 +59,7 @@ public class PatentiController {
     public ResponseEntity<?> getFileFromExistTest() {
         String xmlFile = null;
         try {
-            xmlFile = this.service.getFileFromExistTest();
+            xmlFile = this.patentiService.getFileFromExistTest();
             return new ResponseEntity<>(xmlFile, HttpStatus.OK);
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -44,7 +68,7 @@ public class PatentiController {
 
     @GetMapping(value = "/pdf")
     public ResponseEntity<?> convertToPdf() throws Exception {
-        this.service.toPdf();
+        this.patentiService.toPdf();
         return new ResponseEntity<>("Success", HttpStatus.OK);
     }
 
@@ -63,7 +87,7 @@ public class PatentiController {
 
     @GetMapping("fusekiSearch/{naziv}/{godina}")
     public ResponseEntity<String> searchFromRDF(@PathVariable("naziv") String naziv, @PathVariable("godina") String godina) throws IOException {
-        ArrayList<String> result = service.searchByMetadata(naziv, godina);
+        ArrayList<String> result = patentiService.searchByMetadata(naziv, godina);
         String output = "";
         for (String r : result) {
             output += "\n" + r;

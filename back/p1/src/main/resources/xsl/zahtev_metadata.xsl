@@ -11,25 +11,25 @@
         </rdf:RDF>
     </xsl:template>
 
-    <xsl:template match="p1:Zahtev_za_priznanje_patenta">
-        <rdf:Description rdf:about="http://www.ftn.uns.ac.rs/p1/{./p1:Popunjava_zavod/p1:Broj_prijave}">
+    <xsl:template match="Zahtev_za_priznanje_patenta">
+        <rdf:Description rdf:about="http://www.ftn.uns.ac.rs/p1/{./Popunjava_zavod/Broj_prijave}">
             <pred:Broj_prijave>
-                <xsl:value-of select="./p1:Popunjava_zavod/p1:Broj_prijave"/>
+                <xsl:value-of select="./Popunjava_zavod/Broj_prijave"/>
             </pred:Broj_prijave>
             <pred:Datum_prijema>
-                <xsl:value-of select="./p1:Popunjava_zavod/p1:Datum_prijema"/>
+                <xsl:value-of select="./Popunjava_zavod/Datum_prijema"/>
             </pred:Datum_prijema>
             <pred:EmailPodnosioca>
-                <xsl:value-of select="./p1:Podnosilac_prijave/p1:Podaci_o_licu/p1:Kontakt/p1:Email"/>
+                <xsl:value-of select="./Podnosilac_prijave/Podaci_o_licu/Kontakt/Email"/>
             </pred:EmailPodnosioca>
             <pred:Naziv_pronalaska_na_srpskom>
-                <xsl:value-of select="./p1:Naziv_pronalaska/p1:Naziv_pronalaska_na_srpskom"/>
+                <xsl:value-of select="./Naziv_pronalaska/Naziv_pronalaska_na_srpskom"/>
             </pred:Naziv_pronalaska_na_srpskom>
             <pred:Naziv_pronalaska_na_engleskom>
-                <xsl:value-of select="./p1:Naziv_pronalaska/p1:Naziv_pronalaska_na_engleskom"/>
+                <xsl:value-of select="./Naziv_pronalaska/Naziv_pronalaska_na_engleskom"/>
             </pred:Naziv_pronalaska_na_engleskom>
             <pred:Dostavljanje_elektronskim_putem>
-                <xsl:value-of select="./p1:Dostavljanje/p1:Dostavljanje_elektronskim_putem"/>
+                <xsl:value-of select="./Dostavljanje/Dostavljanje_elektronskim_putem"/>
             </pred:Dostavljanje_elektronskim_putem>
         </rdf:Description>
     </xsl:template>
