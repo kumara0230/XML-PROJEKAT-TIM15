@@ -8,6 +8,7 @@ import xml.a1.db.ExistReader;
 import xml.a1.db.ExistWriter;
 import xml.a1.fuseki.FusekiWriter;
 import xml.a1.fuseki.MetadataExtractor;
+import xml.a1.model.Resenje;
 import xml.a1.model.Zahtev;
 
 import java.util.List;
@@ -56,5 +57,10 @@ public class AutorskaRepository {
     public List<Zahtev> getAllRequests() throws Exception {
         ExistReader existReader = new ExistReader();
         return existReader.getAllRequests();
+    }
+
+    public List<Resenje> getAllResenja() throws Exception {
+        ExistReader existReader = new ExistReader();
+        return existReader.getAllResenja();
     }
 }

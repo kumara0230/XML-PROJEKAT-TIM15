@@ -83,6 +83,8 @@ public class ExistReader {
         return zahtevi;
     }
 
+
+
     public Resenje getResenjeByBrojPrijave(String brojPrijave) throws Exception {
         AuthenticationUtilities.ConnectionProperties conn = AuthenticationUtilities.loadProperties();
 
@@ -143,5 +145,72 @@ public class ExistReader {
         }
         return resenje;
 
+    }
+
+    public List<Resenje> getAllResenja() throws Exception {
+        AuthenticationUtilities.ConnectionProperties conn = AuthenticationUtilities.loadProperties();
+
+        // initialize collection and document identifiers
+        String collectionId = null;
+        collectionId = "/db/resenja-autorska";
+
+        System.out.println("\t- collection ID: " + collectionId);
+
+        System.out.println("[INFO] Loading driver class: " + conn.driver);
+        Class<?> cl = Class.forName(conn.driver);
+
+        Database database = (Database) cl.newInstance();
+        database.setProperty("create-database", "true");
+
+        DatabaseManager.registerDatabase(database);
+
+        Collection col = null;
+
+        Resenje resenje = null;
+        List<Resenje> resenja;
+        try {
+            // get the collection
+            System.out.println("[INFO] Retrieving the collection: " + collectionId);
+            col = DatabaseManager.getCollection(conn.uri + collectionId);
+            //col.setProperty(OutputKeys.INDENT, "yes");
+
+            XPathQueryService xPathQueryService = (XPathQueryService) col.getService("XPathQueryService", "1.0");
+            xPathQueryService.setProperty("indent", "yes");
+
+            String xPathExp = "//Resenje";
+            ResourceSet result = xPathQueryService.query(xPathExp);
+            ResourceIterator i = result.getIterator();
+            XMLResource res = null;
+            resenja = new ArrayList<>();
+            while (i.hasMoreResources()) {
+                res = (XMLResource) i.nextResource();
+
+                JAXBContext context = JAXBContext.newInstance(Resenje.class);
+                Unmarshaller unmarshaller = context.createUnmarshaller();
+                resenje = (Resenje) unmarshaller.unmarshal(res.getContentAsDOM());
+                resenja.add(resenje);
+            }
+        } finally {
+            //don't forget to clean up!
+
+            /*
+            if(res != null) {
+                try {
+                    ((EXistResource)res).freeResources();
+                } catch (XMLDBException xe) {
+                    xe.printStackTrace();
+                }
+            }
+            */
+
+            if (col != null) {
+                try {
+                    col.close();
+                } catch (XMLDBException xe) {
+                    xe.printStackTrace();
+                }
+            }
+        }
+        return resenja;
     }
 }

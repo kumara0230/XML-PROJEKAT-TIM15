@@ -3,6 +3,7 @@ package xml.a1.service;
 
 import org.springframework.stereotype.Service;
 import org.w3c.dom.Node;
+import xml.a1.dto.DateRangeDTO;
 import xml.a1.repository.AutorskaRepository;
 import xml.a1.transformers.PDFTransformer;
 
