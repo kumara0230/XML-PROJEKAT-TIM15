@@ -26,9 +26,9 @@ export class PunomocnikZigDetailsComponent implements OnInit{
     this.zahtev.punomocnik = {
       adresa: {
         ulica: this.form.value['punomocnik']['ulica'],
-        broj: this.form.value['punomocnik']['broj'],
+        broj: Number(this.form.value['punomocnik']['broj']),
         mesto: this.form.value['punomocnik']['mesto'],
-        postanskiBroj: this.form.value['punomocnik']['postanskiBroj'],
+        postanskiBroj: Number(this.form.value['punomocnik']['postanskiBroj']),
       }
     };
 

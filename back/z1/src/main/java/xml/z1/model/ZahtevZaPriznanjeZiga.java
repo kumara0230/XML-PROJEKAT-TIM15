@@ -377,4 +377,21 @@ public class ZahtevZaPriznanjeZiga {
         this.popunjavaZavod = value;
     }
 
+    @Override
+    public String toString() {
+        return "ZahtevZaPriznanjeZiga{" +
+                "podaciOPodnosiocuPrijave=" + podaciOPodnosiocuPrijave +
+                ", podaciOPunomocniku=" + podaciOPunomocniku +
+                ", podaciOZajednickomPredstavniku=" + podaciOZajednickomPredstavniku +
+                ", prijavaSePodnosiZa=" + prijavaSePodnosiZa +
+                ", naznacenjeBoje='" + naznacenjeBoje + '\'' +
+                ", transliteracijaZnaka='" + transliteracijaZnaka + '\'' +
+                ", prevodZnaka='" + prevodZnaka + '\'' +
+                ", opisZnaka='" + opisZnaka + '\'' +
+                ", nicanskaKlasifikacija=" + nicanskaKlasifikacija +
+                ", zatrazenoPravoPrvenstvaIOsnov='" + zatrazenoPravoPrvenstvaIOsnov + '\'' +
+                ", taksePlaceneUDinarima=" + taksePlaceneUDinarima +
+                ", popunjavaZavod=" + popunjavaZavod +
+                '}';
+    }
 }

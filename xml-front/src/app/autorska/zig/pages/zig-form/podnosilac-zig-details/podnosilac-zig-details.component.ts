@@ -27,9 +27,9 @@ export class PodnosilacZigDetailsComponent implements OnInit {
     this.zahtev.podnosilac = {
       adresa: {
         ulica: this.form.value['podnosilac']['ulica'],
-        broj: this.form.value['podnosilac']['broj'],
+        broj: Number(this.form.value['podnosilac']['broj']),
         mesto: this.form.value['podnosilac']['mesto'],
-        postanskiBroj: this.form.value['podnosilac']['postanskiBroj'],
+        postanskiBroj: Number(this.form.value['podnosilac']['postanskiBroj']),
       }
     };
 

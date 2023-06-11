@@ -12,7 +12,7 @@ import java.io.IOException;
 
 public class FusekiWriter {
 
-    private static final String RDF_FILEPATH = "src/main/resources/rdf/rdfOutput.rdf";
+    private static final String RDF_FILEPATH = "rdf/rdfOutput.rdf";
     private static final String GRAPH_URI = "/metadata";
 
     public static void saveRDF() throws IOException {

@@ -1,10 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { Zahtev } from '../../../model/Zahtev';
 import * as JsonToXML from "js2xmlparser";
 import { ZigService } from 'src/app/services/zig.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Zahtev } from '../../../model/Zahtev';
 
 @Component({
   selector: 'app-izgled-znaka',
@@ -28,6 +28,9 @@ export class IzgledZnakaComponent implements OnInit{
   }
 
   next() {
+    
+    this.zahtev.izgled = "slika.jpg"
+    console.log(this.zahtev)
 
     this.zigService.sendNewRequest(this.zahtev).subscribe({
       next: () => {

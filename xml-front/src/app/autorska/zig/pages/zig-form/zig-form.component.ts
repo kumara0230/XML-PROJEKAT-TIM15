@@ -64,6 +64,9 @@ export class ZigFormComponent implements OnInit {
         'boje': new FormControl(null, Validators.required),
         'prava': new FormControl(null, Validators.required),
         'klasa': new FormControl(null, Validators.required)
+      }),
+      'izgled_ziga': new FormGroup({
+        'izgled': new FormControl(null),
       })
     })
   }

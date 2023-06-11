@@ -1,16 +1,13 @@
 <app-navbar></app-navbar>
 
 <!-- Dugme za novi zahtev -->
-<!-- <div class="container text-center mt-2" *ngIf="getRole() === 'korisnik'"> -->
-<div class="container text-center mt-2">
-	<button class="btn btn-primary" style="width: 100%;" routerLink="/autorska/new">Novi zahtev</button>
+<div class="container text-center mt-2" *ngIf="getRole() === 'korisnik'">
+	<button class="btn btn-primary" style="width: 100%;" routerLink="/zig/new">Novi zahtev</button>
 </div>
 <!-- Lista prethodnih zahteva -->
 <div class="container mt-4">
-	<!-- <h2 *ngIf="getRole() === 'korisnik'">Odobreni zahtevi:</h2>
-	<h2 *ngIf="getRole() !== 'korisnik'">Zahtevi:</h2> -->
-    <h2 *ngIf="'korisnik' === 'korisnik'">Odobreni zahtevi:</h2>
-	<h2 *ngIf="'korisnik' !== 'korisnik'">Zahtevi:</h2>
+	<h2 *ngIf="getRole() === 'korisnik'">Odobreni zahtevi:</h2>
+	<h2 *ngIf="getRole() !== 'korisnik'">Zahtevi:</h2>
 
 	<table class="table table-striped">
 		<thead>
@@ -22,24 +19,22 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr >
-				<!-- <td>{{ zahtev['brojPrijave'] }}</td>
+			<tr *ngFor="let zahtev of zahtevi">
+				<td>{{ zahtev['brojPrijave'] }}</td>
 				<td>{{ zahtev['datumPodnosenja'] | date: 'dd/MM/yyyy'}}</td>
-				<td>{{ zahtev['podnosilac'] }}</td> -->
-                <td>brojPrijave</td>
-				<td>datumPodnosenja</td>
-				<td>podnosilac</td>
+				<td>{{ zahtev['podnosilac'] }}</td>
 
-				<td *ngIf="'korisnik' === 'korisnik'">
+				<td *ngIf="getRole() === 'korisnik'">
 					<button class="btn btn-secondary m-2">RDF</button>
 					<button class="btn btn-secondary m-2">JSON</button>
-					<button class="btn btn-secondary m-2" >PDF</button>
-					<button class="btn btn-secondary m-2" >HTML</button>
+					<button class="btn btn-secondary m-2" (click)="getPdf('pdf', zahtev['brojPrijave'])">PDF</button>
+					<button class="btn btn-secondary m-2" (click)="getPdf('html', zahtev['brojPrijave'])">HTML</button>
 				</td>
-				<td *ngIf="'korisnik' !== 'korisnik'">
-					<button class="btn btn-secondary m-2" >PDF</button>
-					<button class="btn btn-secondary m-2" >HTML</button>
-					<button  class="btn btn-primary m-2" >Rešenje</button>
+				<td *ngIf="getRole() !== 'korisnik'">
+					<button class="btn btn-secondary m-2" (click)="getPdf('pdf', zahtev['brojPrijave'])">PDF</button>
+					<button class="btn btn-secondary m-2" (click)="getPdf('html', zahtev['brojPrijave'])">HTML</button>
+					<button  class="btn btn-primary m-2" (click)="otvoriModal(zahtev)">Rešenje</button>
+
 				</td>
 			</tr>
 		</tbody>

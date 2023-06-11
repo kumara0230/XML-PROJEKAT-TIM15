@@ -1,6 +1,6 @@
 export interface Adresa {
     ulica: String,
-    broj: String,
+    broj: number,
     mesto: String,
-    postanskiBroj: String,
+    postanskiBroj: number,
 }

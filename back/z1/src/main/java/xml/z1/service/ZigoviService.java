@@ -2,15 +2,21 @@ package xml.z1.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import xml.z1.dto.ResenjeDTO;
+import xml.z1.dto.ZigRequest;
 import xml.z1.fuseki.FusekiReader;
 import xml.z1.fuseki.FusekiWriter;
 import xml.z1.fuseki.MetadataExtractor;
 import xml.z1.jaxb.JaxB;
+import xml.z1.model.Resenje;
+import xml.z1.model.ZahtevZaPriznanjeZiga;
+import xml.z1.repository.ResenjeRepository;
 import xml.z1.repository.ZigoviRepository;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -19,13 +25,21 @@ public class ZigoviService {
     private final JaxB jaxB;
     private final ZigoviRepository zigoviRepository;
     private final MetadataExtractor metadataExtractor;
+    private final ZigMapper zigMapper;
+    private final ResenjeRepository resenjeRepository;
+    private final UserService userService;
+    private final ResenjeMapper resenjeMapper;
 
 
     @Autowired
-    public ZigoviService(JaxB jaxB, ZigoviRepository zigoviRepository, MetadataExtractor metadataExtractor) {
+    public ZigoviService(JaxB jaxB, ZigoviRepository zigoviRepository, MetadataExtractor metadataExtractor, ZigMapper zigMapper, ResenjeRepository resenjeRepository, UserService userService, ResenjeMapper resenjeMapper) {
         this.jaxB = jaxB;
         this.zigoviRepository = zigoviRepository;
         this.metadataExtractor = metadataExtractor;
+        this.zigMapper = zigMapper;
+        this.resenjeRepository = resenjeRepository;
+        this.userService = userService;
+        this.resenjeMapper = resenjeMapper;
     }
 
 //
@@ -63,6 +77,40 @@ public class ZigoviService {
 
     public String getFileFromExistTest() throws Exception {
         return this.zigoviRepository.getFileFromExistTest();
+    }
+
+    public ZahtevZaPriznanjeZiga kreirajZahtev(ZigRequest zigRequest) throws Exception{
+        ZahtevZaPriznanjeZiga zahtev = zigMapper.mapZig(zigRequest);
+        this.zigoviRepository.save(zahtev);
+        return zahtev;
+    }
+
+    public List<ZahtevZaPriznanjeZiga> getAll(String token) throws Exception {
+        List<ZahtevZaPriznanjeZiga> retList = new ArrayList<>();
+        List<ZahtevZaPriznanjeZiga> requests = zigoviRepository.getAllRequests();
+//        for (ZahtevZaPriznanjeZiga req : requests) {
+//            Resenje resenje = resenjeRepository.getByBrojPrijave(req.getPopunjavaZavod().getBrojPrijaveZiga());
+//
+//            if (userService.authorizeUser(token, true)) {
+//                // za sluzbenika svi neobradjeni zahtevi
+//                if (resenje == null) {
+//                    retList.add(req);
+//                }
+//            } else {
+//                // za korisnika svi odobreni zahtevi
+//                if (resenje != null && resenje.isOdobreno()) {
+//                    retList.add(req);
+//                }
+//            }
+//        }
+        return requests;
+    }
+
+    public Resenje makeResenje(ResenjeDTO resenjeDTO) throws Exception {
+        Resenje resenje = resenjeMapper.mapResenje(resenjeDTO);
+        resenjeRepository.save(resenje);
+        return resenje;
+
     }
 //
 //    public void saveZahtevToDatabases(XMLDto zahtev) throws Exception {

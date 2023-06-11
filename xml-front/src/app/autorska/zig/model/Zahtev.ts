@@ -11,5 +11,6 @@ export interface Zahtev {
     opis?: string,
     klasa?: number,
     prava?: string,
+    prevod?: string,
     [key: string]: any
 }

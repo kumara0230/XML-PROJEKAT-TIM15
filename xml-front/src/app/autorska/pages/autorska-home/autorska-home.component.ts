@@ -67,7 +67,9 @@ export class AutorskaHomeComponent implements OnInit {
   otvoriModal(zahtev: any) {
     const dialogRef = this.dialog.open(ResenjeModalComponent, {
       // width: '500px',
-      data: zahtev
+      data: {
+        service: "autorska", zahtev: zahtev
+      }
     });
 
     dialogRef.afterClosed().subscribe(result => {
