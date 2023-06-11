@@ -20,7 +20,7 @@ export class AuthInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<any>> {
 
     const authToken = localStorage.getItem('access_token');
-
+    console.log(authToken);
     if (authToken && req.url.startsWith('http://localhost:')) {
       const cloned = req.clone({
         headers: req.headers.set('Authorization', '' + authToken),

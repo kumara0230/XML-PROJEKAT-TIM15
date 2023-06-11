@@ -1,0 +1,42 @@
+<h4>Podaci o zahtevima za priznanje prava prvenstva iz ranijih prijava</h4>
+
+<div [formGroup]="form" style="justify-content: center; gap: 10vh; margin-top: 3em;">
+
+    <div class="row pb-6 mb-6" style="margin-bottom: 3em;">
+        <div class="form-group col-md-4" style="margin-top: 1.7em;" formGroupName="zahtevi_za_priznanje_prava_prvenstva_iz_ranijih_prijava">
+            <label>Broj ranije prijave</label>
+            <input type="text" class="form-control" formControlName="brojRanijePrijave1">
+        </div>
+        <div class="form-group mt-1 col-md-4" formGroupName="zahtevi_za_priznanje_prava_prvenstva_iz_ranijih_prijava">
+            <label>Dvoslovna oznaka drzave regionalne ili medjunarodne organizacije</label>
+            <input type="text" class="form-control" formControlName="dvoslovnaOznaka1">
+        </div>
+
+        <div class="form-group col-md-4" style="margin-top: 1.7em;" formGroupName="zahtevi_za_priznanje_prava_prvenstva_iz_ranijih_prijava">
+            <label>Datum podnosenja ranije prijave</label>
+            <input type="date" class="form-control" formControlName="datumPodnosenjaRanijePrijave1">
+        </div>
+    </div>
+
+    <div class="row pb-6 mb-6" style="margin-bottom: 3em;">
+        <div class="form-group col-md-4" style="margin-top: 1.7em;" formGroupName="zahtevi_za_priznanje_prava_prvenstva_iz_ranijih_prijava">
+            <label>Broj ranije prijave</label>
+            <input type="text" class="form-control" formControlName="brojRanijePrijave2">
+        </div>
+        <div class="form-group mt-1 col-md-4" formGroupName="zahtevi_za_priznanje_prava_prvenstva_iz_ranijih_prijava">
+            <label>Dvoslovna oznaka drzave regionalne ili medjunarodne organizacije</label>
+            <input type="text" class="form-control" formControlName="dvoslovnaOznaka2">
+        </div>
+
+        <div class="form-group col-md-4" style="margin-top: 1.7em;" formGroupName="zahtevi_za_priznanje_prava_prvenstva_iz_ranijih_prijava">
+            <label>Datum podnosenja ranije prijave</label>
+            <input type="date" class="form-control" formControlName="datumPodnosenjaRanijePrijave2">
+        </div>
+    </div>
+
+
+</div>
+<br />
+<button type="button" class="btn btn-secondary" style="width: 50%; margin-left: 25%;" matStepperPrevious>Back</button>
+<button type="button" [disabled]="!form.get('zahtevi_za_priznanje_prava_prvenstva_iz_ranijih_prijava')?.valid"
+    class="btn btn-primary" style="width: 50%; margin-left: 25%;" matStepperNext (click)="next()">Finish</button>

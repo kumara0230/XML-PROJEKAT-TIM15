@@ -1,0 +1,19 @@
+<h4>Naziv patenta</h4>
+
+<div [formGroup]="form" style="display: flex; justify-content: center; gap: 10vh;">
+    <div>
+
+        <div class="form-group" formGroupName="nazivPronalaska">
+            <label>Naziv na srpskom</label>
+            <input type="text" class="form-control" formControlName="nazivNaSrpskom">
+        </div>
+
+        <div class="form-group mt-1" formGroupName="nazivPronalaska">
+            <label>Naziv na engleskom</label>
+            <input type="text" class="form-control" formControlName="nazivNaEngleskom">
+        </div>
+        
+    </div>
+</div>
+<br />
+<button type="button" [disabled]="!form.get('nazivPronalaska')?.valid" class="btn btn-primary" style="width: 50%; margin-left: 25%;" matStepperNext (click)="next()">Next</button>

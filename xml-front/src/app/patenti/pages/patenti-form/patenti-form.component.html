@@ -1,0 +1,52 @@
+<app-navbar></app-navbar>
+
+<div class="container col-md-12">
+	<form [formGroup]="patentiForm">
+		<mat-horizontal-stepper #stepper>
+
+            <mat-step formGroupName="nazivPronalaska" [stepControl]="patentiForm.get('nazivPronalaska')!">
+
+				<ng-template matStepLabel>Naziv</ng-template>
+				<app-naziv-patent-details [zahtev]="zahtev" [form]="patentiForm"></app-naziv-patent-details>
+
+			</mat-step>
+
+			<mat-step formGroupName="podnosilac" [stepControl]="patentiForm.get('podnosilac')!">
+
+				<ng-template matStepLabel>Podnosilac</ng-template>
+				<app-podnosilac-patent-details [zahtev]="zahtev" [form]="patentiForm"></app-podnosilac-patent-details>
+
+			</mat-step>
+
+            <mat-step formGroupName="pronalazac" [stepControl]="patentiForm.get('pronalazac')!">
+
+				<ng-template matStepLabel>Pronalazač</ng-template>
+				<app-pronalazac-patent-details [zahtev]="zahtev" [form]="patentiForm"></app-pronalazac-patent-details>
+
+			</mat-step>
+
+            <mat-step formGroupName="predstavnik" [stepControl]="patentiForm.get('predstavnik')!">
+
+				<ng-template matStepLabel>Predstavnik</ng-template>
+				<app-predstavnik-patent-details [zahtev]="zahtev" [form]="patentiForm"></app-predstavnik-patent-details>
+
+			</mat-step>
+
+            <mat-step formGroupName="dostavljanje" [stepControl]="patentiForm.get('dostavljanje')!">
+
+				<ng-template matStepLabel>Dostavljanje</ng-template>
+				<app-dostavljanje-patent-details [zahtev]="zahtev" [form]="patentiForm"></app-dostavljanje-patent-details>
+
+			</mat-step>
+
+            <mat-step formGroupName="zahtevi_za_priznanje_prava_prvenstva_iz_ranijih_prijava" [stepControl]="patentiForm.get('zahtevi_za_priznanje_prava_prvenstva_iz_ranijih_prijava')!">
+
+				<ng-template matStepLabel>Ranije prijave</ng-template>
+				<app-ranije-prijave-patent-details [zahtev]="zahtev" [form]="patentiForm"></app-ranije-prijave-patent-details>
+
+			</mat-step>
+           
+
+		</mat-horizontal-stepper>
+	</form>
+</div>

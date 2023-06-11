@@ -8,14 +8,14 @@
         <outputRelativeToContentRoot value="true" />
         <module name="a1" />
         <module name="p1" />
-        <module name="users" />
         <module name="z1" />
+        <module name="a1 (1)" />
+        <module name="a1 (2)" />
+        <module name="a1 (3)" />
+        <module name="users" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="a1 (1)" target="11" />
-      <module name="a1 (2)" target="11" />
-      <module name="a1 (3)" target="11" />
       <module name="z1 (1)" target="11" />
       <module name="z1 (2)" target="11" />
     </bytecodeTargetLevel>

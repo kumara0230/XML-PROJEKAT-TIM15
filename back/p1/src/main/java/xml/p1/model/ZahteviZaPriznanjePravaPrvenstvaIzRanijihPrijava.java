@@ -76,4 +76,7 @@ public class ZahteviZaPriznanjePravaPrvenstvaIzRanijihPrijava {
         return this.zahtevZaPriznanjePravaPrvenstvaIzRanijihPrijava;
     }
 
+    public void setZahtevZaPriznanjePravaPrvenstvaIzRanijihPrijava(List<ZahtevZaPriznanjePravaPrvenstvaIzRanijihPrijava> zahtevZaPriznanjePravaPrvenstvaIzRanijihPrijava) {
+        this.zahtevZaPriznanjePravaPrvenstvaIzRanijihPrijava = zahtevZaPriznanjePravaPrvenstvaIzRanijihPrijava;
+    }
 }

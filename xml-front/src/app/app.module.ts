@@ -33,6 +33,14 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ResenjeModalComponent } from './autorska/pages/resenje-modal/resenje-modal.component';
+import { PatentiFormComponent } from './patenti/pages/patenti-form/patenti-form.component';
+import { PodnosilacPatentDetailsComponent } from './patenti/pages/patenti-form/podnosilac-patent-details/podnosilac-patent-details.component';
+import { NazivPatentDetailsComponent } from './patenti/pages/patenti-form/naziv-patent-details/naziv-patent-details.component';
+import { PronalazacPatentDetailsComponent } from './patenti/pages/patenti-form/pronalazac-patent-details/pronalazac-patent-details.component';
+import { PredstavnikPatentDetailsComponent } from './patenti/pages/patenti-form/predstavnik-patent-details/predstavnik-patent-details.component';
+import { DostavljanjePatentDetailsComponent } from './patenti/pages/patenti-form/dostavljanje-patent-details/dostavljanje-patent-details.component';
+import { RanijePrijavePatentDetailsComponent } from './patenti/pages/patenti-form/ranije-prijave-patent-details/ranije-prijave-patent-details.component';
+import { PatentiHomeComponent } from './patenti/pages/patenti-home/patenti-home.component';
 import { ReportComponent } from './autorska/pages/report/report.component';
 import { ZigFormComponent } from './autorska/zig/pages/zig-form/zig-form.component';
 import { ZigHomeComponent } from './autorska/zig/pages/zig-home/zig-home.component';
@@ -60,6 +68,14 @@ import { IzgledZnakaComponent } from './autorska/zig/pages/zig-form/izgled-znaka
     DeloPreradeDetailsComponent,
     NavbarComponent,
     ResenjeModalComponent,
+    PatentiFormComponent,
+    PodnosilacPatentDetailsComponent,
+    NazivPatentDetailsComponent,
+    PronalazacPatentDetailsComponent,
+    PredstavnikPatentDetailsComponent,
+    DostavljanjePatentDetailsComponent,
+    RanijePrijavePatentDetailsComponent,
+    PatentiHomeComponent,
     ReportComponent,
     ZigFormComponent,
     ZigHomeComponent,

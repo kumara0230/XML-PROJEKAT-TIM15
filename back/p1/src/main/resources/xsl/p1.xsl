@@ -103,7 +103,7 @@
                 </style>
             </head>
             <body>
-                <xsl:variable name="ujedno_pronalazac" select="//p1:Zahtev_za_priznanje_patenta/p1:Pronalazac_patenta"/>
+                <xsl:variable name="ujedno_pronalazac" select="//Zahtev_za_priznanje_patenta/Pronalazac_patenta"/>
                 <p style="text-align:right; font-size:12px; color:silver;">Obrazac P-1</p>
                 <table style="width: 70%" class="all-border">
                     <tr>
@@ -118,7 +118,7 @@
                                     <td style="width:90%; padding:5px;">
                                         <p style="padding: 5px">Broj prijave</p>
                                         <p style="padding: 0 0 10px 100px">
-                                            <xsl:value-of select="//p1:Zahtev_za_priznanje_patenta/p1:Popunjava_zavod/p1:Broj_prijave"/> <xsl:text></xsl:text>
+                                            <xsl:value-of select="//Zahtev_za_priznanje_patenta/Popunjava_zavod/Broj_prijave"/> <xsl:text></xsl:text>
                                         </p>
                                     </td>
                                     <td style="width:10%">
@@ -135,13 +135,13 @@
                                     <td style="width:40% padding:5px;">
                                         <p class="text">Datum prijema</p>
                                         <p style="text-align: center; font-weight: bold;">
-                                            <xsl:value-of select="//p1:Zahtev_za_priznanje_patenta/p1:Popunjava_zavod/p1:Datum_prijema"/><xsl:text></xsl:text>
+                                            <xsl:value-of select="//Zahtev_za_priznanje_patenta/Popunjava_zavod/Datum_prijema"/><xsl:text></xsl:text>
                                         </p>
                                     </td>
                                     <td style="width:50% padding:5px;" class="left-border">
                                         <p class="text">Priznati datum podnošenja	(22)</p>
                                         <p style="text-align: center; font-weight: bold;">
-                                            <xsl:value-of select="//p1:Zahtev_za_priznanje_patenta/p1:Priznati_datum_podnosenja"/><xsl:text></xsl:text>
+                                            <xsl:value-of select="//Zahtev_za_priznanje_patenta/Priznati_datum_podnosenja"/><xsl:text></xsl:text>
                                         </p>
                                     </td>
                                 </tr>
@@ -191,10 +191,10 @@
                         <tr>
                             <td class="line" style="padding: 7px 5px; ">
                                 <p>Na srpskom jeziku:
-                                    <xsl:value-of select="//p1:Zahtev_za_priznanje_patenta/p1:Naziv_pronalaska/p1:Naziv_pronalaska_na_srpskom"/><xsl:text></xsl:text>
+                                    <xsl:value-of select="//Zahtev_za_priznanje_patenta/Naziv_pronalaska/Naziv_pronalaska_na_srpskom"/><xsl:text></xsl:text>
                                 </p>
                                 <p>Na engleskom jeziku:
-                                    <xsl:value-of select="//p1:Zahtev_za_priznanje_patenta/p1:Naziv_pronalaska/p1:Naziv_pronalaska_na_engleskom"/><xsl:text></xsl:text>
+                                    <xsl:value-of select="//Zahtev_za_priznanje_patenta/Naziv_pronalaska/Naziv_pronalaska_na_engleskom"/><xsl:text></xsl:text>
                                 </p>
                             </td>
                         </tr>
@@ -235,17 +235,53 @@
                                                                     <span style="font-size:12px;">(prezime / poslovno ime upisati velikim slovima)</span>
                                                                 </p>
                                                                 <p>
-                                                                    <xsl:variable name="lice" select="//p1:Zahtev_za_priznanje_patenta/p1:Podnosilac_prijave/p1:Podaci_o_licu/@xsi_type"/>
+<!--                                                                    <xsl:variable name="lice" select="//Zahtev_za_priznanje_patenta/Podnosilac_prijave/Podaci_o_licu/@xsi_type"/>-->
+<!--                                                                    <xsl:choose>-->
+<!--                                                                        <xsl:when test="substring($lice,5)='TFizicko_lice'">-->
+<!--                                                                            <p>-->
+<!--                                                                                <xsl:value-of select="//Zahtev_za_priznanje_patenta/Podnosilac_prijave/Podaci_o_licu/Ime"/> <xsl:text></xsl:text>&#160;-->
+<!--                                                                                <xsl:value-of select="//Zahtev_za_priznanje_patenta/Podnosilac_prijave/Podaci_o_licu/Prezime"/> <xsl:text></xsl:text>-->
+<!--                                                                            </p>-->
+<!--                                                                        </xsl:when>-->
+<!--                                                                        <xsl:otherwise>-->
+<!--                                                                            <p>-->
+<!--&lt;!&ndash;                                                                            <xsl:value-of select="//Zahtev_za_priznanje_patenta/Podnosilac_prijave/Podaci_o_licu/Naziv"/><xsl:text></xsl:text>&ndash;&gt;-->
+<!--                                                                            </p>-->
+<!--                                                                        </xsl:otherwise>-->
+<!--                                                                    </xsl:choose>-->
                                                                     <xsl:choose>
-                                                                        <xsl:when test="substring($lice,5)='TFizicko_lice'">
+                                                                        <xsl:when test="//Podnosilac_prijave/Podaci_o_licu/Ime">
                                                                             <p>
-                                                                                <xsl:value-of select="//p1:Zahtev_za_priznanje_patenta/p1:Podnosilac_prijave/p1:Podaci_o_licu/p1:Ime"/> <xsl:text></xsl:text>&#160;
-                                                                                <xsl:value-of select="//p1:Zahtev_za_priznanje_patenta/p1:Podnosilac_prijave/p1:Podaci_o_licu/p1:Prezime"/> <xsl:text></xsl:text>
+                                                                                <span><xsl:value-of select="//Podnosilac_prijave/Podaci_o_licu/Ime"/>&#160;<xsl:value-of
+                                                                                        select="//Podnosilac_prijave/Podaci_o_licu/Prezime"/>
+                                                                                </span>
+                                                                            </p>
+                                                                            <p>
+                                                                                <span>
+                                                                                    <xsl:value-of select="//Podnosilac_prijave/Podaci_o_licu/Drzavljanstvo"/>
+                                                                                </span>
+                                                                            </p>
+                                                                            <p>
+                                                                                <span></span>
+                                                                            </p>
+                                                                            <p>
+                                                                                <span></span>
                                                                             </p>
                                                                         </xsl:when>
                                                                         <xsl:otherwise>
                                                                             <p>
-<!--                                                                                <xsl:value-of select="p1:Zahtev_za_priznanje_patenta/p1:Podnosilac_prijave/p1:Podaci_o_licu/Naziv"/><xsl:text></xsl:text>-->
+                                                                                <span></span>
+                                                                            </p>
+                                                                            <p>
+                                                                                <span>
+                                                                                    <xsl:value-of select="//Podnosilac_prijave/Podaci_o_licu/poslovno_ime"/>
+                                                                                </span>
+                                                                            </p>
+                                                                            <p>
+                                                                                <span></span>
+                                                                            </p>
+                                                                            <p>
+                                                                                <span></span>
                                                                             </p>
                                                                         </xsl:otherwise>
                                                                     </xsl:choose>
@@ -254,10 +290,10 @@
                                                             <td style="padding: 5px 5px 130px 5px; width:50%;" class="left-border ">
                                                                 <p>Ulica i broj, poštanski broj, mesto i država:</p>
                                                                 <P>
-                                                                    <xsl:value-of select="//p1:Zahtev_za_priznanje_patenta/p1:Podnosilac_prijave/p1:Podaci_o_licu/p1:Adresa/p1:Ulica"/> <xsl:text></xsl:text> &#160;
-                                                                    <xsl:value-of select="//p1:Zahtev_za_priznanje_patenta/p1:Podnosilac_prijave/p1:Podaci_o_licu/p1:Adresa/p1:Broj"/> <xsl:text></xsl:text>
-                                                                    <xsl:value-of select="//p1:Zahtev_za_priznanje_patenta/p1:Podnosilac_prijave/p1:Podaci_o_licu/p1:Adresa/p1:Postanski_broj"/> <xsl:text></xsl:text> &#160;
-                                                                    <xsl:value-of select="//p1:Zahtev_za_priznanje_patenta/p1:Podnosilac_prijave/p1:Podaci_o_licu/p1:Adresa/p1:Mesto"/> <xsl:text></xsl:text>
+                                                                    <xsl:value-of select="//Zahtev_za_priznanje_patenta/Podnosilac_prijave/Podaci_o_licu/Adresa/Ulica"/> <xsl:text></xsl:text> &#160;
+                                                                    <xsl:value-of select="//Zahtev_za_priznanje_patenta/Podnosilac_prijave/Podaci_o_licu/Adresa/Broj"/> <xsl:text></xsl:text>
+                                                                    <xsl:value-of select="//Zahtev_za_priznanje_patenta/Podnosilac_prijave/Podaci_o_licu/Adresa/Postanski_broj"/> <xsl:text></xsl:text> &#160;
+                                                                    <xsl:value-of select="//Zahtev_za_priznanje_patenta/Podnosilac_prijave/Podaci_o_licu/Adresa/Mesto"/> <xsl:text></xsl:text>
                                                                 </P>
                                                             </td>
                                                         </tr>
@@ -268,9 +304,9 @@
                                                         <tr>
                                                             <td>
                                                                 <p>Državljanstvo:
-                                                                    <xsl:variable name="lice" select="//p1:Zahtev_za_priznanje_patenta/p1:Podnosilac_prijave/p1:Podaci_o_licu/@xsi:type"/>
+                                                                    <xsl:variable name="lice" select="//Zahtev_za_priznanje_patenta/Podnosilac_prijave/Podaci_o_licu/@xsi:type"/>
                                                                     <xsl:if test="substring($lice,5)='TFizicko_lice'">
-                                                                        <xsl:value-of select="//p1:Zahtev_za_priznanje_patenta/p1:Podnosilac_prijave/p1:Podaci_o_licu/p1:Drzavljanstvo"/> <xsl:text></xsl:text> &#160;
+                                                                        <xsl:value-of select="//Zahtev_za_priznanje_patenta/Podnosilac_prijave/Podaci_o_licu/Drzavljanstvo"/> <xsl:text></xsl:text> &#160;
                                                                     </xsl:if>
                                                                 </p>
                                                             </td>
@@ -286,17 +322,17 @@
                                             <table style="margin:0; border-left:1px;" class="left-border">
                                                 <tr><td style="padding: 5px 5px 15px 5px;" class="left-border"><p>Broj telefona:</p>
                                                     <p>
-                                                        <xsl:value-of select="//p1:Zahtev_za_priznanje_patenta/p1:Podnosilac_prijave/p1:Podaci_o_licu/p1:Kontakt/p1:Telefon"/> <xsl:text></xsl:text> &#160;
+                                                        <xsl:value-of select="//Zahtev_za_priznanje_patenta/Podnosilac_prijave/Podaci_o_licu/Kontakt/Telefon"/> <xsl:text></xsl:text> &#160;
                                                     </p>
                                                 </td></tr>
                                                 <tr><td style="padding: 5px 5px 15px 5px;" class="top-border left-border"><p>Broj faksa:</p>
                                                     <p>
-                                                        <xsl:value-of select="//p1:Zahtev_za_priznanje_patenta/p1:Podnosilac_prijave/p1:Podaci_o_licu/p1:Kontakt/p1:Faks"/> <xsl:text></xsl:text> &#160;
+                                                        <xsl:value-of select="//Zahtev_za_priznanje_patenta/Podnosilac_prijave/Podaci_o_licu/Kontakt/Faks"/> <xsl:text></xsl:text> &#160;
                                                     </p>
                                                 </td></tr>
                                                 <tr><td style="padding: 5px 5px 15px 5px;" class="top-border left-border"><p>E-mail:</p>
                                                     <p>
-                                                        <xsl:value-of select="//p1:Zahtev_za_priznanje_patenta/p1:Podnosilac_prijave/p1:Podaci_o_licu/p1:Kontakt/p1:Email"/> <xsl:text></xsl:text> &#160;
+                                                        <xsl:value-of select="//Zahtev_za_priznanje_patenta/Podnosilac_prijave/Podaci_o_licu/Kontakt/Email"/> <xsl:text></xsl:text> &#160;
                                                     </p>
                                                 </td></tr>
                                             </table>
@@ -329,7 +365,7 @@
                         <td style="border-bottom:1px;">
                             <p style="font-size: 12px; margin:0; padding:0; padding-left:5px; padding-bottom:5px;">(ako su svi pronalazači ujedno i podnosioci prijave, polje broj III se ne popunjava)</p>
                             <p style="font-size: 12px; margin:0; padding:0; padding-left:5px;">* Ako svi podnosioci prijave nisu i pronalazači, dostavlja se izjava podnosilaca prijave o osnovu sticanja prava na podnošenje prijave u odnosu na pronalazače koji nisu i podnosioci prijave i u tom slučaju u polje broj III se unose podaci o svim pronalazačim</p>
-                            <xsl:variable name="anoniman" select="//p1:Zahtev_za_priznanje_patenta/p1:Pronalazac_patenta/@anoniman"/>
+                            <xsl:variable name="anoniman" select="//Zahtev_za_priznanje_patenta/Pronalazac_patenta/@anoniman"/>
                             <xsl:if test="$anoniman='true'">
                                 <p style="margin:0; padding:0; margin-right:50px; text-align:right; font-weight:bold;">Pronalazač ne želi da bude naveden u prijavi</p>
                             </xsl:if>
@@ -341,7 +377,7 @@
                         <td>
                             <table style="margin:0;" class="top-border bottom-border">
                                 <tr>
-                                    <xsl:variable name="anoniman" select="//p1:Zahtev_za_priznanje_patenta/p1:Pronalazac_patenta/@anoniman"/>
+                                    <xsl:variable name="anoniman" select="//Zahtev_za_priznanje_patenta/Pronalazac_patenta/@anoniman"/>
                                     <td style="width:70%">
                                         <table style="margin:0;">
                                             <tr><td>
@@ -355,8 +391,8 @@
                                                             </p>
                                                             <xsl:if test="$anoniman='false' and $ujedno_pronalazac='false'">
                                                                 <p>
-                                                                    <xsl:value-of select="//p1:Zahtev_za_priznanje_patenta/p1:Pronalazac_patenta/Ime"/> <xsl:text></xsl:text> &#160;
-                                                                    <xsl:value-of select="//p1:Zahtev_za_priznanje_patenta/p1:Pronalazac_patenta/Prezime"/> <xsl:text></xsl:text>
+                                                                    <xsl:value-of select="//Zahtev_za_priznanje_patenta/Pronalazac_patenta/Ime"/> <xsl:text></xsl:text> &#160;
+                                                                    <xsl:value-of select="//Zahtev_za_priznanje_patenta/Pronalazac_patenta/Prezime"/> <xsl:text></xsl:text>
                                                                 </p>
                                                             </xsl:if>
 
@@ -366,10 +402,10 @@
 
                                                             <xsl:if test="$anoniman='false' and $ujedno_pronalazac='false'">
                                                                 <p>
-                                                                    <xsl:value-of select="//p1:Zahtev_za_priznanje_patenta/p1:Pronalazac_patenta/p1:Adresa/p1:Ulica"/> <xsl:text></xsl:text> &#160;
-                                                                    <xsl:value-of select="//p1:Zahtev_za_priznanje_patenta/p1:Pronalazac_patenta/p1:Adresa/p1:Broj"/> <xsl:text></xsl:text> &#160;
-                                                                    <xsl:value-of select="//p1:Zahtev_za_priznanje_patenta/p1:Pronalazac_patenta/p1:Adresa/p1:Postanski_broj"/> <xsl:text></xsl:text> &#160;
-                                                                    <xsl:value-of select="//p1:Zahtev_za_priznanje_patenta/p1:Pronalazac_patenta/p1:Adresa/p1:Mesto"/> <xsl:text></xsl:text> &#160;
+                                                                    <xsl:value-of select="//Zahtev_za_priznanje_patenta/Pronalazac_patenta/Adresa/Ulica"/> <xsl:text></xsl:text> &#160;
+                                                                    <xsl:value-of select="//Zahtev_za_priznanje_patenta/Pronalazac_patenta/Adresa/Broj"/> <xsl:text></xsl:text> &#160;
+                                                                    <xsl:value-of select="//Zahtev_za_priznanje_patenta/Pronalazac_patenta/Adresa/Postanski_broj"/> <xsl:text></xsl:text> &#160;
+                                                                    <xsl:value-of select="//Zahtev_za_priznanje_patenta/Pronalazac_patenta/Adresa/Mesto"/> <xsl:text></xsl:text> &#160;
 
                                                                 </p>
                                                             </xsl:if>
@@ -386,7 +422,7 @@
 
                                                 <xsl:if test="$anoniman='false' and $ujedno_pronalazac='false'">
                                                     <p>
-                                                        <xsl:value-of select="//p1:Zahtev_za_priznanje_patenta/p1:Pronalazac_patenta/p1:Kontakt/p1:Telefon"/> <xsl:text></xsl:text> &#160;
+                                                        <xsl:value-of select="//Zahtev_za_priznanje_patenta/Pronalazac_patenta/Kontakt/Telefon"/> <xsl:text></xsl:text> &#160;
                                                     </p>
                                                 </xsl:if>
                                             </td></tr>
@@ -395,7 +431,7 @@
 
                                                 <xsl:if test="$anoniman='false' and $ujedno_pronalazac='false'">
                                                     <p>
-                                                        <xsl:value-of select="//p1:Zahtev_za_priznanje_patenta/p1:Pronalazac_patenta/p1:Kontakt/p1:Faks"/> <xsl:text></xsl:text> &#160;
+                                                        <xsl:value-of select="//Zahtev_za_priznanje_patenta/Pronalazac_patenta/Kontakt/Faks"/> <xsl:text></xsl:text> &#160;
                                                     </p>
                                                 </xsl:if>
                                             </td></tr>
@@ -403,7 +439,7 @@
 
                                                 <xsl:if test="$anoniman='false' and $ujedno_pronalazac='false'">
                                                     <p>
-                                                        <xsl:value-of select="//p1:Zahtev_za_priznanje_patenta/p1:Pronalazac_patenta/p1:Kontakt/p1:Email"/> <xsl:text></xsl:text> &#160;
+                                                        <xsl:value-of select="//Zahtev_za_priznanje_patenta/Pronalazac_patenta/Kontakt/Email"/> <xsl:text></xsl:text> &#160;
                                                     </p>
                                                 </xsl:if>
                                             </td></tr>
@@ -430,8 +466,8 @@
                                         <p class="row-title">PUNOMOCNIK </p>
                                     </td>
                                     <!-- LOGIKA -->
-                                    <xsl:variable name="punomocnik" select="//p1:Zahtev_za_priznanje_patenta/p1:Predstavnik_patenta/p1:Punomocnik"/>
-                                    <xsl:variable name="zajednicki" select="//p1:Zahtev_za_priznanje_patenta/p1:Predstavnik_patenta/p1:Zajednicki_predstavnik"/>
+                                    <xsl:variable name="punomocnik" select="//Zahtev_za_priznanje_patenta/Predstavnik_patenta/Punomocnik"/>
+                                    <xsl:variable name="zajednicki" select="//Zahtev_za_priznanje_patenta/Predstavnik_patenta/Zajednicki_predstavnik"/>
                                     <xsl:if test="$punomocnik='zastupanje'">
                                         <td style="width:60%">
                                             <p class="row-title">PUNOMOCNIK ZA ZASTUPANJE  </p>
@@ -476,17 +512,17 @@
                                                                 <span style="font-size:12px;">(prezime / poslovno ime upisati velikim slovima)</span>
                                                             </p>
                                                             <p>
-                                                                <xsl:variable name="lice" select="//p1:Zahtev_za_priznanje_patenta/p1:Predstavnik_patenta/p1:Podaci_o_licu/@xsi:type"/>
+                                                                <xsl:variable name="lice" select="//Zahtev_za_priznanje_patenta/Predstavnik_patenta/Podaci_o_licu/@xsi:type"/>
                                                                 <xsl:choose>
                                                                     <xsl:when test="substring($lice,5)='TFizicko_lice'">
                                                                         <p>
-                                                                            <xsl:value-of select="//p1:Zahtev_za_priznanje_patenta/p1:Predstavnik_patenta/p1:Podaci_o_licu/Ime"/> <xsl:text></xsl:text>&#160;
-                                                                            <xsl:value-of select="//p1:Zahtev_za_priznanje_patenta/p1:Predstavnik_patenta/p1:Podaci_o_licu/Prezime"/> <xsl:text></xsl:text>
+                                                                            <xsl:value-of select="//Zahtev_za_priznanje_patenta/Predstavnik_patenta/Podaci_o_licu/Ime"/> <xsl:text></xsl:text>&#160;
+                                                                            <xsl:value-of select="//Zahtev_za_priznanje_patenta/Predstavnik_patenta/Podaci_o_licu/Prezime"/> <xsl:text></xsl:text>
                                                                         </p>
                                                                     </xsl:when>
                                                                     <xsl:otherwise>
                                                                         <p>
-                                                                            <xsl:value-of select="//p1:Zahtev_za_priznanje_patenta/p1:Predstavnik_patenta/p1:Podaci_o_licu/Naziv"/><xsl:text></xsl:text>
+                                                                            <xsl:value-of select="//Zahtev_za_priznanje_patenta/Predstavnik_patenta/Podaci_o_licu/Naziv"/><xsl:text></xsl:text>
                                                                         </p>
                                                                     </xsl:otherwise>
                                                                 </xsl:choose>
@@ -495,10 +531,10 @@
                                                         <td style="padding: 5px 5px 130px 5px; width:50%;" class="left-border">
                                                             <p>Ulica i broj, poštanski broj, mesto i država:</p>
                                                             <P>
-                                                                <xsl:value-of select="//p1:Zahtev_za_priznanje_patenta/p1:Predstavnik_patenta/p1:Podaci_o_licu/p1:Adresa/p1:Ulica"/> <xsl:text></xsl:text> &#160;
-                                                                <xsl:value-of select="//p1:Zahtev_za_priznanje_patenta/p1:Predstavnik_patenta/p1:Podaci_o_licu/p1:Adresa/p1:Broj"/> <xsl:text></xsl:text>,
-                                                                <xsl:value-of select="//p1:Zahtev_za_priznanje_patenta/p1:Predstavnik_patenta/p1:Podaci_o_licu/p1:Adresa/p1:Postanski_broj"/> <xsl:text></xsl:text> &#160;
-                                                                <xsl:value-of select="//p1:Zahtev_za_priznanje_patenta/p1:Predstavnik_patenta/p1:Podaci_o_licu/p1:Adresa/p1:Mesto"/> <xsl:text></xsl:text>
+                                                                <xsl:value-of select="//Zahtev_za_priznanje_patenta/Predstavnik_patenta/Podaci_o_licu/Adresa/Ulica"/> <xsl:text></xsl:text> &#160;
+                                                                <xsl:value-of select="//Zahtev_za_priznanje_patenta/Predstavnik_patenta/Podaci_o_licu/Adresa/Broj"/> <xsl:text></xsl:text>,
+                                                                <xsl:value-of select="//Zahtev_za_priznanje_patenta/Predstavnik_patenta/Podaci_o_licu/Adresa/Postanski_broj"/> <xsl:text></xsl:text> &#160;
+                                                                <xsl:value-of select="//Zahtev_za_priznanje_patenta/Predstavnik_patenta/Podaci_o_licu/Adresa/Mesto"/> <xsl:text></xsl:text>
 
                                                             </P>
                                                         </td>
@@ -511,17 +547,17 @@
                                         <table style="margin:0;" class="left-border">
                                             <tr><td style="padding: 5px 5px 15px 5px;"><p>Broj telefona:</p>
                                                 <p>
-                                                    <xsl:value-of select="//p1:Zahtev_za_priznanje_patenta/p1:Predstavnik_patenta/p1:Podaci_o_licu/p1:Kontakt/p1:Telefon"/> <xsl:text></xsl:text> &#160;
+                                                    <xsl:value-of select="//Zahtev_za_priznanje_patenta/Predstavnik_patenta/Podaci_o_licu/Kontakt/Telefon"/> <xsl:text></xsl:text> &#160;
                                                 </p>
                                             </td></tr>
                                             <tr><td style="padding: 5px 5px 15px 5px;" class="top-border"><p>Broj faksa:</p>
                                                 <p>
-                                                    <xsl:value-of select="//p1:Zahtev_za_priznanje_patenta/p1:Predstavnik_patenta/p1:Podaci_o_licu/p1:Kontakt/p1:Faks"/> <xsl:text></xsl:text> &#160;
+                                                    <xsl:value-of select="//Zahtev_za_priznanje_patenta/Predstavnik_patenta/Podaci_o_licu/Kontakt/Faks"/> <xsl:text></xsl:text> &#160;
                                                 </p>
                                             </td></tr>
                                             <tr><td style="padding: 5px 5px 15px 5px;" class="top-border left-border"><p>E-pošta:</p>
                                                 <p>
-                                                    <xsl:value-of select="//p1:Zahtev_za_priznanje_patenta/p1:Predstavnik_patenta/p1:Podaci_o_licu/p1:Kontakt/p1:Email"/> <xsl:text></xsl:text> &#160;
+                                                    <xsl:value-of select="//Zahtev_za_priznanje_patenta/Predstavnik_patenta/Podaci_o_licu/Kontakt/Email"/> <xsl:text></xsl:text> &#160;
                                                 </p>
                                             </td></tr>
                                         </table>
@@ -569,7 +605,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <xsl:variable name="nacin_dostavljanja" select="//p1:Zahtev_za_priznanje_patenta/p1:Dostavljanje/p1:Dostavljanje_elektronskim_putem"/>
+                        <xsl:variable name="nacin_dostavljanja" select="//Zahtev_za_priznanje_patenta/Dostavljanje/Dostavljanje_elektronskim_putem"/>
                         <xsl:if test="$nacin_dostavljanja='true'">
 
                             <td style="padding: 5px 5px 5px 5px; margin:0;" class="top-border">
@@ -578,7 +614,7 @@
                         </xsl:if>
                     </tr>
                     <tr>
-                        <xsl:variable name="nacin_dostavljanja" select="//p1:Zahtev_za_priznanje_patenta/p1:Dostavljanje/p1:Dostavljanje_elektronskim_putem"/>
+                        <xsl:variable name="nacin_dostavljanja" select="//Zahtev_za_priznanje_patenta/Dostavljanje/Dostavljanje_elektronskim_putem"/>
                         <xsl:if test="$nacin_dostavljanja='false'">
                             <td style="padding: 0px 5px 5px 5px; margin:0;">
                                 <p>Podnosilac prijave je saglasan da Zavod vrši dostavljanje pismena u papirnoj formi </p>
@@ -612,23 +648,23 @@
                             <td style="width:32%; text-align:center; padding:5px;">Dvoslovna oznaka države, regionalne ili međunarodne organizacije</td>
                         </tr>
                         <tr>
-                            <xsl:for-each select="//p1:Zahtev_za_priznanje_patenta/p1:Zahtevi_za_priznanje_prava_prvenstva_iz_ranijih_prijava/p1:Zahtev_za_priznanje_prava_prvenstva_iz_ranijih_prijava">
+                            <xsl:for-each select="//Zahtev_za_priznanje_patenta/Zahtevi_za_priznanje_prava_prvenstva_iz_ranijih_prijava/Zahtev_za_priznanje_prava_prvenstva_iz_ranijih_prijava">
                                 <td style="width:4%;padding-top: 5px;" class="right-border top-border">
                                     <xsl:value-of select="position()"/>
                                 </td>
                                 <td style="width:32%; padding-top: 5px;" class="top-border">
                                     <p>
-                                        <xsl:value-of select="//p1:Datum_podnosenja_ranije_prijave"/> <xsl:text></xsl:text>
+                                        <xsl:value-of select="//Datum_podnosenja_ranije_prijave"/> <xsl:text></xsl:text>
                                     </p>
                                 </td>
                                 <td style="width:32%; padding-top: 5px;" class="left-border right-border top-border">
                                     <p>
-                                        <xsl:value-of select="//p1:Broj_ranije_prijave"/> <xsl:text></xsl:text>
+                                        <xsl:value-of select="//Broj_ranije_prijave"/> <xsl:text></xsl:text>
                                     </p>
                                 </td>
                                 <td style="width:32%; padding-top: 5px;" class="top-border">
                                     <p>
-                                        <xsl:value-of select="//p1:Dvoslovna_oznaka_drzave_regionalne_ili_medjunarodne_organizacije"/> <xsl:text></xsl:text>
+                                        <xsl:value-of select="//Dvoslovna_oznaka_drzave_regionalne_ili_medjunarodne_organizacije"/> <xsl:text></xsl:text>
                                     </p>
                                 </td>
                             </xsl:for-each>
