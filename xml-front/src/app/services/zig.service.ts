@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
-import { Zahtev } from '../autorska/model/Zahtev';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import * as JsonToXML from "js2xmlparser";
 import { Observable } from 'rxjs';
+import { Zahtev } from '../autorska/zig/model/Zahtev';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ZigService {
 
-  private baseUrl = 'http://localhost:8081/zig/';
+  private baseUrl = 'http://localhost:8081/api/xml/z1/';
   private requestOptions: Object = {
     headers: new HttpHeaders({
       'Content-Type': 'application/xml',

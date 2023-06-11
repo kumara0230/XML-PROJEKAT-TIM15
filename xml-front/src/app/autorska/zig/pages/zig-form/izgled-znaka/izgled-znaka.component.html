@@ -2,8 +2,8 @@
 
 <div [formGroup]="form" style="display: flex; justify-content: center; gap: 10vh;" >
     <div>
-        <div class="form-group">
-            <input type="file" (change)="handleFileInput($event)" class="form-control">
+        <div class="form-group" formGroupName="izgled_ziga">
+            <input type="file" (change)="handleFileInput($event)" class="form-control" fromControlName="izgled">
         </div>
     </div>
     <button type="button"  class="btn btn-primary" style="width: 50%; margin-left: 25%;" matStepperNext (click)="next()">Finish</button>

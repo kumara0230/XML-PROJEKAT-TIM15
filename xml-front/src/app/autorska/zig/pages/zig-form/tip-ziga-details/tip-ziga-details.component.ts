@@ -79,6 +79,7 @@ next() {
 
   if (this.izabranaVrednost == "verbalni znak" && this.isStraniJezik == false) {
     this.zahtev['transliteracija'] = this.transliteracija;
+    
     this.zahtev['prevod'] = this.prevod;
   }
 

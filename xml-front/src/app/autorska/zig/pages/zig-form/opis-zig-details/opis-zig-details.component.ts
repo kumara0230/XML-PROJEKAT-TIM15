@@ -48,7 +48,7 @@ export class OpisZigDetailsComponent implements OnInit{
     this.zahtev.opis = this.opis;
     this.zahtev.boje = this.boje;
     this.zahtev.prava = this.prava;
-    this.zahtev.klasa = this.selectedOption;
+    this.zahtev.klasa = Number(this.selectedOption);
 
     console.log(this.zahtev)
   }
